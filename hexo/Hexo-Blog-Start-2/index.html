@@ -3,14 +3,27 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Devlog</title>
+    <title>Hexoでブログをはじめてみた中編 | Devlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Devlog">
-<meta property="og:url" content="http://devlog.site/index.html">
+    <meta name="description" content="Hexoでブログをはじめてみた-前編の続きです。
+ビルトインサーバでブログを立ち上げることができたと思います。次にGithub Pagesへブログを公開してみましょう。
+設定ファイルの修正とプラグインのインストールGithub Pagesへの公開には設定ファイルの修正が必要です。_config.ymlファイルを修正します。
+123456vim _config.ymldeploy:  type: g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexoでブログをはじめてみた中編">
+<meta property="og:url" content="http://devlog.site/hexo/Hexo-Blog-Start-2/index.html">
 <meta property="og:site_name" content="Devlog">
+<meta property="og:description" content="Hexoでブログをはじめてみた-前編の続きです。
+ビルトインサーバでブログを立ち上げることができたと思います。次にGithub Pagesへブログを公開してみましょう。
+設定ファイルの修正とプラグインのインストールGithub Pagesへの公開には設定ファイルの修正が必要です。_config.ymlファイルを修正します。
+123456vim _config.ymldeploy:  type: g">
+<meta property="og:updated_time" content="2016-11-21T14:50:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Devlog">
+<meta name="twitter:title" content="Hexoでブログをはじめてみた中編">
+<meta name="twitter:description" content="Hexoでブログをはじめてみた-前編の続きです。
+ビルトインサーバでブログを立ち上げることができたと思います。次にGithub Pagesへブログを公開してみましょう。
+設定ファイルの修正とプラグインのインストールGithub Pagesへの公開には設定ファイルの修正が必要です。_config.ymlファイルを修正します。
+123456vim _config.ymldeploy:  type: g">
     
 
     
@@ -204,161 +217,15 @@
 </aside>
 
             
-            <section id="main">
-    <article id="post-Hexo-Blog-Start-3" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Hexo-Blog-Start-2" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
             <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="article-title" href="/hexo/Hexo-Blog-Start-3/">Hexoでブログをはじめてみた後編</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/hexo/Hexo-Blog-Start-3/">
-            <time datetime="2016-11-20T15:00:00.000Z" itemprop="datePublished">2016-11-21</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/hexo/">Hexo</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/hexo/">Hexo</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><a href="http://devlog.site/2016/11/20/Hexo-Blog-Start-2/">Hexoでブログをはじめてみた-中編</a>の続きです。</p>
-<p>Github Pagesにブログを公開できたら過ぎに記事をポストしてみます。</p>
-<h3 id="記事の作成"><a href="#記事の作成" class="headerlink" title="記事の作成"></a>記事の作成</h3><p>記事の作成にはhexoコマンドを使用します。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new post [記事のタイトル]</div></pre></td></tr></table></figure>
-<p>するとsorce/_post/配下に[記事のタイトル].mdファイルが作成されます。<br>次にこの.mdファイルをマークダウンで内容を記述します。<br>内容が書き終わったら、ビルトインサーバを立ち上げて、プレビューしてみましょう</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s</div></pre></td></tr></table></figure>
-<p>確認ができたら前回と同様にGithub Pageへ公開する際のコマンドを実行すると、新しく記事を公開することができます。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d -g</div></pre></td></tr></table></figure>
-<p>ここまでが記事を公開する流れになります。</p>
-<h2 id="テーマのカスタマイズ"><a href="#テーマのカスタマイズ" class="headerlink" title="テーマのカスタマイズ"></a>テーマのカスタマイズ</h2><p>hexoにはたくさんテーマがありますが、基本的にどれも設定ファイルとEJSテンプレートを修正することでテーマを自分なりにカスタマイズすることができます。</p>
-<p>ejsとはいうゆるテンプレートエンジンで設定ファイルから値を読み込み、HTMLを生成するために使用されます。他のテンプレートエンジンを使ったことがある人にはかなり学習コストも低くすぐに使いこなせると思います。</p>
-<p>私が使用しているicarusの場合、layout.ejsでhtml全体の構成を、その中でそれぞれの要素のejsをインクルードしています。変更したいejsファイルにそれぞれ修正を入れました。</p>
-<p>細かい修正内容は省くとして、大まかな部分は設定ファイルの_config.ymlを修正すればいいだけなので、非常に簡単です。</p>
-<p>今後自身のブログを始めたいという方にhexoを検討してみるものいいかもしれません。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://devlog.site/hexo/Hexo-Blog-Start-3/" data-id="civs6wmqt0001tonbd75hf3g6" class="article-share-link"><i class="fa fa-share"></i>共有</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://devlog.site/hexo/Hexo-Blog-Start-3/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://devlog.site/hexo/Hexo-Blog-Start-3/">コメント</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-Hexo-Blog-Start-2" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/hexo/Hexo-Blog-Start-2/">Hexoでブログをはじめてみた中編</a>
+        <h1 class="article-title" itemprop="name">
+            Hexoでブログをはじめてみた中編
         </h1>
     
 
@@ -496,167 +363,41 @@
         </footer>
     </div>
     
-</article>
-
-
-
-    <article id="post-Hexo-Blog-Start" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
         
-        
-            <header class="article-header">
-                
+<nav id="article-nav">
     
-        <h1 itemprop="name">
-            <a class="article-title" href="/hexo/Hexo-Blog-Start/">Hexでブログをはじめてみた前編</a>
-        </h1>
-    
-
+        <a href="/hexo/Hexo-Blog-Start-3/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">新しい記事</strong>
+            <div class="article-nav-title">
                 
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/hexo/Hexo-Blog-Start/">
-            <time datetime="2016-11-19T12:54:03.000Z" itemprop="datePublished">2016-11-19</time>
+                    Hexoでブログをはじめてみた後編
+                
+            </div>
         </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/hexo/">Hexo</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/hexo/">Hexo</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>自身の勉強と草を生やす為にHexoとGithub Pagesを使ってブログを書くことにしました。<br>早速、ブログの立ち上げ方をブログに書きたいと思います。<br>まずはローカルでHexoのビルトインサーバの立ち上げまでを行います。</p>
-<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>必要なものとして</p>
-<ul>
-<li>Git</li>
-<li>Githubアカウント</li>
-<li>Github Pages</li>
-</ul>
-<p>上記は既に持っている前提です。</p>
-<h2 id="Hexoの導入"><a href="#Hexoの導入" class="headerlink" title="Hexoの導入"></a>Hexoの導入</h2><h3 id="nvmインストール"><a href="#nvmインストール" class="headerlink" title="nvmインストール"></a>nvmインストール</h3><p>HexoはNode.jsなので、まずはNodeのインストールを行います。<br>Nodeのバージョン管理に便利なnvmを先にインストールします。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">⋊&gt; ~ git clone git://github.com/creationix/nvm.git ~/.nvm/</div></pre></td></tr></table></figure>
-<p>クローンが終わったら</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">⋊&gt; ~ source ~/.nvm/nvm.sh</div></pre></td></tr></table></figure>
-<p>bashで叩かないとエラーが出るかもしれません。普段使ってるfishだとエラーが出ました。</p>
-<h3 id="Nodeのインストール"><a href="#Nodeのインストール" class="headerlink" title="Nodeのインストール"></a>Nodeのインストール</h3><p>インストールできるNodeのバージョンを確認をします。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">nvm ls-remote</div><div class="line">v0.1.14</div><div class="line">v0.1.15</div><div class="line">v0.1.16</div><div class="line">v0.1.17</div><div class="line">v0.1.18</div><div class="line">v0.1.19</div><div class="line">...</div></pre></td></tr></table></figure>
-<p>私はこの当時最新だった4.6.2をインストールしました。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm install 4.6.2</div></pre></td></tr></table></figure>
-<p>無事インストールが終わりました。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">node -v</div><div class="line">v4.6.2</div></pre></td></tr></table></figure>
-<h3 id="Hexoのインストール"><a href="#Hexoのインストール" class="headerlink" title="Hexoのインストール"></a>Hexoのインストール</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo</div></pre></td></tr></table></figure>
-<p>Hexoのインストールはこれで終了です。簡単！</p>
-<h2 id="Hexoでブログを作ってみる"><a href="#Hexoでブログを作ってみる" class="headerlink" title="Hexoでブログを作ってみる"></a>Hexoでブログを作ってみる</h2><p>Hexoのインストールができたらブログを立ち上げてみましょう<br>今回はmyBlogという名前でブログを作成しました。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init myBlog</div></pre></td></tr></table></figure>
-<p>これで新規作成できました。<br>その後はディレクトリを移動し初期化を行います。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd myBlog</div><div class="line">npm install</div></pre></td></tr></table></figure>
-<p>そしてローカルでサーバを立ち上げてみると</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s</div></pre></td></tr></table></figure>
-<p><a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> にアクセスすると、Hexoブログが表示されていることが確認できると思います。<br>ここまででHexoブログの立ち上げ方</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://devlog.site/hexo/Hexo-Blog-Start/" data-id="civs6wmqz0004tonbfqk1x5ba" class="article-share-link"><i class="fa fa-share"></i>共有</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
     
-        <a href="http://devlog.site/hexo/Hexo-Blog-Start/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://devlog.site/hexo/Hexo-Blog-Start/">コメント</a>
     
+        <a href="/hexo/Hexo-Blog-Start/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">古い記事</strong>
+            <div class="article-nav-title">Hexでブログをはじめてみた前編</div>
+        </a>
+    
+</nav>
 
-        </footer>
-    </div>
+
     
 </article>
 
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
 
 </section>
             
@@ -800,11 +541,13 @@
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = 'undefined';
+            this.page.url = 'http://devlog.site/hexo/Hexo-Blog-Start-2/';
+        
+        this.page.identifier = 'Hexo-Blog-Start-2';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/count.js';
+        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
