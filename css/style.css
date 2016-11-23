@@ -237,6 +237,7 @@ code {
 #header,
 #profile .inner,
 .article-inner,
+.related-inner,
 #comments,
 .archive-article,
 .timeline-row .content,
@@ -1344,6 +1345,93 @@ ol.toc {
 }
 .lg-outer .lg-thumb-item {
   border-radius: 0 !important;
+}
+.related-inner {
+  overflow: hidden;
+  padding: 10px 10px 10px 10px;
+}
+.related-header {
+  padding: 10px 10px 0px;
+}
+.related-header-line {
+  display: block;
+  margin-bottom: 14px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2em;
+  color: #565a5f;
+  line-height: 1.3em;
+}
+a.related-header-line:visited {
+  color: #565a5f;
+}
+a.related-header-line:hover {
+  color: #38b7ea;
+}
+@media screen and (max-width: 559px) {
+  .related-header-line {
+    font-size: 1.2em;
+  }
+}
+@media screen and (min-width: 560px) and (max-width: 799px) {
+  .related-header-line {
+    font-size: 1.2em;
+  }
+}
+.related-posts li {
+  padding: 10px 0 10px 5px;
+}
+.related-posts li .related-posts-item {
+  margin-bottom: 14px;
+}
+.related-posts li .related-posts-image {
+/*
+            float: left
+            margin-left: 10px
+            width: 60%
+            height: 60%
+            position: relative
+            overflow: hidden
+            */
+  float: left;
+  max-width: 100%;
+  height: auto;
+  border: none;
+  vertical-align: bottom;
+  display: block;
+}
+.related-posts li .related-posts-inner {
+  margin: 5px;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+.related-posts li .related-posts-inner .related-posts-date {
+  color: #aaa;
+  float: left;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-left: 10px;
+}
+.related-posts li .related-posts-inner .related-posts-title {
+  float: left;
+  font-size: 16px;
+}
+.related-posts li .related-posts-inner .related-posts-title a {
+  color: #333;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  padding: 10px 5px 10px 10px;
+}
+.related-posts li .related-posts-inner .related-posts-tags {
+  float: left;
+  text-align: center;
+  font-size: 16px;
+}
+.related-posts li .related-posts-inner .related-posts-tags a {
+  padding: 10px 5px 10px 10px;
 }
 #comments {
   padding: 20px;
