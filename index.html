@@ -273,8 +273,9 @@
 <p>足し算以降の引き算、掛け算、割り算はやってることは同じです。<br>とこのように、TensorFlowでは最初に演算するオペレーションを定義し、その後でセッションを使用してその演算を行うという流れになります。<br>基本的な概念は一旦置いておいて、ざっとこんな感じのようです。</p>
 <p>ところで気になった方もいるかもしれませんが、割り算の結果が0になってしまっていますね。<br>2 / 3 なので0.666…になるはず？ですよね。いえ、これは間違いではなく、正しい結果です。<br>tf.divはリファレンスを見てみると</p>
 <blockquote>
-<p>テンソルの数値型がint等の浮動小数でない型である場合、小数点以下切り捨て<br>となっているので小数点以下が切り捨てられてしまって0になっているんですね。</p>
+<p>テンソルの数値型がint等の浮動小数でない型である場合、小数点以下切り捨て</p>
 </blockquote>
+<p>となっているので小数点以下が切り捨てられてしまって0になっているんですね。</p>
 <p>小数点以下を切り捨てたくない場合はtf.truedivを使用してます。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">div_op = tf.truediv(const1, const2)</div><div class="line">result = sess.run(div_op)</div><div class="line">print(result)</div></pre></td></tr></table></figure>
 <p>こうすることで正しく0.666…が出力されます。</p>
