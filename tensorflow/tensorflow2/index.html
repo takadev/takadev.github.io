@@ -7,23 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="TensorFlowで四則演算をやってみた前回環境を整えたので、今回はTensorFlowで四則演算を行ってみました。
 はじめにTensorFlow全くの初心者ですので、右も左もわかってません。間違ったこともたくさん書いてると思います。基本的に自分の為にメモしておく程度なのであしからずです。
-四則演算まずはTensorFlowで四則演算を行ってみたいと思います。こんな感じのコードになります。
-12">
+四則演算まずはTensorFlowで四則演算を行ってみたいと思います。こんな感じのコードになります。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlowで四則演算をやってみた">
 <meta property="og:url" content="http://devlog.site/tensorflow/tensorflow2/index.html">
 <meta property="og:site_name" content="Devlog">
 <meta property="og:description" content="TensorFlowで四則演算をやってみた前回環境を整えたので、今回はTensorFlowで四則演算を行ってみました。
 はじめにTensorFlow全くの初心者ですので、右も左もわかってません。間違ったこともたくさん書いてると思います。基本的に自分の為にメモしておく程度なのであしからずです。
-四則演算まずはTensorFlowで四則演算を行ってみたいと思います。こんな感じのコードになります。
-12">
-<meta property="og:updated_time" content="2016-11-23T03:46:42.000Z">
+四則演算まずはTensorFlowで四則演算を行ってみたいと思います。こんな感じのコードになります。">
+<meta property="og:updated_time" content="2016-11-23T06:12:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlowで四則演算をやってみた">
 <meta name="twitter:description" content="TensorFlowで四則演算をやってみた前回環境を整えたので、今回はTensorFlowで四則演算を行ってみました。
 はじめにTensorFlow全くの初心者ですので、右も左もわかってません。間違ったこともたくさん書いてると思います。基本的に自分の為にメモしておく程度なのであしからずです。
-四則演算まずはTensorFlowで四則演算を行ってみたいと思います。こんな感じのコードになります。
-12">
+四則演算まずはTensorFlowで四則演算を行ってみたいと思います。こんな感じのコードになります。">
     
 
     
@@ -66,10 +63,6 @@
                     <a class="main-nav-link" href="/.">Home</a>
                 
                     <a class="main-nav-link" href="/archives">Archives</a>
-                
-                    <a class="main-nav-link" href="/categories">Categories</a>
-                
-                    <a class="main-nav-link" href="/tags">Tags</a>
                 
                     <a class="main-nav-link" href="/about">About</a>
                 
@@ -131,10 +124,6 @@
                     <td><a class="main-nav-link" href="/.">Home</a></td>
                 
                     <td><a class="main-nav-link" href="/archives">Archives</a></td>
-                
-                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
-                
-                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
                 
                     <td><a class="main-nav-link" href="/about">About</a></td>
                 
@@ -260,9 +249,9 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="TensorFlowで四則演算をやってみた"><a href="#TensorFlowで四則演算をやってみた" class="headerlink" title="TensorFlowで四則演算をやってみた"></a>TensorFlowで四則演算をやってみた</h1><p>前回環境を整えたので、今回はTensorFlowで四則演算を行ってみました。</p>
+            <h1 id="TensorFlowで四則演算をやってみた"><a href="#TensorFlowで四則演算をやってみた" class="headerlink" title="TensorFlowで四則演算をやってみた"></a>TensorFlowで四則演算をやってみた</h1><p><a href="http://devlog.site/tensorflow/tensorflow1/">前回</a>環境を整えたので、今回はTensorFlowで四則演算を行ってみました。</p>
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>TensorFlow全くの初心者ですので、右も左もわかってません。間違ったこともたくさん書いてると思います。基本的に自分の為にメモしておく程度なのであしからずです。</p>
-<h2 id="四則演算"><a href="#四則演算" class="headerlink" title="四則演算"></a>四則演算</h2><p>まずはTensorFlowで四則演算を行ってみたいと思います。<br>こんな感じのコードになります。</p>
+<h2 id="四則演算"><a href="#四則演算" class="headerlink" title="四則演算"></a>四則演算</h2><p>まずはTensorFlowで四則演算を行ってみたいと思います。<br>こんな感じのコードになります。<br><a id="more"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">import tensorflow as tf</div><div class="line"></div><div class="line"># 定数宣言</div><div class="line">const1 = tf.constant(2)</div><div class="line">const2 = tf.constant(3)</div><div class="line"></div><div class="line"># 足し算オペレーション</div><div class="line">add_op = tf.add(const1, const2)</div><div class="line"></div><div class="line"># セッションオブジェクト</div><div class="line">sess = tf.Session()</div><div class="line"></div><div class="line">result = sess.run(add_op)</div><div class="line">print(result)</div><div class="line"></div><div class="line"># 引き算オペレーション</div><div class="line">sub_op = tf.sub(const1, const2)</div><div class="line">result = sess.run(sub_op)</div><div class="line">print(result)</div><div class="line"></div><div class="line"># 掛け算オペレーション</div><div class="line">mul_op = tf.mul(const1, const2)</div><div class="line">result = sess.run(mul_op)</div><div class="line">print(result)</div><div class="line"></div><div class="line"># 割り算オペレーション</div><div class="line">div_op = tf.div(const1, const2)</div><div class="line">result = sess.run(div_op)</div><div class="line">print(result)</div></pre></td></tr></table></figure>
 <p>これを適当な名前(今回はmath.py)で保存して実行すると</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">python math.py</div><div class="line">5</div><div class="line">-1</div><div class="line">6</div><div class="line">0</div></pre></td></tr></table></figure>
@@ -297,39 +286,14 @@
         </div>
         <footer class="article-footer">
             
-    <script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-
-        var $this = $(this),
-            url = "http://devlog.site/tensorflow/tensorflow2/",
-            encodedUrl = encodeURIComponent(url),
-            id = 'article-share-box-' + $this.attr('data-id'),
-            offset = $this.offset(),
-            box;
-
-        var html = [
-            '<div id="' + id + '" class="article-share-box-on">',
-                '<div class="article-share-links">',
-                    '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                    '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                    '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                    '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                '</div>',
-            '</div>'
-        ].join('');
-
-        box = $(html);
-
-        $('footer').append(box);
-
-    })(jQuery);
-</script>
+    <div id="article-share-box" class="article-share-box-on">
+    <div class="article-share-links">
+        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/tensorflow/tensorflow2/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
+        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/tensorflow/tensorflow2/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
+        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/tensorflow/tensorflow2/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
+        <a href="https://plus.google.com/share?url=http://devlog.site/tensorflow/tensorflow2/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
+    </div>
+</div>
 
 
 

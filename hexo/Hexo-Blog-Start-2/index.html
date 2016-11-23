@@ -7,23 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="Hexoでブログをはじめてみた-前編の続きです。
 ビルトインサーバでブログを立ち上げることができたと思います。次にGithub Pagesへブログを公開してみましょう。
-設定ファイルの修正とプラグインのインストールGithub Pagesへの公開には設定ファイルの修正が必要です。_config.ymlファイルを修正します。
-123456vim _config.ymldeploy:  type: g">
+設定ファイルの修正とプラグインのインストールGithub Pagesへの公開には設定ファイルの修正が必要です。_config.ymlファイルを修正します。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexoでブログをはじめてみた中編">
 <meta property="og:url" content="http://devlog.site/hexo/Hexo-Blog-Start-2/index.html">
 <meta property="og:site_name" content="Devlog">
 <meta property="og:description" content="Hexoでブログをはじめてみた-前編の続きです。
 ビルトインサーバでブログを立ち上げることができたと思います。次にGithub Pagesへブログを公開してみましょう。
-設定ファイルの修正とプラグインのインストールGithub Pagesへの公開には設定ファイルの修正が必要です。_config.ymlファイルを修正します。
-123456vim _config.ymldeploy:  type: g">
-<meta property="og:updated_time" content="2016-11-21T14:56:24.000Z">
+設定ファイルの修正とプラグインのインストールGithub Pagesへの公開には設定ファイルの修正が必要です。_config.ymlファイルを修正します。">
+<meta property="og:updated_time" content="2016-11-23T05:43:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexoでブログをはじめてみた中編">
 <meta name="twitter:description" content="Hexoでブログをはじめてみた-前編の続きです。
 ビルトインサーバでブログを立ち上げることができたと思います。次にGithub Pagesへブログを公開してみましょう。
-設定ファイルの修正とプラグインのインストールGithub Pagesへの公開には設定ファイルの修正が必要です。_config.ymlファイルを修正します。
-123456vim _config.ymldeploy:  type: g">
+設定ファイルの修正とプラグインのインストールGithub Pagesへの公開には設定ファイルの修正が必要です。_config.ymlファイルを修正します。">
     
 
     
@@ -66,10 +63,6 @@
                     <a class="main-nav-link" href="/.">Home</a>
                 
                     <a class="main-nav-link" href="/archives">Archives</a>
-                
-                    <a class="main-nav-link" href="/categories">Categories</a>
-                
-                    <a class="main-nav-link" href="/tags">Tags</a>
                 
                     <a class="main-nav-link" href="/about">About</a>
                 
@@ -131,10 +124,6 @@
                     <td><a class="main-nav-link" href="/.">Home</a></td>
                 
                     <td><a class="main-nav-link" href="/archives">Archives</a></td>
-                
-                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
-                
-                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
                 
                     <td><a class="main-nav-link" href="/about">About</a></td>
                 
@@ -262,7 +251,7 @@
             
             <p><a href="http://devlog.site/2016/hexo/Hexo-Blog-Start/">Hexoでブログをはじめてみた-前編</a>の続きです。</p>
 <p>ビルトインサーバでブログを立ち上げることができたと思います。<br>次にGithub Pagesへブログを公開してみましょう。</p>
-<h3 id="設定ファイルの修正とプラグインのインストール"><a href="#設定ファイルの修正とプラグインのインストール" class="headerlink" title="設定ファイルの修正とプラグインのインストール"></a>設定ファイルの修正とプラグインのインストール</h3><p>Github Pagesへの公開には設定ファイルの修正が必要です。<br>_config.ymlファイルを修正します。</p>
+<h3 id="設定ファイルの修正とプラグインのインストール"><a href="#設定ファイルの修正とプラグインのインストール" class="headerlink" title="設定ファイルの修正とプラグインのインストール"></a>設定ファイルの修正とプラグインのインストール</h3><p>Github Pagesへの公開には設定ファイルの修正が必要です。<br>_config.ymlファイルを修正します。<br><a id="more"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">vim _config.yml</div><div class="line"></div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:&lt;アカウント名&gt;/&lt;アカウント名&gt;gituhub.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
 <p>設定ファイルの修正が終わったらGithubデプロイ用のプラグインをインストールします。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
@@ -284,39 +273,14 @@
         </div>
         <footer class="article-footer">
             
-    <script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-
-        var $this = $(this),
-            url = "http://devlog.site/hexo/Hexo-Blog-Start-2/",
-            encodedUrl = encodeURIComponent(url),
-            id = 'article-share-box-' + $this.attr('data-id'),
-            offset = $this.offset(),
-            box;
-
-        var html = [
-            '<div id="' + id + '" class="article-share-box-on">',
-                '<div class="article-share-links">',
-                    '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                    '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                    '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                    '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                '</div>',
-            '</div>'
-        ].join('');
-
-        box = $(html);
-
-        $('footer').append(box);
-
-    })(jQuery);
-</script>
+    <div id="article-share-box" class="article-share-box-on">
+    <div class="article-share-links">
+        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/hexo/Hexo-Blog-Start-2/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
+        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/hexo/Hexo-Blog-Start-2/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
+        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/hexo/Hexo-Blog-Start-2/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
+        <a href="https://plus.google.com/share?url=http://devlog.site/hexo/Hexo-Blog-Start-2/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
+    </div>
+</div>
 
 
 
