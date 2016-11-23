@@ -6,21 +6,18 @@
     <title>TensorFlowの環境を作ってみた | Devlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="TensorFlowの環境を作ってみた機械学習の勉強を始めようと思い、今回はTensorFlowの環境を作成してみました。
-前提私の環境はmacでOS X El Capitanです。まだmacOS Sierraにはあげてません…TensorFlowのバージョンは0.10を使用します。HomeBrewを使用しますので予めインストールしておいて下さい。
-pythonのインストールTensorFlowで">
+前提私の環境はmacでOS X El Capitanです。まだmacOS Sierraにはあげてません…TensorFlowのバージョンは0.10を使用します。HomeBrewを使用しますので予めインストールしておいて下さい。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlowの環境を作ってみた">
 <meta property="og:url" content="http://devlog.site/tensorflow/tensorflow1/index.html">
 <meta property="og:site_name" content="Devlog">
 <meta property="og:description" content="TensorFlowの環境を作ってみた機械学習の勉強を始めようと思い、今回はTensorFlowの環境を作成してみました。
-前提私の環境はmacでOS X El Capitanです。まだmacOS Sierraにはあげてません…TensorFlowのバージョンは0.10を使用します。HomeBrewを使用しますので予めインストールしておいて下さい。
-pythonのインストールTensorFlowで">
-<meta property="og:updated_time" content="2016-11-23T03:40:29.000Z">
+前提私の環境はmacでOS X El Capitanです。まだmacOS Sierraにはあげてません…TensorFlowのバージョンは0.10を使用します。HomeBrewを使用しますので予めインストールしておいて下さい。">
+<meta property="og:updated_time" content="2016-11-23T05:43:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlowの環境を作ってみた">
 <meta name="twitter:description" content="TensorFlowの環境を作ってみた機械学習の勉強を始めようと思い、今回はTensorFlowの環境を作成してみました。
-前提私の環境はmacでOS X El Capitanです。まだmacOS Sierraにはあげてません…TensorFlowのバージョンは0.10を使用します。HomeBrewを使用しますので予めインストールしておいて下さい。
-pythonのインストールTensorFlowで">
+前提私の環境はmacでOS X El Capitanです。まだmacOS Sierraにはあげてません…TensorFlowのバージョンは0.10を使用します。HomeBrewを使用しますので予めインストールしておいて下さい。">
     
 
     
@@ -63,10 +60,6 @@ pythonのインストールTensorFlowで">
                     <a class="main-nav-link" href="/.">Home</a>
                 
                     <a class="main-nav-link" href="/archives">Archives</a>
-                
-                    <a class="main-nav-link" href="/categories">Categories</a>
-                
-                    <a class="main-nav-link" href="/tags">Tags</a>
                 
                     <a class="main-nav-link" href="/about">About</a>
                 
@@ -128,10 +121,6 @@ pythonのインストールTensorFlowで">
                     <td><a class="main-nav-link" href="/.">Home</a></td>
                 
                     <td><a class="main-nav-link" href="/archives">Archives</a></td>
-                
-                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
-                
-                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
                 
                     <td><a class="main-nav-link" href="/about">About</a></td>
                 
@@ -258,7 +247,7 @@ pythonのインストールTensorFlowで">
         
             
             <h1 id="TensorFlowの環境を作ってみた"><a href="#TensorFlowの環境を作ってみた" class="headerlink" title="TensorFlowの環境を作ってみた"></a>TensorFlowの環境を作ってみた</h1><p>機械学習の勉強を始めようと思い、今回はTensorFlowの環境を作成してみました。</p>
-<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>私の環境はmacでOS X El Capitanです。まだmacOS Sierraにはあげてません…<br>TensorFlowのバージョンは0.10を使用します。<br>HomeBrewを使用しますので予めインストールしておいて下さい。</p>
+<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>私の環境はmacでOS X El Capitanです。まだmacOS Sierraにはあげてません…<br>TensorFlowのバージョンは0.10を使用します。<br>HomeBrewを使用しますので予めインストールしておいて下さい。<br><a id="more"></a></p>
 <h2 id="pythonのインストール"><a href="#pythonのインストール" class="headerlink" title="pythonのインストール"></a>pythonのインストール</h2><p>TensorFlowではpythonを使用するので事前にインストールしておきます。<br>macには一応デフォルトでpythonがインストールされえていますが、TensorFlow用に別バージョンのpythonを使用したいと思います。<br>インストールにはバージョン管理が便利なpyenvを使用しますので先にこちらをインストールしておきます。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install pyenv</div></pre></td></tr></table></figure>
 <p>~/.bash_profileに以下を追加します。</p>
@@ -302,39 +291,14 @@ pythonのインストールTensorFlowで">
         </div>
         <footer class="article-footer">
             
-    <script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-
-        var $this = $(this),
-            url = "http://devlog.site/tensorflow/tensorflow1/",
-            encodedUrl = encodeURIComponent(url),
-            id = 'article-share-box-' + $this.attr('data-id'),
-            offset = $this.offset(),
-            box;
-
-        var html = [
-            '<div id="' + id + '" class="article-share-box-on">',
-                '<div class="article-share-links">',
-                    '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                    '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                    '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                    '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                '</div>',
-            '</div>'
-        ].join('');
-
-        box = $(html);
-
-        $('footer').append(box);
-
-    })(jQuery);
-</script>
+    <div id="article-share-box" class="article-share-box-on">
+    <div class="article-share-links">
+        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/tensorflow/tensorflow1/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
+        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/tensorflow/tensorflow1/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
+        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/tensorflow/tensorflow1/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
+        <a href="https://plus.google.com/share?url=http://devlog.site/tensorflow/tensorflow1/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
+    </div>
+</div>
 
 
 
