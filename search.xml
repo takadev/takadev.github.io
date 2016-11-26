@@ -4,6 +4,84 @@
   
     
     <entry>
+      <title><![CDATA[IPython使ってみた]]></title>
+      <url>http://devlog.site/python/ipython1/</url>
+      <content type="html"><![CDATA[<h2 id="IPython使ってみた"><a href="#IPython使ってみた" class="headerlink" title="IPython使ってみた"></a>IPython使ってみた</h2><p>TensorFlowを勉強してて出てきたIPythonという言葉…なんかだよく分からなかったので調べてみました。</p>
+<h2 id="IPythonとは？"><a href="#IPythonとは？" class="headerlink" title="IPythonとは？"></a>IPythonとは？</h2><p>「あいぱいそん」って読むらしいです。<br>Wikiを見てみると</p>
+<blockquote>
+<p>IPython (あいぱいそん) はPythonを対話的に実行するためのシェルである。オリジナルのPythonに比較して、型推定を強化し、対話的実行のための文法を追加してあり、コード・ハイライティングおよびタブによる補完が行える。</p>
+</blockquote>
+<p>とあります。要するに、IPythonは対話的に実行できてタブ補完とかしてくれて色とかついて見やすい便利なやつってことっぽいです。<br>まぁ使ってみた方が早そうですねw</p>
+<a id="more"></a>
+<h2 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h2><p>私の環境はmacでOS X El Capitanです。<br>pythonのバージョンは2.7.11です。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">python -V</div><div class="line">Python 2.7.11</div></pre></td></tr></table></figure>
+<p>インストールにはpipコマンドを使用します。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install ipython</div></pre></td></tr></table></figure>
+<h2 id="起動してみる"><a href="#起動してみる" class="headerlink" title="起動してみる"></a>起動してみる</h2><p>インストールが終わったら早速起動してみましょう。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ipython</div></pre></td></tr></table></figure>
+<p>起動したら<code>import t</code>と入力してTABキーを押してみましょう。<br>すると</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">In [1]: import t</div><div class="line">   tabnanny        terminalcommand this            tkColorChooser  tkSimpleDialog  traceback        </div><div class="line">   tarfile         termios         thread          tkCommonDialog  toaiff          traitlets        </div><div class="line">   telnetlib       test            threading       tkFileDialog    token           ttk             &gt;</div><div class="line">   tempfile        tests           time            tkFont          tokenize        tty              </div><div class="line">   tensorflow      textwrap        timeit          tkMessageBox    trace           turtle</div></pre></td></tr></table></figure>
+<p>こんな感じで候補の一覧が出てきます！これは便利！<br>ちゃんとインポートしたモジュールの中も補完してくれます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">In [2]: tf.ze</div><div class="line">              tf.zeros             tf.zeros_like                                           </div><div class="line">              tf.zeros_initializer tf.zeta</div></pre></td></tr></table></figure>
+<p>今まではpythonコマンドで対話的に実行してたんですが、これは便利ですね。</p>
+<h2 id="便利な機能"><a href="#便利な機能" class="headerlink" title="便利な機能"></a>便利な機能</h2><h3 id="イントロスペクション"><a href="#イントロスペクション" class="headerlink" title="イントロスペクション"></a>イントロスペクション</h3><p>オブジェクトに?をつけてやると対象の情報が表示されます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">In [1]: ipython = &quot;Great!&quot;</div><div class="line">In [2]: ipython?</div><div class="line">Type:        str</div><div class="line">String form: Great!</div><div class="line">Length:      6</div><div class="line">Docstring:  </div><div class="line">str(object=&apos;&apos;) -&gt; string</div><div class="line"></div><div class="line">Return a nice string representation of the object.</div><div class="line">If the argument is a string, the return value is the same object.</div></pre></td></tr></table></figure>
+<p>また関数に??をつけるとソースコードも表示されるようです。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">In [1]: get_ipython??</div><div class="line">Signature: get_ipython()</div><div class="line">Source:   </div><div class="line">    def get_ipython(self):</div><div class="line">        &quot;&quot;&quot;Return the currently running IPython instance.&quot;&quot;&quot;</div><div class="line">        return self</div><div class="line">File:      ~/.pyenv/versions/2.7.11/envs/tensorflow0.10/lib/python2.7/site-packages/IPython/core/interactiveshell.py</div><div class="line">Type:      instancemethod</div></pre></td></tr></table></figure>
+<h3 id="マジックコマンド"><a href="#マジックコマンド" class="headerlink" title="マジックコマンド"></a>マジックコマンド</h3><p>マジックコマンドはIPythonの用の便利コマンドで頭に%がつくものです。<br>公式のドキュメントは<a href="http://ipython.readthedocs.io/en/stable/interactive/magics.html" target="_blank" rel="external">こちら</a></p>
+<p>便利そうなコマンドがたくさんありますね。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">%lsmagic</td>
+<td style="text-align:left">利用できるマジックコマンドを表示する</td>
+</tr>
+<tr>
+<td style="text-align:left">%hist</td>
+<td style="text-align:left">または %history    コマンドの履歴を表示する</td>
+</tr>
+<tr>
+<td style="text-align:left">%paste</td>
+<td style="text-align:left">クリップボードのコードをペーストして実行する</td>
+</tr>
+<tr>
+<td style="text-align:left">%run</td>
+<td style="text-align:left">ファイルに保存されているスクリプトを実行する</td>
+</tr>
+<tr>
+<td style="text-align:left">%time</td>
+<td style="text-align:left">単一ステートメントの実行時間を測定し表示する</td>
+</tr>
+<tr>
+<td style="text-align:left">%timeit</td>
+<td style="text-align:left">ステートメントを複数回実行して平均実行時間を表示する</td>
+</tr>
+<tr>
+<td style="text-align:left">%save</td>
+<td style="text-align:left">コマンドの実行履歴をファイルに保存する</td>
+</tr>
+<tr>
+<td style="text-align:left">%reset</td>
+<td style="text-align:left">変数や名前空間などをクリアする</td>
+</tr>
+</tbody>
+</table>
+<p>特に%saveは良さそうですね。IPythonでああでもない、こうでもないって適当に試した履歴をファイルに保存しておきたいってことは多そうです。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">In [21]: %save save.py 1-20</div></pre></td></tr></table></figure>
+<p>こんな感じでファイルに保存できるようです。</p>
+<h2 id="終了"><a href="#終了" class="headerlink" title="終了"></a>終了</h2><p>終了するときはexitで抜けられます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">In [1]: exit</div></pre></td></tr></table></figure>
+<h2 id="TensorFlowのInteractiveSession"><a href="#TensorFlowのInteractiveSession" class="headerlink" title="TensorFlowのInteractiveSession"></a>TensorFlowのInteractiveSession</h2><p>今後IPythonをTensorFlowの勉強に使いたいと思いますが、そんな時に便利なのが、InteractiveSessionです。<br>TensorFlowはまずグラフを作り、Sessionを実行するという流れですが、対話的に作業する際にはグラフを作り終えない状態で、Sessionで実行してみたい場合があります。<br>そこでInteractiveSessionを使うと途中で色々と確認しながら作業を進められるということですね。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[機械学習について調べてみた]]></title>
       <url>http://devlog.site/machine-learning/machine-learning1/</url>
       <content type="html"><![CDATA[<h1 id="機械学習とは何か？"><a href="#機械学習とは何か？" class="headerlink" title="機械学習とは何か？"></a>機械学習とは何か？</h1><p>今回はそもそも機械学習とは何か？ということを学んでいきたいと思います。</p>
