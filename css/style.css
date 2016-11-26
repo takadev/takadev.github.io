@@ -1385,14 +1385,6 @@ a.related-header-line:hover {
   margin-bottom: 14px;
 }
 .related-posts li .related-posts-image {
-/*
-            float: left
-            margin-left: 10px
-            width: 60%
-            height: 60%
-            position: relative
-            overflow: hidden
-            */
   float: left;
   max-width: 100%;
   height: auto;
@@ -1408,22 +1400,17 @@ a.related-header-line:hover {
 }
 .related-posts li .related-posts-inner .related-posts-date {
   color: #aaa;
-  float: left;
   text-transform: uppercase;
   font-size: 16px;
-  margin-left: 10px;
+  margin-left: 130px;
 }
 .related-posts li .related-posts-inner .related-posts-title {
-  float: left;
   font-size: 16px;
 }
 .related-posts li .related-posts-inner .related-posts-title a {
   color: #333;
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  transition: all 0.2s ease;
   padding: 10px 5px 10px 10px;
+  font-size: 16px;
 }
 .related-posts li .related-posts-inner .related-posts-tags {
   float: left;
