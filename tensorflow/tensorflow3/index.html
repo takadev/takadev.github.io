@@ -13,7 +13,7 @@ TensorFlowの計算処理の流れ前回のTensorFlowで四則演算をやって
 <meta property="og:site_name" content="Devlog">
 <meta property="og:description" content="TensorFlow基礎今回はTensorFlowの計算処理の流れを見ていきたいと思います。
 TensorFlowの計算処理の流れ前回のTensorFlowで四則演算をやってみたでも少しだけ書きましたが、ざっくりオペレーションを先に定義し、セッションを使用してそれを実行するという流れになります。このオペレーションやセッションとはどんなものなんでしょうか？">
-<meta property="og:updated_time" content="2016-11-23T15:45:39.000Z">
+<meta property="og:updated_time" content="2016-11-26T15:53:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlowの基礎">
 <meta name="twitter:description" content="TensorFlow基礎今回はTensorFlowの計算処理の流れを見ていきたいと思います。
@@ -154,11 +154,11 @@ TensorFlowの計算処理の流れ前回のTensorFlowで四則演算をやって
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                8
+                9
                 <span>投稿</span>
             </div>
             <div class="article-info-block">
-                5
+                6
                 <span>タグ</span>
             </div>
         </div>
@@ -257,15 +257,15 @@ TensorFlowの計算処理の流れ前回のTensorFlowで四則演算をやって
 <p>次に先ほど出てきたエッジについてです。<br>エッジはノードとノードを繋ぐものでデータをどのノードからどのノードへ受け渡すかを決めるものです。<br>単純にノードで処理した結果を次にどのノードで処理されるかというだけのようですね。</p>
 <p>最後にセッションについてです。<br>TensorFlowでは各opごとにCPUコアやGPUコアのリソースをどの程度割り当てるかを指定することができます。<br>パワーを必要とする計算処理には多くのリソースを割り当て、簡単な処理には少ないリソースで済ませるという割り振りができるようでうす。<br>この割り当てを担うのがセッションのようです。そしてセッションは各opの実行も行います。</p>
 <p>簡単なコードを見てみましょう。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">import tensorflow as tf</div><div class="line"></div><div class="line"># 定数の定義</div><div class="line">const  = tf.constant(2)</div><div class="line">const1 = tf.constant(3)</div><div class="line">const2 = tf.constant(4)</div><div class="line"></div><div class="line"># add_opノード(op)を定義</div><div class="line">add_op  = tf.add(const, const1)</div><div class="line"># add_op1ノード(op)を定義、同時にadd_opの結果をadd_op1へ受け渡すエッジ</div><div class="line">add_op1 = tf.add(add_op, const2)</div><div class="line"></div><div class="line"># セッション</div><div class="line">sess = tf.Session()</div><div class="line"># add_opの実行</div><div class="line">sess.run(add_op)</div><div class="line"># add_op1の実行、結果をresultへ格納</div><div class="line">result = sess.run(add_op1)</div><div class="line"></div><div class="line">print(result)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line"></div><div class="line"><span class="comment"># 定数の定義</span></div><div class="line">const  = tf.constant(<span class="number">2</span>)</div><div class="line">const1 = tf.constant(<span class="number">3</span>)</div><div class="line">const2 = tf.constant(<span class="number">4</span>)</div><div class="line"></div><div class="line"><span class="comment"># add_opノード(op)を定義</span></div><div class="line">add_op  = tf.add(const, const1)</div><div class="line"><span class="comment"># add_op1ノード(op)を定義、同時にadd_opの結果をadd_op1へ受け渡すエッジ</span></div><div class="line">add_op1 = tf.add(add_op, const2)</div><div class="line"></div><div class="line"><span class="comment"># セッション</span></div><div class="line">sess = tf.Session()</div><div class="line"><span class="comment"># add_opの実行</span></div><div class="line">sess.run(add_op)</div><div class="line"><span class="comment"># add_op1の実行、結果をresultへ格納</span></div><div class="line">result = sess.run(add_op1)</div><div class="line"></div><div class="line">print(result)</div></pre></td></tr></table></figure>
 <p>足し算を2回行うだけの処理です。実行すると9が出力されると思います。<br>コメントでコード中に注釈を入れているのでわかると思いますが、<br>それぞれがノード(op)、エッジ、セッションになります。</p>
 <p>これをtensorboardでグラフ出力してみるとこんな感じになります。</p>
 <p>オペレーションAddとAdd_1がエッジで繋がれ、AddにはConst、Const_1が、Add_1にはConst_2が入力として渡されているのがわかりますね。<br>なんとなくTensorFlowの計算処理の流れがわかった気がします！</p>
 <h2 id="TensorBoardについて"><a href="#TensorBoardについて" class="headerlink" title="TensorBoardについて"></a>TensorBoardについて</h2><p>先ほど出てきたTensorBoardとは何かというと、TensorFlowに搭載されている可視化ツールのことです。<br>TensorBoardを使用することでグラフを可視化でき、ブラウザで確認することができます。</p>
 <p>TensorBoardでグラフ出力するには以下のコードを追加します。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tf.train.SummaryWriter(&apos;./&apos;, sess.graph)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tf.train.SummaryWriter(<span class="string">'./'</span>, sess.graph)</div></pre></td></tr></table></figure>
 <p>追記したファイルを実行するとTensorBoard用のファイルが生成されます。<br>TensorBoard用のファイルが生成されたら、次のコマンドを実行します。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tensorboard --logdir=[TensorBoard用のファイルがあるディレクトリ]</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tensorboard --logdir=[TensorBoard用のファイルがあるディレクトリ]</div></pre></td></tr></table></figure>
 <p>ブラウザでlocalhost:6006にアクセスするとTensorBoardが立ち上がっていることが確認できると思います。<br>TensorBoardは便利な使い方が色々あるみたいなので今後もっと詳しく調べてみたいと思います。</p>
 <p>今回はここまでです。<br>次回はTensorFlowを使う上でもっと基本的な機械学習とは何かについて学んでいこうと思います。</p>
 
@@ -319,7 +319,7 @@ TensorFlowの計算処理の流れ前回のTensorFlowで四則演算をやって
                   <h2>関連記事</h2>
               </div>
           </header>
-          <ul class="related-posts"><li class="related-posts-item"><div class="related-posts-inner"><div class="related-posts-image"><a href="/tensorflow/tensorflow1/"><img src="/css/images/thumb-default-small.png" /></a></div><div class="related-posts-date">2016-11-22</div><div class="related-posts-title"><a href="/tensorflow/tensorflow1/" title="TensorFlowの環境を作ってみた" rel="bookmark">TensorFlowの環境を作ってみた</a></div><div class="related-posts-tags"><a href="/tags/python/">#python</a><a href="/tags/TensorFlow/">#TensorFlow</a><a href="/tags/機械学習/">#機械学習</a></div></div></li></ul>
+          <ul class="related-posts"><li class="related-posts-item"><div class="related-posts-inner"><div class="related-posts-image"><a href="/tensorflow/tensorflow1/"><img src="/css/images/thumb-default-small.png" /></a></div><div class="related-posts-date">2016-11-22</div><div class="related-posts-title"><a href="/tensorflow/tensorflow1/" title="TensorFlowの環境を作ってみた" rel="bookmark">TensorFlowの環境を作ってみた</a></div><div class="related-posts-tags"><a href="/tags/機械学習/">#機械学習</a><a href="/tags/python/">#python</a><a href="/tags/TensorFlow/">#TensorFlow</a></div></div></li></ul>
       </div>
   </section>
     
@@ -344,6 +344,25 @@ TensorFlowの計算処理の流れ前回のTensorFlowで四則演算をやって
         <h3 class="widget-title">最近の記事</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/python/python-with/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/python/">python</a></p>
+                            <p class="item-title"><a href="/python/python-with/" class="title">Pythonのwith構文について調べてみた</a></p>
+                            <p class="item-date"><time datetime="2016-11-26T15:00:00.000Z" itemprop="datePublished">2016-11-27</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -421,25 +440,6 @@ TensorFlowの計算処理の流れ前回のTensorFlowで四則演算をやって
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/tensorflow/tensorflow1/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/tensorflow/">tensorflow</a></p>
-                            <p class="item-title"><a href="/tensorflow/tensorflow1/" class="title">TensorFlowの環境を作ってみた</a></p>
-                            <p class="item-date"><time datetime="2016-11-21T15:00:00.000Z" itemprop="datePublished">2016-11-22</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -449,7 +449,7 @@ TensorFlowの計算処理の流れ前回のTensorFlowで四則演算をやって
     <div class="widget-wrap">
         <h3 class="widget-title">カテゴリ</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tensorflow/">tensorflow</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">機械学習</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tensorflow/">tensorflow</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">機械学習</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -458,7 +458,7 @@ TensorFlowの計算処理の流れ前回のTensorFlowで四則演算をやって
     <div class="widget-wrap">
         <h3 class="widget-title">アーカイブ</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a><span class="archive-list-count">8</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a><span class="archive-list-count">9</span></li></ul>
         </div>
     </div>
 
@@ -467,7 +467,7 @@ TensorFlowの計算処理の流れ前回のTensorFlowで四則演算をやって
     <div class="widget-wrap">
         <h3 class="widget-title">タグ</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">Hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TensorFlow/">TensorFlow</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ディープラーニング/">ディープラーニング</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/機械学習/">機械学習</a><span class="tag-list-count">4</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">Hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TensorFlow/">TensorFlow</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ディープラーニング/">ディープラーニング</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/プログラムミング/">プログラムミング</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/機械学習/">機械学習</a><span class="tag-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -476,7 +476,7 @@ TensorFlowの計算処理の流れ前回のTensorFlowで四則演算をやって
     <div class="widget-wrap">
         <h3 class="widget-title">タグクラウド</h3>
         <div class="widget tagcloud">
-            <a href="/tags/hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/TensorFlow/" style="font-size: 20px;">TensorFlow</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/ディープラーニング/" style="font-size: 10px;">ディープラーニング</a> <a href="/tags/機械学習/" style="font-size: 20px;">機械学習</a>
+            <a href="/tags/hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/TensorFlow/" style="font-size: 16.67px;">TensorFlow</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/ディープラーニング/" style="font-size: 10px;">ディープラーニング</a> <a href="/tags/プログラムミング/" style="font-size: 10px;">プログラムミング</a> <a href="/tags/機械学習/" style="font-size: 16.67px;">機械学習</a>
         </div>
     </div>
 
@@ -504,7 +504,7 @@ TensorFlowの計算処理の流れ前回のTensorFlowで四則演算をやって
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2016 Takahiro Kaneko<br>
+            &copy; 2016 takadev<br>
             Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
         </div>
     </div>
