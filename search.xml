@@ -4,15 +4,45 @@
   
     
     <entry>
+      <title><![CDATA[Pythonのwith構文について調べてみた]]></title>
+      <url>http://devlog.site/python/python-with/</url>
+      <content type="html"><![CDATA[<h2 id="with構文について"><a href="#with構文について" class="headerlink" title="with構文について"></a>with構文について</h2><p>TensorFlowでpython書いてるとよく見かけるwith構文ですが、きちんと理解していなかったのでこの機会に調べてみました。<br>簡単なメモです。<br><a id="more"></a></p>
+<h2 id="with構文とは？"><a href="#with構文とは？" class="headerlink" title="with構文とは？"></a>with構文とは？</h2><p>with構文はファイルの読み書きなど後処理が必要なものに対して安全にその処理を行える機能です。<br>簡単なファイルを開くコードを見てみましょう。</p>
+<p>まずはwith構文を使っていないコード</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">text = <span class="keyword">None</span></div><div class="line"><span class="keyword">try</span>:</div><div class="line">  text = open(<span class="string">"text.txt"</span>, <span class="string">'w'</span>)</div><div class="line">  <span class="keyword">try</span>:</div><div class="line">    text.write(<span class="string">"Hello, world!"</span>)</div><div class="line">  <span class="keyword">except</span>:</div><div class="line">    <span class="keyword">raise</span></div><div class="line"><span class="keyword">finally</span>:</div><div class="line">  <span class="keyword">if</span> text:</div><div class="line">    text.close()</div></pre></td></tr></table></figure>
+<p>厳密に書こうとすると結構大変ですよね。<br>次にwithを使った書き方についてですが、</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> ファイル読み込み <span class="keyword">as</span> 変数:</div><div class="line">    ...</div></pre></td></tr></table></figure>
+<p>こんな感じの構文になります。<br>先ほどのファイルを開くコードを書き換えると</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">"text.txt"</span>, <span class="string">'w'</span>) <span class="keyword">as</span> text:</div><div class="line">    text.write(<span class="string">"Hello, world!"</span>)</div></pre></td></tr></table></figure>
+<p>すっきりしましたね。これだけでwithを抜けた際にファイルを自動的に閉じてくれます。</p>
+<h2 id="withが使えるオブジェクト"><a href="#withが使えるオブジェクト" class="headerlink" title="withが使えるオブジェクト"></a>withが使えるオブジェクト</h2><p>with構文はコードをスッキリ簡潔にしてくれるのでいろんなところで使いたいですが、<br>使える場合とそうでない場合があります。</p>
+<p>withが使えるのは<strong>enter</strong>メソッドと<strong>exit</strong>メソッドの両方が定義されているオブジェクトの場合です。<br>例えばこんなコードを実行してみます。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span><span class="params">()</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'__init__'</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__enter__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'__enter__'</span></div><div class="line">        <span class="keyword">return</span> self</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__exit__</span><span class="params">(self, *args, **kwargs)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'__exit__'</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'__del__'</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">say</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'hello'</span></div><div class="line"></div><div class="line"><span class="keyword">with</span> Test() <span class="keyword">as</span> obj:</div><div class="line">    obj.say()</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">'end'</span></div></pre></td></tr></table></figure>
+<p>結果は次のようになります。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">__init__</div><div class="line">__enter__</div><div class="line">hello</div><div class="line">__exit__</div><div class="line">end</div><div class="line">__del__</div></pre></td></tr></table></figure>
+<p>withを使うと<strong>enter</strong>メソッドと<strong>exit</strong>メソッドが呼び出されているのがわかると思います。<br>withを使いたい時は<strong>enter</strong>メソッドと<strong>exit</strong>メソッドをきちんと定義してあげましょう。</p>
+<h2 id="TensorFlowでよく使うwith"><a href="#TensorFlowでよく使うwith" class="headerlink" title="TensorFlowでよく使うwith"></a>TensorFlowでよく使うwith</h2><p>ファイルを開く際に安全にcloseしてくれるwith構文ですが、TensorFlowではよくセッションを使用する際に使われていますね。<br>ということはSessionを安全に閉じてくれてるってことです。</p>
+<p>なんでwith構文が使われているんだろうなぁと思っていましたが、そういった理由があったんですね。<br>TensorFlowのリファレンスを見てみるとSessionクラスには確かに<strong>enter</strong>メソッドと<strong>exit</strong>メソッドが定義されています。</p>
+<blockquote>
+<p>tf.Session.__enter__()<br>tf.Session.__exit__(exec_type, exec_value, exec_tb)</p>
+</blockquote>
+<h2 id="withのネスト"><a href="#withのネスト" class="headerlink" title="withのネスト"></a>withのネスト</h2><p>withはネストも出来るみたいです。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> A() <span class="keyword">as</span> a:</div><div class="line">    <span class="keyword">with</span> B() <span class="keyword">as</span> b:</div></pre></td></tr></table></figure>
+<p>このようにネストして書くこともでき、またカンマで繋げても同じ意味になるようです。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> A() <span class="keyword">as</span> a, B() <span class="keyword">as</span> b:</div></pre></td></tr></table></figure>
+<p>終わり</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[IPython使ってみた]]></title>
       <url>http://devlog.site/python/ipython1/</url>
       <content type="html"><![CDATA[<h2 id="IPython使ってみた"><a href="#IPython使ってみた" class="headerlink" title="IPython使ってみた"></a>IPython使ってみた</h2><p>TensorFlowを勉強してて出てきたIPythonという言葉…なんかだよく分からなかったので調べてみました。</p>
-<h2 id="IPythonとは？"><a href="#IPythonとは？" class="headerlink" title="IPythonとは？"></a>IPythonとは？</h2><p>「あいぱいそん」って読むらしいです。<br>Wikiを見てみると</p>
+<h2 id="IPythonとは？"><a href="#IPythonとは？" class="headerlink" title="IPythonとは？"></a>IPythonとは？</h2><p>「あいぱいそん」って読むらしいです。<br>Wikiを見てみると<br><a id="more"></a></p>
 <blockquote>
 <p>IPython (あいぱいそん) はPythonを対話的に実行するためのシェルである。オリジナルのPythonに比較して、型推定を強化し、対話的実行のための文法を追加してあり、コード・ハイライティングおよびタブによる補完が行える。</p>
 </blockquote>
 <p>とあります。要するに、IPythonは対話的に実行できてタブ補完とかしてくれて色とかついて見やすい便利なやつってことっぽいです。<br>まぁ使ってみた方が早そうですねw</p>
-<a id="more"></a>
 <h2 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h2><p>私の環境はmacでOS X El Capitanです。<br>pythonのバージョンは2.7.11です。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">python -V</div><div class="line">Python 2.7.11</div></pre></td></tr></table></figure>
 <p>インストールにはpipコマンドを使用します。</p>
@@ -86,16 +116,16 @@
       <url>http://devlog.site/machine-learning/machine-learning1/</url>
       <content type="html"><![CDATA[<h1 id="機械学習とは何か？"><a href="#機械学習とは何か？" class="headerlink" title="機械学習とは何か？"></a>機械学習とは何か？</h1><p>今回はそもそも機械学習とは何か？ということを学んでいきたいと思います。</p>
 <h2 id="機械学習とは一言で"><a href="#機械学習とは一言で" class="headerlink" title="機械学習とは一言で"></a>機械学習とは一言で</h2><p>機械学習についてネットで調べると色々な記事があり、たくさんの専門用語が出てきて調べれば調べるほどよくわかりません。<br>そんな中<a href="http://www.sas.com/ja_jp/insights/analytics/machine-learning.html" target="_blank" rel="external">こちら</a>のサイトが分かりやすかったので、少し引用させていただくと</p>
+<a id="more"></a>
 <blockquote>
 <p>機械学習とは、データから反復的に学習し、そこに潜むパターンを見つけ出すことです。<br>そして学習した結果を新たなデータにあてはめることで、パターンにしたがって将来を予測することができます。</p>
 </blockquote>
-<a id="more"></a>
 <p>とのことです。<br>簡潔に言うと機械学習とは「パターン認識」ってことですね。<br>そのパターンを見つけ出す過程のことを学習と呼んでいるようです。</p>
 <p>そしてパターンがわかってしまえば、新たなデータがそのパターンに当てはまるかを調べればいいだけなので、<br>予測することができるってわけですね。</p>
 <h2 id="機械学習は何の役に立つのか？"><a href="#機械学習は何の役に立つのか？" class="headerlink" title="機械学習は何の役に立つのか？"></a>機械学習は何の役に立つのか？</h2><p>機械学習はパターンを認識するものということですが、一体どんなことに役立つのでしょうか？<br>いくつか事例を考えてみましょう。</p>
 <ol>
 <li>画像認識<ul>
-<li>ex)写真の特徴のパターンを摘出することで、他の写真と一致するかどうかは判定する </li>
+<li>ex)写真の特徴のパターンを摘出することで、他の写真と一致するかどうかは判定する</li>
 </ul>
 </li>
 <li>声紋認証<ul>
@@ -134,7 +164,7 @@
 <h2 id="特徴はどうやって決まるの？"><a href="#特徴はどうやって決まるの？" class="headerlink" title="特徴はどうやって決まるの？"></a>特徴はどうやって決まるの？</h2><p>外部の情報から特徴を見つけ出せれば機械にもそれがどんなものか認識できるということですが、その特徴はどうやって決まっているのでしょうか？<br>例えば「9」という数字の特徴は上に円があって円の右下から尻尾がはえ下がって少し丸まっているといった感じでしょうか。<br>このように数字や文字などは簡単に特徴が思いつくと思います。</p>
 <p>では迷惑メールか、そうでない通常のメールかを判断しようとした場合、迷惑メールの特徴とはどういったものでしょうか？<br>“無料”とか”出会い”とか”今すぐ”などといった言葉が多く含まれればといった感じでしょうか？<br>これは少し難しいですよね。</p>
 <p>ですが機械はどういった特徴があるものが迷惑メールなのかという、最初の基準となるデータがなければ学習をスタートすることはできません。つまり機械学習では対象のデータがどんな意味を持つかということは人間が決めなければならないのです。</p>
-<h2 id="ディープラーニング"><a href="#ディープラーニング" class="headerlink" title="ディープラーニング"></a>ディープラーニング</h2><p>機械学中では人間が特徴を決める必要があると先ほど書きましたが、実はその特徴すら機械が見つけ出すことも可能なんです。<br>それが機械学習の一種であるディープラーニング(深層学習)です。</p>
+<h2 id="ディープラーニング"><a href="#ディープラーニング" class="headerlink" title="ディープラーニング"></a>ディープラーニング</h2><p>機械学習では人間が特徴を決める必要があると先ほど書きましたが、実はその特徴すら機械が見つけ出すことも可能なんです。<br>それが機械学習の一種であるディープラーニング(深層学習)です。</p>
 <p>このディープラーニングは様々な分野で活用されており、車の自動運転や冒頭でも書いたAlphaGoにも利用されており今後より研究開発が進むと考えられています。</p>
 ]]></content>
     </entry>
@@ -150,15 +180,15 @@
 <p>次に先ほど出てきたエッジについてです。<br>エッジはノードとノードを繋ぐものでデータをどのノードからどのノードへ受け渡すかを決めるものです。<br>単純にノードで処理した結果を次にどのノードで処理されるかというだけのようですね。</p>
 <p>最後にセッションについてです。<br>TensorFlowでは各opごとにCPUコアやGPUコアのリソースをどの程度割り当てるかを指定することができます。<br>パワーを必要とする計算処理には多くのリソースを割り当て、簡単な処理には少ないリソースで済ませるという割り振りができるようでうす。<br>この割り当てを担うのがセッションのようです。そしてセッションは各opの実行も行います。</p>
 <p>簡単なコードを見てみましょう。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">import tensorflow as tf</div><div class="line"></div><div class="line"># 定数の定義</div><div class="line">const  = tf.constant(2)</div><div class="line">const1 = tf.constant(3)</div><div class="line">const2 = tf.constant(4)</div><div class="line"></div><div class="line"># add_opノード(op)を定義</div><div class="line">add_op  = tf.add(const, const1)</div><div class="line"># add_op1ノード(op)を定義、同時にadd_opの結果をadd_op1へ受け渡すエッジ</div><div class="line">add_op1 = tf.add(add_op, const2)</div><div class="line"></div><div class="line"># セッション</div><div class="line">sess = tf.Session()</div><div class="line"># add_opの実行</div><div class="line">sess.run(add_op)</div><div class="line"># add_op1の実行、結果をresultへ格納</div><div class="line">result = sess.run(add_op1)</div><div class="line"></div><div class="line">print(result)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line"></div><div class="line"><span class="comment"># 定数の定義</span></div><div class="line">const  = tf.constant(<span class="number">2</span>)</div><div class="line">const1 = tf.constant(<span class="number">3</span>)</div><div class="line">const2 = tf.constant(<span class="number">4</span>)</div><div class="line"></div><div class="line"><span class="comment"># add_opノード(op)を定義</span></div><div class="line">add_op  = tf.add(const, const1)</div><div class="line"><span class="comment"># add_op1ノード(op)を定義、同時にadd_opの結果をadd_op1へ受け渡すエッジ</span></div><div class="line">add_op1 = tf.add(add_op, const2)</div><div class="line"></div><div class="line"><span class="comment"># セッション</span></div><div class="line">sess = tf.Session()</div><div class="line"><span class="comment"># add_opの実行</span></div><div class="line">sess.run(add_op)</div><div class="line"><span class="comment"># add_op1の実行、結果をresultへ格納</span></div><div class="line">result = sess.run(add_op1)</div><div class="line"></div><div class="line">print(result)</div></pre></td></tr></table></figure>
 <p>足し算を2回行うだけの処理です。実行すると9が出力されると思います。<br>コメントでコード中に注釈を入れているのでわかると思いますが、<br>それぞれがノード(op)、エッジ、セッションになります。</p>
 <p>これをtensorboardでグラフ出力してみるとこんな感じになります。</p>
 <p>オペレーションAddとAdd_1がエッジで繋がれ、AddにはConst、Const_1が、Add_1にはConst_2が入力として渡されているのがわかりますね。<br>なんとなくTensorFlowの計算処理の流れがわかった気がします！</p>
 <h2 id="TensorBoardについて"><a href="#TensorBoardについて" class="headerlink" title="TensorBoardについて"></a>TensorBoardについて</h2><p>先ほど出てきたTensorBoardとは何かというと、TensorFlowに搭載されている可視化ツールのことです。<br>TensorBoardを使用することでグラフを可視化でき、ブラウザで確認することができます。</p>
 <p>TensorBoardでグラフ出力するには以下のコードを追加します。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tf.train.SummaryWriter(&apos;./&apos;, sess.graph)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tf.train.SummaryWriter(<span class="string">'./'</span>, sess.graph)</div></pre></td></tr></table></figure>
 <p>追記したファイルを実行するとTensorBoard用のファイルが生成されます。<br>TensorBoard用のファイルが生成されたら、次のコマンドを実行します。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tensorboard --logdir=[TensorBoard用のファイルがあるディレクトリ]</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tensorboard --logdir=[TensorBoard用のファイルがあるディレクトリ]</div></pre></td></tr></table></figure>
 <p>ブラウザでlocalhost:6006にアクセスするとTensorBoardが立ち上がっていることが確認できると思います。<br>TensorBoardは便利な使い方が色々あるみたいなので今後もっと詳しく調べてみたいと思います。</p>
 <p>今回はここまでです。<br>次回はTensorFlowを使う上でもっと基本的な機械学習とは何かについて学んでいこうと思います。</p>
 ]]></content>
@@ -170,24 +200,24 @@
       <content type="html"><![CDATA[<h1 id="TensorFlowで四則演算をやってみた"><a href="#TensorFlowで四則演算をやってみた" class="headerlink" title="TensorFlowで四則演算をやってみた"></a>TensorFlowで四則演算をやってみた</h1><p><a href="http://devlog.site/tensorflow/tensorflow1/">前回</a>環境を整えたので、今回はTensorFlowで四則演算を行ってみました。</p>
 <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>TensorFlow全くの初心者ですので、右も左もわかってません。間違ったこともたくさん書いてると思います。基本的に自分の為にメモしておく程度なのであしからずです。</p>
 <h2 id="四則演算"><a href="#四則演算" class="headerlink" title="四則演算"></a>四則演算</h2><p>まずはTensorFlowで四則演算を行ってみたいと思います。<br>こんな感じのコードになります。<br><a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">import tensorflow as tf</div><div class="line"></div><div class="line"># 定数宣言</div><div class="line">const1 = tf.constant(2)</div><div class="line">const2 = tf.constant(3)</div><div class="line"></div><div class="line"># 足し算オペレーション</div><div class="line">add_op = tf.add(const1, const2)</div><div class="line"></div><div class="line"># セッションオブジェクト</div><div class="line">sess = tf.Session()</div><div class="line"></div><div class="line">result = sess.run(add_op)</div><div class="line">print(result)</div><div class="line"></div><div class="line"># 引き算オペレーション</div><div class="line">sub_op = tf.sub(const1, const2)</div><div class="line">result = sess.run(sub_op)</div><div class="line">print(result)</div><div class="line"></div><div class="line"># 掛け算オペレーション</div><div class="line">mul_op = tf.mul(const1, const2)</div><div class="line">result = sess.run(mul_op)</div><div class="line">print(result)</div><div class="line"></div><div class="line"># 割り算オペレーション</div><div class="line">div_op = tf.div(const1, const2)</div><div class="line">result = sess.run(div_op)</div><div class="line">print(result)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line"></div><div class="line"><span class="comment"># 定数宣言</span></div><div class="line">const1 = tf.constant(<span class="number">2</span>)</div><div class="line">const2 = tf.constant(<span class="number">3</span>)</div><div class="line"></div><div class="line"><span class="comment"># 足し算オペレーション</span></div><div class="line">add_op = tf.add(const1, const2)</div><div class="line"></div><div class="line"><span class="comment"># セッションオブジェクト</span></div><div class="line">sess = tf.Session()</div><div class="line"></div><div class="line">result = sess.run(add_op)</div><div class="line">print(result)</div><div class="line"></div><div class="line"><span class="comment"># 引き算オペレーション</span></div><div class="line">sub_op = tf.sub(const1, const2)</div><div class="line">result = sess.run(sub_op)</div><div class="line">print(result)</div><div class="line"></div><div class="line"><span class="comment"># 掛け算オペレーション</span></div><div class="line">mul_op = tf.mul(const1, const2)</div><div class="line">result = sess.run(mul_op)</div><div class="line">print(result)</div><div class="line"></div><div class="line"><span class="comment"># 割り算オペレーション</span></div><div class="line">div_op = tf.div(const1, const2)</div><div class="line">result = sess.run(div_op)</div><div class="line">print(result)</div></pre></td></tr></table></figure>
 <p>これを適当な名前(今回はmath.py)で保存して実行すると</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">python math.py</div><div class="line">5</div><div class="line">-1</div><div class="line">6</div><div class="line">0</div></pre></td></tr></table></figure>
 <p>と出力されます。普通の四則演算のコードと全然違いますよね。<br>1つずつ解説していきましょう。</p>
 <p>1行目</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import tensorflow as tf</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div></pre></td></tr></table></figure>
 <p>これはtensorflow moduleをインポートして、それをtfとして使用するということです。</p>
 <p>4行目</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const1 = tf.constant(2)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const1 = tf.constant(<span class="number">2</span>)</div></pre></td></tr></table></figure>
 <p>const1という定数を宣言し、その定数に2を設定しています。</p>
 <p>8行目</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">add_op = tf.add(const1, const2)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">add_op = tf.add(const1, const2)</div></pre></td></tr></table></figure>
 <p>const1とconst2を足し算するオペーレションadd_opを設定</p>
 <p>11行目</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sess = tf.Session()</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sess = tf.Session()</div></pre></td></tr></table></figure>
 <p>セッションの作成</p>
 <p>13行目</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">result = sess.run(add_op)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">result = sess.run(add_op)</div></pre></td></tr></table></figure>
 <p>定義したオペレーションの実行</p>
 <p>足し算以降の引き算、掛け算、割り算はやってることは同じです。<br>とこのように、TensorFlowでは最初に演算するオペレーションを定義し、その後でセッションを使用してその演算を行うという流れになります。<br>基本的な概念は一旦置いておいて、ざっとこんな感じのようです。</p>
 <p>ところで気になった方もいるかもしれませんが、割り算の結果が0になってしまっていますね。<br>2 / 3 なので0.666…になるはず？ですよね。いえ、これは間違いではなく、正しい結果です。<br>tf.divはリファレンスを見てみると</p>
@@ -196,7 +226,7 @@
 </blockquote>
 <p>となっているので小数点以下が切り捨てられてしまって0になっているんですね。</p>
 <p>小数点以下を切り捨てたくない場合はtf.truedivを使用してます。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">div_op = tf.truediv(const1, const2)</div><div class="line">result = sess.run(div_op)</div><div class="line">print(result)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">div_op = tf.truediv(const1, const2)</div><div class="line">result = sess.run(div_op)</div><div class="line">print(result)</div></pre></td></tr></table></figure>
 <p>こうすることで正しく0.666…が出力されます。</p>
 <p>次回は基礎的な概念を少し学んでみたいと思います。</p>
 ]]></content>
@@ -285,7 +315,7 @@
 <p>まずGitからcloneしてきます。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:ppoffice/hexo-theme-icarus.git theme/icarus</div></pre></td></tr></table></figure>
 <p>clone後、icarus内の設定ファイルをリネイムします。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd theme/icarus</div><div class="line">mv _config.yml.example _config.yml</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd theme/icarus</div><div class="line">mv \_config.yml.example _config.yml</div></pre></td></tr></table></figure>
 <p>次にHexoの設定ファイルを編集します。<br>設定ファイルのthemeを書き換えます。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># Extensions</div><div class="line">## Plugins: https://hexo.io/plugins/</div><div class="line">## Themes: https://hexo.io/themes/</div><div class="line">theme: icarus</div></pre></td></tr></table></figure>
 <p>themeをデフォルトのlandscapeからicarusへ変更します。<br>ここまで終わったら1度Githubへデプロイします。</p>
