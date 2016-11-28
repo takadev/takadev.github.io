@@ -3,17 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>アーカイブ: 2016/11 | Devlog</title>
+    <title>Tensorとは何か？ | Devlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Devlog">
-<meta property="og:url" content="http://devlog.site/archives/2016/11/index.html">
+    <meta name="description" content="TensorFlowのTensorって何？こちらの記事でオペレーションが扱うデータのことをTensorという書きましたが、このTensorって一体何なんでしょう？今回はこのTensorについてもっと詳しく調べてみたいと思います。
+公式サイトの説明はこちらになります。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tensorとは何か？">
+<meta property="og:url" content="http://devlog.site/tensorflow/tensorflow4/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
+<meta property="og:description" content="TensorFlowのTensorって何？こちらの記事でオペレーションが扱うデータのことをTensorという書きましたが、このTensorって一体何なんでしょう？今回はこのTensorについてもっと詳しく調べてみたいと思います。
+公式サイトの説明はこちらになります。">
+<meta property="og:updated_time" content="2016-11-28T00:44:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Devlog">
-<meta name="twitter:description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
+<meta name="twitter:title" content="Tensorとは何か？">
+<meta name="twitter:description" content="TensorFlowのTensorって何？こちらの記事でオペレーションが扱うデータのことをTensorという書きましたが、このTensorって一体何なんでしょう？今回はこのTensorについてもっと詳しく調べてみたいと思います。
+公式サイトの説明はこちらになります。">
     
 
     
@@ -202,25 +206,21 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2016</h1>
-            </div>
+            <section id="main"><article id="post-tensorflow4" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/tensorflow/tensorflow4/">Tensorとは何か？</a>
+        <h1 class="article-title" itemprop="name">
+            Tensorとは何か？
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/tensorflow/tensorflow4/">
@@ -229,347 +229,188 @@
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/tensorflow/">tensorflow</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/TensorFlow/">TensorFlow</a>, <a class="tag-link" href="/tags/python/">python</a>, <a class="tag-link" href="/tags/機械学習/">機械学習</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/python/python-with/">Pythonのwith構文について調べてみた</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="TensorFlowのTensorって何？"><a href="#TensorFlowのTensorって何？" class="headerlink" title="TensorFlowのTensorって何？"></a>TensorFlowのTensorって何？</h2><p><a href="http://devlog.site/tensorflow/tensorflow3">こちらの記事</a>でオペレーションが扱うデータのことをTensorという書きましたが、このTensorって一体何なんでしょう？<br>今回はこのTensorについてもっと詳しく調べてみたいと思います。</p>
+<p>公式サイトの説明は<a href="https://www.tensorflow.org/versions/r0.11/resources/dims_types.html" target="_blank" rel="external">こちら</a>になります。</p>
+<a id="more"></a>
+<h2 id="TensorFlowのTensorはデータ構造"><a href="#TensorFlowのTensorはデータ構造" class="headerlink" title="TensorFlowのTensorはデータ構造"></a>TensorFlowのTensorはデータ構造</h2><p>TensorFlowで言うところのTensorというのは扱うデータ構造のことで、これを使ってを色々なデータを表現しています。<br>このTensorはRankとShape、Data Typesを持っています。</p>
+<h2 id="RankとShape"><a href="#RankとShape" class="headerlink" title="RankとShape"></a>RankとShape</h2><p>Rankは「テンソルの階数」、Shapeは「テンソルの形」のことを言います。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Rank</th>
+<th style="text-align:left">Shape</th>
+<th style="text-align:left">Dimension</th>
+<th style="text-align:left">例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">[]</td>
+<td style="text-align:left">0次元</td>
+<td style="text-align:left">s = 713</td>
+</tr>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">[D0]</td>
+<td style="text-align:left">1次元</td>
+<td style="text-align:left">v = [1.1,2.2,3.3]</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">[D0, D1]</td>
+<td style="text-align:left">2次元</td>
+<td style="text-align:left">m = [[1,2,3],[4,5,6],[7,8,9]]</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">[D0, D1, D2]</td>
+<td style="text-align:left">3次元</td>
+<td style="text-align:left">t = [[[1,2,3]],[[4,5,6]],[[7,8,9]]]</td>
+</tr>
+<tr>
+<td style="text-align:left">N</td>
+<td style="text-align:left">[D0,D1, …Dn-1]</td>
+<td style="text-align:left">n次元</td>
+</tr>
+</tbody>
+</table>
+<p>このようにRankが0ならShapeは[]となり0次元の値で、<br>Rankが3ならShapeは[D0, D1, D2]で3次元の配列になるってことですね。</p>
+<h2 id="Data-Types"><a href="#Data-Types" class="headerlink" title="Data Types"></a>Data Types</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">データタイプ</th>
+<th style="text-align:left">解説</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">tf.float16</td>
+<td style="text-align:left">16ビット浮動小数点</td>
+</tr>
+<tr>
+<td style="text-align:left">tf.float32</td>
+<td style="text-align:left">32ビット浮動小数点</td>
+</tr>
+<tr>
+<td style="text-align:left">tf.float64</td>
+<td style="text-align:left">64ビット浮動小数点</td>
+</tr>
+<tr>
+<td style="text-align:left">tf.int8</td>
+<td style="text-align:left">8ビット整数</td>
+</tr>
+<tr>
+<td style="text-align:left">tf.int16</td>
+<td style="text-align:left">16ビット整数</td>
+</tr>
+<tr>
+<td style="text-align:left">tf.int32</td>
+<td style="text-align:left">32ビット整数</td>
+</tr>
+<tr>
+<td style="text-align:left">tf.int64</td>
+<td style="text-align:left">64ビット整数</td>
+</tr>
+<tr>
+<td style="text-align:left">tf.uint8</td>
+<td style="text-align:left">符号無し8ビット整数</td>
+</tr>
+<tr>
+<td style="text-align:left">tf.string</td>
+<td style="text-align:left">可変長文字列</td>
+</tr>
+<tr>
+<td style="text-align:left">tf.bool</td>
+<td style="text-align:left">真偽値</td>
+</tr>
+</tbody>
+</table>
+<p>データタイプは格納するデータの型のことですね。</p>
+<h2 id="テンソルについて"><a href="#テンソルについて" class="headerlink" title="テンソルについて"></a>テンソルについて</h2><p>TensorFlowのTensorと一般的にテンソルというと少し違いがあるようです。<br>一般的にテンソルというと数学的なテンソルのことです。<br>wikiから引用すると</p>
+<blockquote>
+<p>テンソル（英: tensor, 独: Tensor）とは、線形的な量または線形的な幾何概念を一般化したもので、基底を選べば、多次元の配列として表現できるようなものである。</p>
+</blockquote>
+<p>とあります。ちょっと難しいですが、テンソルは、数学の線形の量を表す概念でのことです。<br>スカラーやベクトルもテンソルの一種になります。</p>
+<p>例えば、大きさのみを持つスカラーは階数0のテンソルと表し、同様に力の大きさとその向きを持つベクトルは階数1のテンソルとなります。<br>また加速度ベクトル間の関係などをあらわす線型変換は階数2のテンソルと言います。<br>ん〜難しいですが、こういう概念もきちんと理解していきたいですね。</p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/python/python-with/">
-            <time datetime="2016-11-26T15:00:00.000Z" itemprop="datePublished">2016-11-27</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/python/">python</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/python/">python</a>, <a class="tag-link" href="/tags/プログラムミング/">プログラムミング</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/python/ipython1/">IPython使ってみた</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/python/ipython1/">
-            <time datetime="2016-11-25T15:00:00.000Z" itemprop="datePublished">2016-11-26</time>
-        </a>
+        <footer class="article-footer">
+            
+    <div id="article-share-box" class="article-share-box-on">
+    <div class="article-share-links">
+        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/tensorflow/tensorflow4/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
+        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/tensorflow/tensorflow4/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
+        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/tensorflow/tensorflow4/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
+        <a href="https://plus.google.com/share?url=http://devlog.site/tensorflow/tensorflow4/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
     </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/python/">python</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/TensorFlow/">TensorFlow</a>, <a class="tag-link" href="/tags/python/">python</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/machine-learning/machine-learning1/">機械学習について調べてみた</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/machine-learning/machine-learning1/">
-            <time datetime="2016-11-24T15:00:00.000Z" itemprop="datePublished">2016-11-25</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/machine-learning/">機械学習</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/ディープラーニング/">ディープラーニング</a>, <a class="tag-link" href="/tags/機械学習/">機械学習</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/tensorflow/tensorflow3/">TensorFlowの基礎</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/tensorflow/tensorflow3/">
-            <time datetime="2016-11-23T15:00:00.000Z" itemprop="datePublished">2016-11-24</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/tensorflow/">tensorflow</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/TensorFlow/">TensorFlow</a>, <a class="tag-link" href="/tags/python/">python</a>, <a class="tag-link" href="/tags/機械学習/">機械学習</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/tensorflow/tensorflow2/">TensorFlowで四則演算をやってみた</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/tensorflow/tensorflow2/">
-            <time datetime="2016-11-22T15:00:00.000Z" itemprop="datePublished">2016-11-23</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/tensorflow/">tensorflow</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/TensorFlow/">TensorFlow</a>, <a class="tag-link" href="/tags/python/">python</a>, <a class="tag-link" href="/tags/機械学習/">機械学習</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/tensorflow/tensorflow1/">TensorFlowの環境を作ってみた</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/tensorflow/tensorflow1/">
-            <time datetime="2016-11-21T15:00:00.000Z" itemprop="datePublished">2016-11-22</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/tensorflow/">tensorflow</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/TensorFlow/">TensorFlow</a>, <a class="tag-link" href="/tags/python/">python</a>, <a class="tag-link" href="/tags/機械学習/">機械学習</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/hexo/Hexo-Blog-Start-3/">Hexoでブログをはじめてみた後編</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/hexo/Hexo-Blog-Start-3/">
-            <time datetime="2016-11-20T15:00:00.000Z" itemprop="datePublished">2016-11-21</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/hexo/">Hexo</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/hexo/">Hexo</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/hexo/Hexo-Blog-Start-2/">Hexoでブログをはじめてみた中編</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/hexo/Hexo-Blog-Start-2/">
-            <time datetime="2016-11-19T15:00:00.000Z" itemprop="datePublished">2016-11-20</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/hexo/">Hexo</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/hexo/">Hexo</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/hexo/Hexo-Blog-Start/">Hexoでブログをはじめてみた前編</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/hexo/Hexo-Blog-Start/">
-            <time datetime="2016-11-19T12:54:03.000Z" itemprop="datePublished">2016-11-19</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/hexo/">Hexo</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/hexo/">Hexo</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
+
+
+
+            
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/python/python-with/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">古い記事</strong>
+            <div class="article-nav-title">Pythonのwith構文について調べてみた</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+  <section id="related">
+      <div class="related-inner">
+          <header class="related-header">
+              <div class="related-header-line">
+                  <h2>関連記事</h2>
+              </div>
+          </header>
+          <ul class="related-posts"><li class="related-posts-item"><div class="related-posts-inner"><div class="related-posts-image"><a href="/tensorflow/tensorflow1/"><img src="/css/images/thumb-default-small.png" /></a></div><div class="related-posts-date">2016-11-22</div><div class="related-posts-title"><a href="/tensorflow/tensorflow1/" title="TensorFlowの環境を作ってみた" rel="bookmark">TensorFlowの環境を作ってみた</a></div><div class="related-posts-tags"><a href="/tags/python/">#python</a><a href="/tags/TensorFlow/">#TensorFlow</a><a href="/tags/機械学習/">#機械学習</a></div></div></li></ul>
+      </div>
+  </section>
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
 </section>
             
                 <aside id="sidebar">
@@ -763,7 +604,7 @@
 <script>
   (function() {
     var d = document, s = d.createElement('script');
-    s.src = '//devlog-2.disqus.com/count.js';
+    s.src = '//devlog-2.disqus.com/embed.js';
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
   })();
