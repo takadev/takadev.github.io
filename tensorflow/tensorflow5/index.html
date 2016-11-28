@@ -3,21 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Tensorとは何か？ | Devlog</title>
+    <title>TensorFlowの基本的なAPI1 | Devlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="TensorFlowのTensorって何？こちらの記事でオペレーションが扱うデータのことをTensorと書きましたが、このTensorって一体何なんでしょう？今回はこのTensorについてもっと詳しく調べてみたいと思います。
-公式サイトの説明はこちらになります。">
+    <meta name="description" content="TensorFlowのリファレンスを確認してみたネットにはTensorFlowのサンプルコードが山ほどあるので読んで勉強したい！と思ったのですが、APIをまだ全然理解していないので今回は基礎的なAPIのリファレンスを確認してみました。公式のリファレンスはこちら
+Pythonの対話モードでAPIを実行してみました。
+123python&amp;gt;&amp;gt;&amp;gt; import tensorflow as">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tensorとは何か？">
-<meta property="og:url" content="http://devlog.site/tensorflow/tensorflow4/index.html">
+<meta property="og:title" content="TensorFlowの基本的なAPI1">
+<meta property="og:url" content="http://devlog.site/tensorflow/tensorflow5/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="TensorFlowのTensorって何？こちらの記事でオペレーションが扱うデータのことをTensorと書きましたが、このTensorって一体何なんでしょう？今回はこのTensorについてもっと詳しく調べてみたいと思います。
-公式サイトの説明はこちらになります。">
-<meta property="og:updated_time" content="2016-11-28T00:55:12.000Z">
+<meta property="og:description" content="TensorFlowのリファレンスを確認してみたネットにはTensorFlowのサンプルコードが山ほどあるので読んで勉強したい！と思ったのですが、APIをまだ全然理解していないので今回は基礎的なAPIのリファレンスを確認してみました。公式のリファレンスはこちら
+Pythonの対話モードでAPIを実行してみました。
+123python&amp;gt;&amp;gt;&amp;gt; import tensorflow as">
+<meta property="og:updated_time" content="2016-11-28T15:59:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tensorとは何か？">
-<meta name="twitter:description" content="TensorFlowのTensorって何？こちらの記事でオペレーションが扱うデータのことをTensorと書きましたが、このTensorって一体何なんでしょう？今回はこのTensorについてもっと詳しく調べてみたいと思います。
-公式サイトの説明はこちらになります。">
+<meta name="twitter:title" content="TensorFlowの基本的なAPI1">
+<meta name="twitter:description" content="TensorFlowのリファレンスを確認してみたネットにはTensorFlowのサンプルコードが山ほどあるので読んで勉強したい！と思ったのですが、APIをまだ全然理解していないので今回は基礎的なAPIのリファレンスを確認してみました。公式のリファレンスはこちら
+Pythonの対話モードでAPIを実行してみました。
+123python&amp;gt;&amp;gt;&amp;gt; import tensorflow as">
     
 
     
@@ -206,7 +209,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-tensorflow4" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-tensorflow5" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -214,7 +217,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Tensorとは何か？
+            TensorFlowの基本的なAPI1
         </h1>
     
 
@@ -223,8 +226,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/tensorflow/tensorflow4/">
-            <time datetime="2016-11-27T15:00:00.000Z" itemprop="datePublished">2016-11-28</time>
+        <a href="/tensorflow/tensorflow5/">
+            <time datetime="2016-11-28T15:00:00.000Z" itemprop="datePublished">2016-11-29</time>
         </a>
     </div>
 
@@ -249,110 +252,23 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="TensorFlowのTensorって何？"><a href="#TensorFlowのTensorって何？" class="headerlink" title="TensorFlowのTensorって何？"></a>TensorFlowのTensorって何？</h2><p><a href="http://devlog.site/tensorflow/tensorflow3">こちらの記事</a>でオペレーションが扱うデータのことをTensorと書きましたが、このTensorって一体何なんでしょう？<br>今回はこのTensorについてもっと詳しく調べてみたいと思います。</p>
-<p>公式サイトの説明は<a href="https://www.tensorflow.org/versions/r0.11/resources/dims_types.html" target="_blank" rel="external">こちら</a>になります。</p>
+            <h2 id="TensorFlowのリファレンスを確認してみた"><a href="#TensorFlowのリファレンスを確認してみた" class="headerlink" title="TensorFlowのリファレンスを確認してみた"></a>TensorFlowのリファレンスを確認してみた</h2><p>ネットにはTensorFlowのサンプルコードが山ほどあるので読んで勉強したい！と思ったのですが、APIをまだ全然理解していないので今回は基礎的なAPIのリファレンスを確認してみました。<br>公式のリファレンスは<a href="https://www.tensorflow.org/api_docs/python/index.html" target="_blank" rel="external">こちら</a></p>
+<p>Pythonの対話モードでAPIを実行してみました。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">python</div><div class="line">&gt;&gt;&gt; import tensorflow as tf</div><div class="line">&gt;&gt;&gt; sess = tf.Session()</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="TensorFlowのTensorはデータ構造"><a href="#TensorFlowのTensorはデータ構造" class="headerlink" title="TensorFlowのTensorはデータ構造"></a>TensorFlowのTensorはデータ構造</h2><p>TensorFlowで言うところのTensorというのは扱うデータ構造のことで、これを使ってを色々なデータを表現しています。<br>このTensorはRankとShape、Data Typesを持っています。</p>
-<h2 id="RankとShape"><a href="#RankとShape" class="headerlink" title="RankとShape"></a>RankとShape</h2><p>Rankは「テンソルの階数」、Shapeは「テンソルの形」のことを言います。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Rank</th>
-<th style="text-align:left">Shape</th>
-<th style="text-align:left">Dimension</th>
-<th style="text-align:left">例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">0</td>
-<td style="text-align:left">[]</td>
-<td style="text-align:left">0次元</td>
-<td style="text-align:left">s = 713</td>
-</tr>
-<tr>
-<td style="text-align:left">1</td>
-<td style="text-align:left">[D0]</td>
-<td style="text-align:left">1次元</td>
-<td style="text-align:left">v = [1.1,2.2,3.3]</td>
-</tr>
-<tr>
-<td style="text-align:left">2</td>
-<td style="text-align:left">[D0, D1]</td>
-<td style="text-align:left">2次元</td>
-<td style="text-align:left">m = [[1,2,3],[4,5,6],[7,8,9]]</td>
-</tr>
-<tr>
-<td style="text-align:left">3</td>
-<td style="text-align:left">[D0, D1, D2]</td>
-<td style="text-align:left">3次元</td>
-<td style="text-align:left">t = [[[1,2,3]],[[4,5,6]],[[7,8,9]]]</td>
-</tr>
-<tr>
-<td style="text-align:left">N</td>
-<td style="text-align:left">[D0,D1, …Dn-1]</td>
-<td style="text-align:left">n次元</td>
-</tr>
-</tbody>
-</table>
-<p>このようにRankが0ならShapeは[]となり0次元の値で、<br>Rankが3ならShapeは[D0, D1, D2]で3次元の配列になるってことですね。</p>
-<h2 id="Data-Types"><a href="#Data-Types" class="headerlink" title="Data Types"></a>Data Types</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">データタイプ</th>
-<th style="text-align:left">解説</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">tf.float16</td>
-<td style="text-align:left">16ビット浮動小数点</td>
-</tr>
-<tr>
-<td style="text-align:left">tf.float32</td>
-<td style="text-align:left">32ビット浮動小数点</td>
-</tr>
-<tr>
-<td style="text-align:left">tf.float64</td>
-<td style="text-align:left">64ビット浮動小数点</td>
-</tr>
-<tr>
-<td style="text-align:left">tf.int8</td>
-<td style="text-align:left">8ビット整数</td>
-</tr>
-<tr>
-<td style="text-align:left">tf.int16</td>
-<td style="text-align:left">16ビット整数</td>
-</tr>
-<tr>
-<td style="text-align:left">tf.int32</td>
-<td style="text-align:left">32ビット整数</td>
-</tr>
-<tr>
-<td style="text-align:left">tf.int64</td>
-<td style="text-align:left">64ビット整数</td>
-</tr>
-<tr>
-<td style="text-align:left">tf.uint8</td>
-<td style="text-align:left">符号無し8ビット整数</td>
-</tr>
-<tr>
-<td style="text-align:left">tf.string</td>
-<td style="text-align:left">可変長文字列</td>
-</tr>
-<tr>
-<td style="text-align:left">tf.bool</td>
-<td style="text-align:left">真偽値</td>
-</tr>
-</tbody>
-</table>
-<p>データタイプは格納するデータの型のことですね。</p>
-<h2 id="テンソルについて"><a href="#テンソルについて" class="headerlink" title="テンソルについて"></a>テンソルについて</h2><p>TensorFlowのTensorと一般的にテンソルというと少し違いがあるようです。<br>一般的にテンソルというと数学的なテンソルのことです。<br>wikiから引用すると</p>
-<blockquote>
-<p>テンソル（英: tensor, 独: Tensor）とは、線形的な量または線形的な幾何概念を一般化したもので、基底を選べば、多次元の配列として表現できるようなものである。</p>
-</blockquote>
-<p>とあります。ちょっと難しいですが、テンソルは、数学の線形の量を表す概念でのことです。<br>スカラーやベクトルもテンソルの一種になります。</p>
-<p>例えば、大きさのみを持つスカラーは階数0のテンソルと表し、同様に力の大きさとその向きを持つベクトルは階数1のテンソルとなります。<br>また加速度ベクトル間の関係などをあらわす線型変換は階数2のテンソルと言います。<br>ん〜難しいですが、こういう概念もきちんと理解していきたいですね。</p>
+<h2 id="zeros"><a href="#zeros" class="headerlink" title="zeros"></a>zeros</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; sess.run(tf.zeros(3))</div><div class="line">array([ 0.,  0.,  0.], dtype=float32)</div><div class="line"></div><div class="line">&gt;&gt;&gt; sess.run(tf.zeros([3,3]))</div><div class="line">array([[ 0.,  0.,  0.],</div><div class="line">       [ 0.,  0.,  0.],</div><div class="line">       [ 0.,  0.,  0.]], dtype=float32)</div><div class="line"></div><div class="line">&gt;&gt;&gt; sess.run(tf.zeros([3,3,3]))</div><div class="line">array([[[ 0.,  0.,  0.],</div><div class="line">        [ 0.,  0.,  0.],</div><div class="line">        [ 0.,  0.,  0.]],</div><div class="line"></div><div class="line">       [[ 0.,  0.,  0.],</div><div class="line">        [ 0.,  0.,  0.],</div><div class="line">        [ 0.,  0.,  0.]],</div><div class="line"></div><div class="line">       [[ 0.,  0.,  0.],</div><div class="line">        [ 0.,  0.,  0.],</div><div class="line">        [ 0.,  0.,  0.]]], dtype=float32)</div><div class="line"></div><div class="line">&gt;&gt;&gt; sess.run(tf.zeros([3,3], dtype=tf.int32))</div><div class="line">array([[0, 0, 0],</div><div class="line">       [0, 0, 0],</div><div class="line">       [0, 0, 0]], dtype=int32)</div><div class="line"></div><div class="line">&gt;&gt;&gt; sess.run(tf.zeros([3,3], &quot;int32&quot;))</div><div class="line">array([[0, 0, 0],</div><div class="line">       [0, 0, 0],</div><div class="line">       [0, 0, 0]], dtype=int32)</div></pre></td></tr></table></figure>
+<p>0埋めされたTensorを作成してくれるAPIですね。<br>第二引数でdtype=の後にデータタイプを指定できるようです。<br>dtype=ではなく文字列として”int32”としてもいいみたいです。<br>指定しないとデフォルトでtf.float32データタイプになるようです。</p>
+<h2 id="zeros-like"><a href="#zeros-like" class="headerlink" title="zeros_like"></a>zeros_like</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; sess.run(tf.zeros_like(0))</div><div class="line">0</div><div class="line"></div><div class="line">&gt;&gt;&gt; sess.run(tf.zeros_like([1]))</div><div class="line">array([0], dtype=int32)</div><div class="line"></div><div class="line">&gt;&gt;&gt; sess.run(tf.zeros_like([1,2]))</div><div class="line">array([0, 0], dtype=int32)</div><div class="line"></div><div class="line">&gt;&gt;&gt; sess.run(tf.zeros_like([[1,2],[3,4]]))</div><div class="line">array([[0, 0],</div><div class="line">       [0, 0]], dtype=int32)</div><div class="line"></div><div class="line">&gt;&gt;&gt; sess.run(tf.zeros_like([[1,2],[3,4],[5,6]]))</div><div class="line">array([[0, 0],</div><div class="line">       [0, 0],</div><div class="line">       [0, 0]], dtype=int32)</div><div class="line"></div><div class="line">&gt;&gt;&gt; sess.run(tf.zeros_like([[1,2],[3,4]], &quot;float32&quot;))</div><div class="line">array([[ 0.,  0.],</div><div class="line">       [ 0.,  0.]], dtype=float32)</div></pre></td></tr></table></figure>
+<p>zeros_likeは第一引数と同じ要素数のTensorを0埋めして作成してくるようです。<br>zerosと同様にデータタイプの指定もできますね。ただzerosの場合はデフォルトでtf.float32だったのが、<br>zeros_likeはデフォルトはtf.int32になっていますね。なんでだろう？？</p>
+<h2 id="ones"><a href="#ones" class="headerlink" title="ones"></a>ones</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; sess.run(tf.ones([3]))</div><div class="line">array([ 1.,  1.,  1.], dtype=float32)</div><div class="line"></div><div class="line">&gt;&gt;&gt; sess.run(tf.ones([3,3]))</div><div class="line">array([[ 1.,  1.,  1.],</div><div class="line">       [ 1.,  1.,  1.],</div><div class="line">       [ 1.,  1.,  1.]], dtype=float32)</div></pre></td></tr></table></figure>
+<p>基本的にzerosと同様ですね。<br>zerosが0に対してonesは1埋めされたTensorを作成してくるAPIですね。<br>データタイプの指定も前述のAPIと同様のようですね。</p>
+<h2 id="ones-like"><a href="#ones-like" class="headerlink" title="ones_like"></a>ones_like</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; sess.run(tf.ones_like(0))</div><div class="line">1</div><div class="line"></div><div class="line">&gt;&gt;&gt; sess.run(tf.ones_like([1]))</div><div class="line">array([1], dtype=int32)</div><div class="line"></div><div class="line">&gt;&gt;&gt; sess.run(tf.ones_like([1,2], &quot;float32&quot;))</div><div class="line">array([ 1.,  1.], dtype=float32)</div></pre></td></tr></table></figure>
+<p>こちらもzeros_likeと同様で要素が0でなく1で埋められているだけの違いですね。</p>
+<h2 id="fill"><a href="#fill" class="headerlink" title="fill"></a>fill</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; sess.run(tf.fill([],3))</div><div class="line">3</div><div class="line"></div><div class="line">&gt;&gt;&gt; sess.run(tf.fill([3],3))</div><div class="line">array([3, 3, 3], dtype=int32)</div><div class="line"></div><div class="line">&gt;&gt;&gt; sess.run(tf.fill([3,3],3))</div><div class="line">array([[3, 3, 3],</div><div class="line">       [3, 3, 3],</div><div class="line">       [3, 3, 3]], dtype=int32)</div><div class="line"></div><div class="line">&gt;&gt;&gt; sess.run(tf.fill([3], 3.5))</div><div class="line">array([ 3.5,  3.5,  3.5], dtype=float32)</div></pre></td></tr></table></figure>
+<p>fillは第一引数で指定した要素数のTensorを第二引数で指定した値で埋めて返してくれるAPIのようです。</p>
+<h2 id="constant"><a href="#constant" class="headerlink" title="constant"></a>constant</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; sess.run(tf.constant(1.5))</div><div class="line">1.5</div><div class="line"></div><div class="line">&gt;&gt;&gt; sess.run(tf.constant([1]))</div><div class="line">array([1], dtype=int32)</div><div class="line"></div><div class="line">&gt;&gt;&gt; sess.run(tf.constant([1.5, 2]))</div><div class="line">array([ 1.5,  2. ], dtype=float32)</div><div class="line"></div><div class="line">&gt;&gt;&gt; sess.run(tf.constant([[1.5, 2],[3, 4]], &quot;float32&quot;))</div><div class="line">array([[ 1.5,  2. ],</div><div class="line">       [ 3. ,  4. ]], dtype=float32)</div><div class="line">       </div><div class="line">&gt;&gt;&gt; sess.run(tf.constant(1.5, &quot;float32&quot;,[2,2]))</div><div class="line">array([[ 1.5,  1.5],</div><div class="line">       [ 1.5,  1.5]], dtype=float32)</div></pre></td></tr></table></figure>
+<p>定数のTensorを生成するAPIのようですね。<br>第三引数にSharpを指定することも出来ます。</p>
+<p>極々基礎的なAPIを確認してみました。今後も使っていてわからないものや気になったAPIをチェックしていきたいと思います。</p>
 
         
         </div>
@@ -360,10 +276,10 @@
             
     <div id="article-share-box" class="article-share-box-on">
     <div class="article-share-links">
-        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/tensorflow/tensorflow4/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
-        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/tensorflow/tensorflow4/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
-        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/tensorflow/tensorflow4/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
-        <a href="https://plus.google.com/share?url=http://devlog.site/tensorflow/tensorflow4/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
+        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/tensorflow/tensorflow5/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
+        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/tensorflow/tensorflow5/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
+        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/tensorflow/tensorflow5/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
+        <a href="https://plus.google.com/share?url=http://devlog.site/tensorflow/tensorflow5/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
     </div>
 </div>
 
@@ -376,19 +292,10 @@
         
 <nav id="article-nav">
     
-        <a href="/tensorflow/tensorflow5/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">新しい記事</strong>
-            <div class="article-nav-title">
-                
-                    TensorFlowの基本的なAPI1
-                
-            </div>
-        </a>
     
-    
-        <a href="/python/python-with/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/tensorflow/tensorflow4/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">古い記事</strong>
-            <div class="article-nav-title">Pythonのwith構文について調べてみた</div>
+            <div class="article-nav-title">Tensorとは何か？</div>
         </a>
     
 </nav>
