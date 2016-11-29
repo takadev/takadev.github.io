@@ -3,17 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>タグ: ディープラーニング | Devlog</title>
+    <title>Docker基本コマンド | Devlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Devlog">
-<meta property="og:url" content="http://devlog.site/tags/ディープラーニング/index.html">
+    <meta name="description" content="Dockerを使うときのメモ先人からDockerの環境を引き継ぐこととなりDockerほぼ使ったことなかったので色々調べたことをメモしておきます。
+Dockerイメージの検索DockerイメージをDocker Hub上から検索できます。
+1docker search [イメージ名]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker基本コマンド">
+<meta property="og:url" content="http://devlog.site/docker/docker1/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
+<meta property="og:description" content="Dockerを使うときのメモ先人からDockerの環境を引き継ぐこととなりDockerほぼ使ったことなかったので色々調べたことをメモしておきます。
+Dockerイメージの検索DockerイメージをDocker Hub上から検索できます。
+1docker search [イメージ名]">
+<meta property="og:updated_time" content="2016-11-29T16:25:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Devlog">
-<meta name="twitter:description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
+<meta name="twitter:title" content="Docker基本コマンド">
+<meta name="twitter:description" content="Dockerを使うときのメモ先人からDockerの環境を引き継ぐこととなりDockerほぼ使ったことなかったので色々調べたことをメモしておきます。
+Dockerイメージの検索DockerイメージをDocker Hub上から検索できます。
+1docker search [イメージ名]">
     
 
     
@@ -198,50 +205,127 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#ディープラーニング</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-docker1" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/machine-learning/machine-learning1/">機械学習について調べてみた</a>
+        <h1 class="article-title" itemprop="name">
+            Docker基本コマンド
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/machine-learning/machine-learning1/">
-            <time datetime="2016-11-24T15:00:00.000Z" itemprop="datePublished">2016-11-25</time>
+        <a href="/docker/docker1/">
+            <time datetime="2016-11-29T15:00:00.000Z" itemprop="datePublished">2016-11-30</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/machine-learning/">機械学習</a>
+        <a class="article-category-link" href="/categories/docker/">Docker</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/ディープラーニング/">ディープラーニング</a>, <a class="tag-link" href="/tags/機械学習/">機械学習</a>
+        <a class="tag-link" href="/tags/Docker/">Docker</a>
     </div>
 
-                </div>
-            </div>
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="Dockerを使うときのメモ"><a href="#Dockerを使うときのメモ" class="headerlink" title="Dockerを使うときのメモ"></a>Dockerを使うときのメモ</h2><p>先人からDockerの環境を引き継ぐこととなりDockerほぼ使ったことなかったので<br>色々調べたことをメモしておきます。</p>
+<h2 id="Dockerイメージの検索"><a href="#Dockerイメージの検索" class="headerlink" title="Dockerイメージの検索"></a>Dockerイメージの検索</h2><p>DockerイメージをDocker Hub上から検索できます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker search [イメージ名]</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="Dcokerイメージをダウンロード"><a href="#Dcokerイメージをダウンロード" class="headerlink" title="Dcokerイメージをダウンロード"></a>Dcokerイメージをダウンロード</h2><p>Docker Hub上からイメージをダウンロードします</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull [イメージ名]</div></pre></td></tr></table></figure>
+<h2 id="取得したDockerイメージの確認"><a href="#取得したDockerイメージの確認" class="headerlink" title="取得したDockerイメージの確認"></a>取得したDockerイメージの確認</h2><p>pullしてきたイメージの一覧を確認できる</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker images</div></pre></td></tr></table></figure>
+<h2 id="起動中のコンテナの一覧を確認"><a href="#起動中のコンテナの一覧を確認" class="headerlink" title="起動中のコンテナの一覧を確認"></a>起動中のコンテナの一覧を確認</h2><p><code>-a</code>を付けると停止中のコンテナも取得できる</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker ps -a</div></pre></td></tr></table></figure>
+<h2 id="DockerfileからDockerイメージを構築"><a href="#DockerfileからDockerイメージを構築" class="headerlink" title="DockerfileからDockerイメージを構築"></a>DockerfileからDockerイメージを構築</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker build</div></pre></td></tr></table></figure>
+<h2 id="Dockerイメージからコンテナを作成"><a href="#Dockerイメージからコンテナを作成" class="headerlink" title="Dockerイメージからコンテナを作成"></a>Dockerイメージからコンテナを作成</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker create [イメージ名]</div></pre></td></tr></table></figure>
+<h2 id="Dockerコンテナをスタート"><a href="#Dockerコンテナをスタート" class="headerlink" title="Dockerコンテナをスタート"></a>Dockerコンテナをスタート</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker start [コンテナ名]</div></pre></td></tr></table></figure>
+<h2 id="Dockerコンテナのストップ"><a href="#Dockerコンテナのストップ" class="headerlink" title="Dockerコンテナのストップ"></a>Dockerコンテナのストップ</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker stop [コンテナ名]</div></pre></td></tr></table></figure>
+<h2 id="Dcokerコンテナの削除"><a href="#Dcokerコンテナの削除" class="headerlink" title="Dcokerコンテナの削除"></a>Dcokerコンテナの削除</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker rm [コンテナ名]</div></pre></td></tr></table></figure>
+<h2 id="Dockerビルド時の履歴を確認"><a href="#Dockerビルド時の履歴を確認" class="headerlink" title="Dockerビルド時の履歴を確認"></a>Dockerビルド時の履歴を確認</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker history [IMAGE]</div></pre></td></tr></table></figure>
+<h2 id="Dockerのコンテナで動作中のシェルへの接続方法"><a href="#Dockerのコンテナで動作中のシェルへの接続方法" class="headerlink" title="Dockerのコンテナで動作中のシェルへの接続方法"></a>Dockerのコンテナで動作中のシェルへの接続方法</h2><p>動作中のDockerにシェルでつないで色々いじりたいとき</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it [コンテナ名] /bin/bash</div></pre></td></tr></table></figure>
+<h2 id="Dockerコンテナのログを確認"><a href="#Dockerコンテナのログを確認" class="headerlink" title="Dockerコンテナのログを確認"></a>Dockerコンテナのログを確認</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker logs [コンテナ名]</div></pre></td></tr></table></figure>
+<h2 id="Dockerイメージの削除"><a href="#Dockerイメージの削除" class="headerlink" title="Dockerイメージの削除"></a>Dockerイメージの削除</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker rmi [IMAGE]</div></pre></td></tr></table></figure>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            
+    <div id="article-share-box" class="article-share-box-on">
+    <div class="article-share-links">
+        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/docker/docker1/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
+        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/docker/docker1/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
+        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/docker/docker1/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
+        <a href="https://plus.google.com/share?url=http://devlog.site/docker/docker1/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
+    </div>
 </div>
+
+
+
+            
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/tensorflow/tensorflow5/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">古い記事</strong>
+            <div class="article-nav-title">TensorFlowの基本的なAPI1</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+  <section id="related">
+      <div class="related-inner">
+          <header class="related-header">
+              <div class="related-header-line">
+                  <h2>関連記事</h2>
+              </div>
+          </header>
+          
+      </div>
+  </section>
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
 </section>
             
                 <aside id="sidebar">
@@ -435,7 +519,7 @@
 <script>
   (function() {
     var d = document, s = d.createElement('script');
-    s.src = '//devlog-2.disqus.com/count.js';
+    s.src = '//devlog-2.disqus.com/embed.js';
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
   })();
