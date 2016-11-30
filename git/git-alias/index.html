@@ -3,24 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Docker基本コマンド | Devlog</title>
+    <title>gitエイリアス | Devlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Dockerを使うときのメモ先人からDockerの環境を引き継ぐこととなりDockerほぼ使ったことなかったので色々調べたことをメモしておきます。
-Dockerイメージの検索DockerイメージをDocker Hub上から検索できます。
-1docker search [イメージ名]">
+    <meta name="description" content="gitエイリアスgitはたくさんのコマンドがあってオプションも盛りだくさんなので毎度忘れてしまうし、いちいち打つのが大変なのでそんな時はgitエイリアスが便利です。
+.gitconfigファイルで指定.gitconfigファイルに以下のようにaliasセクションに短縮形 = 展開形というふうに書きます。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker基本コマンド">
-<meta property="og:url" content="http://devlog.site/docker/docker1/index.html">
+<meta property="og:title" content="gitエイリアス">
+<meta property="og:url" content="http://devlog.site/git/git-alias/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="Dockerを使うときのメモ先人からDockerの環境を引き継ぐこととなりDockerほぼ使ったことなかったので色々調べたことをメモしておきます。
-Dockerイメージの検索DockerイメージをDocker Hub上から検索できます。
-1docker search [イメージ名]">
-<meta property="og:updated_time" content="2016-11-29T16:25:09.000Z">
+<meta property="og:description" content="gitエイリアスgitはたくさんのコマンドがあってオプションも盛りだくさんなので毎度忘れてしまうし、いちいち打つのが大変なのでそんな時はgitエイリアスが便利です。
+.gitconfigファイルで指定.gitconfigファイルに以下のようにaliasセクションに短縮形 = 展開形というふうに書きます。">
+<meta property="og:updated_time" content="2016-11-30T15:33:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker基本コマンド">
-<meta name="twitter:description" content="Dockerを使うときのメモ先人からDockerの環境を引き継ぐこととなりDockerほぼ使ったことなかったので色々調べたことをメモしておきます。
-Dockerイメージの検索DockerイメージをDocker Hub上から検索できます。
-1docker search [イメージ名]">
+<meta name="twitter:title" content="gitエイリアス">
+<meta name="twitter:description" content="gitエイリアスgitはたくさんのコマンドがあってオプションも盛りだくさんなので毎度忘れてしまうし、いちいち打つのが大変なのでそんな時はgitエイリアスが便利です。
+.gitconfigファイルで指定.gitconfigファイルに以下のようにaliasセクションに短縮形 = 展開形というふうに書きます。">
     
 
     
@@ -205,7 +202,7 @@ Dockerイメージの検索DockerイメージをDocker Hub上から検索でき�
 </aside>
 
             
-            <section id="main"><article id="post-docker1" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-git-alias" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -213,7 +210,7 @@ Dockerイメージの検索DockerイメージをDocker Hub上から検索でき�
                 
     
         <h1 class="article-title" itemprop="name">
-            Docker基本コマンド
+            gitエイリアス
         </h1>
     
 
@@ -222,8 +219,8 @@ Dockerイメージの検索DockerイメージをDocker Hub上から検索でき�
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/docker/docker1/">
-            <time datetime="2016-11-29T15:00:00.000Z" itemprop="datePublished">2016-11-30</time>
+        <a href="/git/git-alias/">
+            <time datetime="2016-11-30T15:00:00.000Z" itemprop="datePublished">2016-12-01</time>
         </a>
     </div>
 
@@ -231,13 +228,13 @@ Dockerイメージの検索DockerイメージをDocker Hub上から検索でき�
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/docker/">Docker</a>
+        <a class="article-category-link" href="/categories/git/">git</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Docker/">Docker</a>
+        <a class="tag-link" href="/tags/alias/">alias</a>, <a class="tag-link" href="/tags/git/">git</a>
     </div>
 
                     </div>
@@ -248,26 +245,18 @@ Dockerイメージの検索DockerイメージをDocker Hub上から検索でき�
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="Dockerを使うときのメモ"><a href="#Dockerを使うときのメモ" class="headerlink" title="Dockerを使うときのメモ"></a>Dockerを使うときのメモ</h2><p>先人からDockerの環境を引き継ぐこととなりDockerほぼ使ったことなかったので<br>色々調べたことをメモしておきます。</p>
-<h2 id="Dockerイメージの検索"><a href="#Dockerイメージの検索" class="headerlink" title="Dockerイメージの検索"></a>Dockerイメージの検索</h2><p>DockerイメージをDocker Hub上から検索できます。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker search [イメージ名]</div></pre></td></tr></table></figure>
+            <h2 id="gitエイリアス"><a href="#gitエイリアス" class="headerlink" title="gitエイリアス"></a>gitエイリアス</h2><p>gitはたくさんのコマンドがあってオプションも盛りだくさんなので毎度忘れてしまうし、いちいち打つのが大変なのでそんな時はgitエイリアスが便利です。</p>
+<h2 id="gitconfigファイルで指定"><a href="#gitconfigファイルで指定" class="headerlink" title=".gitconfigファイルで指定"></a>.gitconfigファイルで指定</h2><p>.gitconfigファイルに以下のようにaliasセクションに<code>短縮形 = 展開形</code>というふうに書きます。</p>
 <a id="more"></a>
-<h2 id="Dcokerイメージをダウンロード"><a href="#Dcokerイメージをダウンロード" class="headerlink" title="Dcokerイメージをダウンロード"></a>Dcokerイメージをダウンロード</h2><p>Docker Hub上からイメージをダウンロードします</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull [イメージ名]</div></pre></td></tr></table></figure>
-<h2 id="取得したDockerイメージの確認"><a href="#取得したDockerイメージの確認" class="headerlink" title="取得したDockerイメージの確認"></a>取得したDockerイメージの確認</h2><p>pullしてきたイメージの一覧を確認できる</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker images</div></pre></td></tr></table></figure>
-<h2 id="起動中のコンテナの一覧を確認"><a href="#起動中のコンテナの一覧を確認" class="headerlink" title="起動中のコンテナの一覧を確認"></a>起動中のコンテナの一覧を確認</h2><p><code>-a</code>を付けると停止中のコンテナも取得できる</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker ps -a</div></pre></td></tr></table></figure>
-<h2 id="DockerfileからDockerイメージを構築"><a href="#DockerfileからDockerイメージを構築" class="headerlink" title="DockerfileからDockerイメージを構築"></a>DockerfileからDockerイメージを構築</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker build</div></pre></td></tr></table></figure>
-<h2 id="Dockerイメージからコンテナを作成"><a href="#Dockerイメージからコンテナを作成" class="headerlink" title="Dockerイメージからコンテナを作成"></a>Dockerイメージからコンテナを作成</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker create [イメージ名]</div></pre></td></tr></table></figure>
-<h2 id="Dockerコンテナをスタート"><a href="#Dockerコンテナをスタート" class="headerlink" title="Dockerコンテナをスタート"></a>Dockerコンテナをスタート</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker start [コンテナ名]</div></pre></td></tr></table></figure>
-<h2 id="Dockerコンテナのストップ"><a href="#Dockerコンテナのストップ" class="headerlink" title="Dockerコンテナのストップ"></a>Dockerコンテナのストップ</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker stop [コンテナ名]</div></pre></td></tr></table></figure>
-<h2 id="Dcokerコンテナの削除"><a href="#Dcokerコンテナの削除" class="headerlink" title="Dcokerコンテナの削除"></a>Dcokerコンテナの削除</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker rm [コンテナ名]</div></pre></td></tr></table></figure>
-<h2 id="Dockerビルド時の履歴を確認"><a href="#Dockerビルド時の履歴を確認" class="headerlink" title="Dockerビルド時の履歴を確認"></a>Dockerビルド時の履歴を確認</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker history [IMAGE]</div></pre></td></tr></table></figure>
-<h2 id="Dockerのコンテナで動作中のシェルへの接続方法"><a href="#Dockerのコンテナで動作中のシェルへの接続方法" class="headerlink" title="Dockerのコンテナで動作中のシェルへの接続方法"></a>Dockerのコンテナで動作中のシェルへの接続方法</h2><p>動作中のDockerにシェルでつないで色々いじりたいとき</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it [コンテナ名] /bin/bash</div></pre></td></tr></table></figure>
-<h2 id="Dockerコンテナのログを確認"><a href="#Dockerコンテナのログを確認" class="headerlink" title="Dockerコンテナのログを確認"></a>Dockerコンテナのログを確認</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker logs [コンテナ名]</div></pre></td></tr></table></figure>
-<h2 id="Dockerイメージの削除"><a href="#Dockerイメージの削除" class="headerlink" title="Dockerイメージの削除"></a>Dockerイメージの削除</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker rmi [IMAGE]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[alias]</div><div class="line">    ai = add -i</div></pre></td></tr></table></figure>
+<p>こんな感じで書きます。</p>
+<h2 id="設定しているエイリアス"><a href="#設定しているエイリアス" class="headerlink" title="設定しているエイリアス"></a>設定しているエイリアス</h2><p>私が設定しているエイリアスですが、ちゃんと見返すと全然使ってないものも結構ありましたw</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">ai	 =&gt; add -i</div><div class="line">al	 =&gt; !git config --get-regexp &apos;^alias\.&apos; | sed &apos;s/alias\.\([^ ]*\) \(.*\)/\1\	 =&gt; \2/&apos; | sort</div><div class="line">br	 =&gt; branch</div><div class="line">ch	 =&gt; checkout</div><div class="line">cl	 =&gt; clean</div><div class="line">co	 =&gt; commit</div><div class="line">cp	 =&gt; cherry-pick</div><div class="line">d1	 =&gt; diff HEAD~</div><div class="line">d2	 =&gt; diff HEAD~2</div><div class="line">d3	 =&gt; diff HEAD~3</div><div class="line">dc	 =&gt; diff --cached</div><div class="line">dn	 =&gt; diff --name-only</div><div class="line">fi	 =&gt; !git ls-files | grep -i</div><div class="line">fa	 =&gt; fetch --all --prune</div><div class="line">fe	 =&gt; fetch</div><div class="line">gr	 =&gt; log --graph --all --date=short --pretty=format:&apos;%Cgreen%h %cd %Cblue%cn %Creset%s %Cred%d%Creset&apos;</div><div class="line">ll	 =&gt; log --name-status --pretty=oneline</div><div class="line">rs	 =&gt; reset</div><div class="line">re   =&gt; rebase</div><div class="line">sh	 =&gt; show</div><div class="line">sl	 =&gt; stash list</div><div class="line">sp	 =&gt; stash pop</div><div class="line">ss	 =&gt; stash save</div><div class="line">st	 =&gt; status</div><div class="line">sts	 =&gt; status -s</div></pre></td></tr></table></figure>
+<p>この機会に少し見直してみようと思います。</p>
+<h2 id="どんなエイリアス設定したか忘れてしまったとき"><a href="#どんなエイリアス設定したか忘れてしまったとき" class="headerlink" title="どんなエイリアス設定したか忘れてしまったとき"></a>どんなエイリアス設定したか忘れてしまったとき</h2><p>色々なエイリアスを設定しているとたまにしか使わないのは忘れがちになってしまうのでそんなときに役に立つのがこれ</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">al  =&gt; !git config --get-regexp &apos;^alias\.&apos; | sed &apos;s/alias\.\([^ ]*\) \(.*\)/\1\ =&gt; \2/&apos; | sort</div></pre></td></tr></table></figure>
+<p>エイリアスの一覧を表示してくれるエイリアス。.gitconfigをいちいち確認しなくていいので便利です。</p>
+<p>その他にもたくさん便利な使い方があるのでエイリアスはどんどん設定して効率化していきたいですね。</p>
 
         
         </div>
@@ -275,10 +264,10 @@ Dockerイメージの検索DockerイメージをDocker Hub上から検索でき�
             
     <div id="article-share-box" class="article-share-box-on">
     <div class="article-share-links">
-        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/docker/docker1/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
-        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/docker/docker1/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
-        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/docker/docker1/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
-        <a href="https://plus.google.com/share?url=http://devlog.site/docker/docker1/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
+        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/git/git-alias/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
+        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/git/git-alias/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
+        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/git/git-alias/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
+        <a href="https://plus.google.com/share?url=http://devlog.site/git/git-alias/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
     </div>
 </div>
 
@@ -291,19 +280,10 @@ Dockerイメージの検索DockerイメージをDocker Hub上から検索でき�
         
 <nav id="article-nav">
     
-        <a href="/git/git-alias/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">新しい記事</strong>
-            <div class="article-nav-title">
-                
-                    gitエイリアス
-                
-            </div>
-        </a>
     
-    
-        <a href="/tensorflow/tensorflow5/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/docker/docker1/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">古い記事</strong>
-            <div class="article-nav-title">TensorFlowの基本的なAPI1</div>
+            <div class="article-nav-title">Docker基本コマンド</div>
         </a>
     
 </nav>
