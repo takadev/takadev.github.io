@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[NumPyを試してみた]]></title>
-      <url>http://devlog.site/numpy/python/numpy/</url>
+      <url>http://devlog.site/python/numpy/</url>
       <content type="html"><![CDATA[<h2 id="NumPyについて"><a href="#NumPyについて" class="headerlink" title="NumPyについて"></a>NumPyについて</h2><p>最近読み始めた「ゼロから作るDeep Learning」という本の最初にNumPyのことについて書かれていたので忘れないうちにメモしておきます。</p>
 <h2 id="NumPyとは？"><a href="#NumPyとは？" class="headerlink" title="NumPyとは？"></a>NumPyとは？</h2><p>NumPyはPythonの数値計算数のためのライブラリで、高度な数学アルゴリズムや配列を操作するのに便利なメソッドが多く用意されており、その上パフォーマンスも良いという優れもののようです。<br>ディープラーニングの実装にはよく使われるそうです。<br><a id="more"></a></p>
 <h2 id="Anacondaディストリビューションのインストール"><a href="#Anacondaディストリビューションのインストール" class="headerlink" title="Anacondaディストリビューションのインストール"></a>Anacondaディストリビューションのインストール</h2><p>NumPyを使うにはAnacondaディストリビューションを使うことをお進められたので、インストールしてみました。<br>pyenvでまずはインストールできる一覧を確認</p>
