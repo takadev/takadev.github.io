@@ -4,6 +4,61 @@
   
     
     <entry>
+      <title><![CDATA[DNSレコードについて調べてみた]]></title>
+      <url>http://devlog.site/DNS/dns1/</url>
+      <content type="html"><![CDATA[<h2 id="DNSレコードについて調べてみた"><a href="#DNSレコードについて調べてみた" class="headerlink" title="DNSレコードについて調べてみた"></a>DNSレコードについて調べてみた</h2><p>DNSレコードの設定をする機会があり、今まで結構なぁなぁでやっていたのでこれを機に少し調べてみました。<br>簡単なメモです。</p>
+<h2 id="DNSレコードとは？"><a href="#DNSレコードとは？" class="headerlink" title="DNSレコードとは？"></a>DNSレコードとは？</h2><p>まずDNSレコードの前にDNSとは、名前解決、つまりIPアドレスとドメインをマッピングして相互変換するものです。<br><a id="more"></a></p>
+<p>ではDNSレコードとは何かというと、その名前解決についての設定の記述の仕方のことです。<br>DNSレコードには種類があり、それぞれに役割があります。<br>例えば、このドメイン名はこのIPアドレスのことですよ。というドメイン名とIPアドレスをマッチンピングする設定をしておく場合はAレコードを指定します。</p>
+<h2 id="DNSレコードの種類"><a href="#DNSレコードの種類" class="headerlink" title="DNSレコードの種類"></a>DNSレコードの種類</h2><p>Aレコード以外にもたくさんの種類があります。<br><a href="https://ja.wikipedia.org/wiki/DNS%E3%83%AC%E3%82%B3%E3%83%BC%E3%83%89%E3%82%BF%E3%82%A4%E3%83%97%E3%81%AE%E4%B8%80%E8%A6%A7" target="_blank" rel="external">wiki</a>を見ていただけるとわかると思いますが、まぁまぁ種類がありますね。</p>
+<p>その中でも主に指定するレコードがこちらです。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">レコード</th>
+<th style="text-align:left">意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">NS</td>
+<td style="text-align:left">ドメインのDNSサーバ名を指定する</td>
+</tr>
+<tr>
+<td style="text-align:left">A</td>
+<td style="text-align:left">ホストのIPアドレス</td>
+</tr>
+<tr>
+<td style="text-align:left">PTR</td>
+<td style="text-align:left">IPアドレスに対するホスト名</td>
+</tr>
+<tr>
+<td style="text-align:left">CNAME</td>
+<td style="text-align:left">ホスト名のエイリアス（別名）</td>
+</tr>
+<tr>
+<td style="text-align:left">MX</td>
+<td style="text-align:left">ドメインのメール・サーバ名</td>
+</tr>
+<tr>
+<td style="text-align:left">HINFO</td>
+<td style="text-align:left">ホストの追加情報。ホストのハードウェア・ソフトウェア（OS）情報を記述する</td>
+</tr>
+<tr>
+<td style="text-align:left">WKS</td>
+<td style="text-align:left">ホストで実行されているサービス情報（Well Known Services）</td>
+</tr>
+<tr>
+<td style="text-align:left">TXT</td>
+<td style="text-align:left">ホストへのテキスト情報</td>
+</tr>
+</tbody>
+</table>
+<p>この中でもよくCNAMEレコードは結構使う気がします。CNAMEレコードはAレコードで定義されてるドメイン名と別名を定義します。<br>対象のドメイン名を別のドメインとしても扱えるようにすることができるってことですね。</p>
+<p>終わり。今回はDNSレコードについて調べてみましたが、DNSについても次回以降書きたいと思います。<br>DNS自体も毎度調べてわかったと思って満足して、しばらくすると忘れてしまうので再度復習しないとなぁと思ってます。きちんと理解するのって大変。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[matplotlibを少しだけ]]></title>
       <url>http://devlog.site/python/matplotlib/</url>
       <content type="html"><![CDATA[<h2 id="matplotlibについて調べてみた"><a href="#matplotlibについて調べてみた" class="headerlink" title="matplotlibについて調べてみた"></a>matplotlibについて調べてみた</h2><p>引き続き「ゼロから作るディープラーニング」を読んでいます。<br>まだまだ序盤ですが、そこで出てきたのがmatplotlib。どんなものか調べてみました。<br>自分の為の簡単なメモですのであしからず。</p>
