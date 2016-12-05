@@ -3,18 +3,17 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Pythonのwith構文について調べてみた | Devlog</title>
+    <title>タグ: 論理回路 | Devlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="with構文についてTensorFlowでpython書いてるとよく見かけるwith構文ですが、きちんと理解していなかったのでこの機会に調べてみました。簡単なメモです。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Pythonのwith構文について調べてみた">
-<meta property="og:url" content="http://devlog.site/python/python-with/index.html">
+    <meta name="description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Devlog">
+<meta property="og:url" content="http://devlog.site/tags/論理回路/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="with構文についてTensorFlowでpython書いてるとよく見かけるwith構文ですが、きちんと理解していなかったのでこの機会に調べてみました。簡単なメモです。">
-<meta property="og:updated_time" content="2016-12-02T16:52:25.000Z">
+<meta property="og:description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pythonのwith構文について調べてみた">
-<meta name="twitter:description" content="with構文についてTensorFlowでpython書いてるとよく見かけるwith構文ですが、きちんと理解していなかったのでこの機会に調べてみました。簡単なメモです。">
+<meta name="twitter:title" content="Devlog">
+<meta name="twitter:description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
     
 
     
@@ -199,141 +198,50 @@
 </aside>
 
             
-            <section id="main"><article id="post-python-with" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
+            <section id="main">
+<div class="timeline timeline-wrap">
+    <div class="timeline-row timeline-row-major">
+        <span class="node"><i class="fa fa-tag"></i></span>
+        <h1 class="title">#論理回路</h1>
+    </div>
+    
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
                 
     
-        <h1 class="article-title" itemprop="name">
-            Pythonのwith構文について調べてみた
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/ディープラーニング/perceptron/">パーセプトロンについて</a>
         </h1>
     
 
-                
-                    <div class="article-meta">
-                        
+                <div class="article-meta">
+                    
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/python/python-with/">
-            <time datetime="2016-11-26T15:00:00.000Z" itemprop="datePublished">2016-11-27</time>
+        <a href="/ディープラーニング/perceptron/">
+            <time datetime="2016-12-04T15:00:00.000Z" itemprop="datePublished">2016-12-05</time>
         </a>
     </div>
 
 
-                        
+                    
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/python/">python</a>
+        <a class="article-category-link" href="/categories/ディープラーニング/">ディープラーニング</a>
     </div>
 
-                        
+                    
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/python/">python</a>, <a class="tag-link" href="/tags/プログラミング/">プログラミング</a>
+        <a class="tag-link" href="/tags/ディープラーニング/">ディープラーニング</a>, <a class="tag-link" href="/tags/パーセプトロン/">パーセプトロン</a>, <a class="tag-link" href="/tags/論理回路/">論理回路</a>
     </div>
 
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="with構文について"><a href="#with構文について" class="headerlink" title="with構文について"></a>with構文について</h2><p>TensorFlowでpython書いてるとよく見かけるwith構文ですが、きちんと理解していなかったのでこの機会に調べてみました。<br>簡単なメモです。<br><a id="more"></a></p>
-<h2 id="with構文とは？"><a href="#with構文とは？" class="headerlink" title="with構文とは？"></a>with構文とは？</h2><p>with構文はファイルの読み書きなど後処理が必要なものに対して安全にその処理を行える機能です。<br>簡単なファイルを開くコードを見てみましょう。</p>
-<p>まずはwith構文を使っていないコード</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">text = <span class="keyword">None</span></div><div class="line"><span class="keyword">try</span>:</div><div class="line">  text = open(<span class="string">"text.txt"</span>, <span class="string">'w'</span>)</div><div class="line">  <span class="keyword">try</span>:</div><div class="line">    text.write(<span class="string">"Hello, world!"</span>)</div><div class="line">  <span class="keyword">except</span>:</div><div class="line">    <span class="keyword">raise</span></div><div class="line"><span class="keyword">finally</span>:</div><div class="line">  <span class="keyword">if</span> text:</div><div class="line">    text.close()</div></pre></td></tr></table></figure>
-<p>厳密に書こうとすると結構大変ですよね。<br>次にwithを使った書き方についてですが、</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> ファイル読み込み <span class="keyword">as</span> 変数:</div><div class="line">    ...</div></pre></td></tr></table></figure>
-<p>こんな感じの構文になります。<br>先ほどのファイルを開くコードを書き換えると</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">"text.txt"</span>, <span class="string">'w'</span>) <span class="keyword">as</span> text:</div><div class="line">    text.write(<span class="string">"Hello, world!"</span>)</div></pre></td></tr></table></figure>
-<p>すっきりしましたね。これだけでwithを抜けた際にファイルを自動的に閉じてくれます。</p>
-<h2 id="withが使えるオブジェクト"><a href="#withが使えるオブジェクト" class="headerlink" title="withが使えるオブジェクト"></a>withが使えるオブジェクト</h2><p>with構文はコードをスッキリ簡潔にしてくれるのでいろんなところで使いたいですが、<br>使える場合とそうでない場合があります。</p>
-<p>withが使えるのは<strong>enter</strong>メソッドと<strong>exit</strong>メソッドの両方が定義されているオブジェクトの場合です。<br>例えばこんなコードを実行してみます。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span><span class="params">()</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'__init__'</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__enter__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'__enter__'</span></div><div class="line">        <span class="keyword">return</span> self</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__exit__</span><span class="params">(self, *args, **kwargs)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'__exit__'</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'__del__'</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">say</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'hello'</span></div><div class="line"></div><div class="line"><span class="keyword">with</span> Test() <span class="keyword">as</span> obj:</div><div class="line">    obj.say()</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">'end'</span></div></pre></td></tr></table></figure>
-<p>結果は次のようになります。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">__init__</div><div class="line">__enter__</div><div class="line">hello</div><div class="line">__exit__</div><div class="line">end</div><div class="line">__del__</div></pre></td></tr></table></figure>
-<p>withを使うと<strong>enter</strong>メソッドと<strong>exit</strong>メソッドが呼び出されているのがわかると思います。<br>withを使いたい時は<strong>enter</strong>メソッドと<strong>exit</strong>メソッドをきちんと定義してあげましょう。</p>
-<h2 id="TensorFlowでよく使うwith"><a href="#TensorFlowでよく使うwith" class="headerlink" title="TensorFlowでよく使うwith"></a>TensorFlowでよく使うwith</h2><p>ファイルを開く際に安全にcloseしてくれるwith構文ですが、TensorFlowではよくセッションを使用する際に使われていますね。<br>ということはSessionを安全に閉じてくれてるってことです。</p>
-<p>なんでwith構文が使われているんだろうなぁと思っていましたが、そういった理由があったんですね。<br>TensorFlowのリファレンスを見てみるとSessionクラスには確かに<strong>enter</strong>メソッドと<strong>exit</strong>メソッドが定義されています。</p>
-<blockquote>
-<p>tf.Session.__enter__()<br>tf.Session.__exit__(exec_type, exec_value, exec_tb)</p>
-</blockquote>
-<h2 id="withのネスト"><a href="#withのネスト" class="headerlink" title="withのネスト"></a>withのネスト</h2><p>withはネストも出来るみたいです。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> A() <span class="keyword">as</span> a:</div><div class="line">    <span class="keyword">with</span> B() <span class="keyword">as</span> b:</div></pre></td></tr></table></figure>
-<p>このようにネストして書くこともでき、またカンマで繋げても同じ意味になるようです。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> A() <span class="keyword">as</span> a, B() <span class="keyword">as</span> b:</div></pre></td></tr></table></figure>
-<p>終わり</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            
-    <div id="article-share-box" class="article-share-box-on">
-    <div class="article-share-links">
-        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/python/python-with/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
-        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/python/python-with/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
-        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/python/python-with/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
-        <a href="https://plus.google.com/share?url=http://devlog.site/python/python-with/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
-    </div>
-</div>
-
-
-
-            
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/tensorflow/tensorflow4/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">新しい記事</strong>
-            <div class="article-nav-title">
-                
-                    Tensorとは何か？
-                
+                </div>
             </div>
-        </a>
+        </div>
     
-    
-        <a href="/python/ipython1/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">古い記事</strong>
-            <div class="article-nav-title">IPython使ってみた</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-  <section id="related">
-      <div class="related-inner">
-          <header class="related-header">
-              <div class="related-header-line">
-                  <h2>関連記事</h2>
-              </div>
-          </header>
-          <ul class="related-posts"><li class="related-posts-item"><div class="related-posts-inner"><div class="related-posts-image"><a href="/python/matplotlib/"><img src="/css/images/thumb-default-small.png" /></a></div><div class="related-posts-date">2016-12-03</div><div class="related-posts-title"><a href="/python/matplotlib/" title="matplotlibを少しだけ" rel="bookmark">matplotlibを少しだけ</a></div><div class="related-posts-tags"><a href="/tags/matplotlib/">#matplotlib</a><a href="/tags/python/">#python</a><a href="/tags/プログラミング/">#プログラミング</a></div></div></li></ul>
-      </div>
-  </section>
-    
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-
-
-    
-    </section>
-
-
+</div>
 </section>
             
                 <aside id="sidebar">
@@ -527,7 +435,7 @@
 <script>
   (function() {
     var d = document, s = d.createElement('script');
-    s.src = '//devlog-2.disqus.com/embed.js';
+    s.src = '//devlog-2.disqus.com/count.js';
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
   })();

@@ -3,18 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Pythonのwith構文について調べてみた | Devlog</title>
+    <title>パーセプトロンについて | Devlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="with構文についてTensorFlowでpython書いてるとよく見かけるwith構文ですが、きちんと理解していなかったのでこの機会に調べてみました。簡単なメモです。">
+    <meta name="description" content="パーセプトロンについて今読んでる「ゼロから作るディープラーニング」に出てくるパーセプトロンについて調べてみました。
+パーセプトロンとは？パーセプトロンとはディープラーニングの起源にとなるアルゴリズムで、ローゼンブラットさんというアメリカの研究者によって1957年に考案されたものです。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pythonのwith構文について調べてみた">
-<meta property="og:url" content="http://devlog.site/python/python-with/index.html">
+<meta property="og:title" content="パーセプトロンについて">
+<meta property="og:url" content="http://devlog.site/ディープラーニング/perceptron/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="with構文についてTensorFlowでpython書いてるとよく見かけるwith構文ですが、きちんと理解していなかったのでこの機会に調べてみました。簡単なメモです。">
-<meta property="og:updated_time" content="2016-12-02T16:52:25.000Z">
+<meta property="og:description" content="パーセプトロンについて今読んでる「ゼロから作るディープラーニング」に出てくるパーセプトロンについて調べてみました。
+パーセプトロンとは？パーセプトロンとはディープラーニングの起源にとなるアルゴリズムで、ローゼンブラットさんというアメリカの研究者によって1957年に考案されたものです。">
+<meta property="og:updated_time" content="2016-12-05T13:23:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pythonのwith構文について調べてみた">
-<meta name="twitter:description" content="with構文についてTensorFlowでpython書いてるとよく見かけるwith構文ですが、きちんと理解していなかったのでこの機会に調べてみました。簡単なメモです。">
+<meta name="twitter:title" content="パーセプトロンについて">
+<meta name="twitter:description" content="パーセプトロンについて今読んでる「ゼロから作るディープラーニング」に出てくるパーセプトロンについて調べてみました。
+パーセプトロンとは？パーセプトロンとはディープラーニングの起源にとなるアルゴリズムで、ローゼンブラットさんというアメリカの研究者によって1957年に考案されたものです。">
     
 
     
@@ -199,7 +202,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-python-with" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-perceptron" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -207,7 +210,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Pythonのwith構文について調べてみた
+            パーセプトロンについて
         </h1>
     
 
@@ -216,8 +219,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/python/python-with/">
-            <time datetime="2016-11-26T15:00:00.000Z" itemprop="datePublished">2016-11-27</time>
+        <a href="/ディープラーニング/perceptron/">
+            <time datetime="2016-12-04T15:00:00.000Z" itemprop="datePublished">2016-12-05</time>
         </a>
     </div>
 
@@ -225,13 +228,13 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/python/">python</a>
+        <a class="article-category-link" href="/categories/ディープラーニング/">ディープラーニング</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/python/">python</a>, <a class="tag-link" href="/tags/プログラミング/">プログラミング</a>
+        <a class="tag-link" href="/tags/ディープラーニング/">ディープラーニング</a>, <a class="tag-link" href="/tags/パーセプトロン/">パーセプトロン</a>, <a class="tag-link" href="/tags/論理回路/">論理回路</a>
     </div>
 
                     </div>
@@ -242,31 +245,116 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="with構文について"><a href="#with構文について" class="headerlink" title="with構文について"></a>with構文について</h2><p>TensorFlowでpython書いてるとよく見かけるwith構文ですが、きちんと理解していなかったのでこの機会に調べてみました。<br>簡単なメモです。<br><a id="more"></a></p>
-<h2 id="with構文とは？"><a href="#with構文とは？" class="headerlink" title="with構文とは？"></a>with構文とは？</h2><p>with構文はファイルの読み書きなど後処理が必要なものに対して安全にその処理を行える機能です。<br>簡単なファイルを開くコードを見てみましょう。</p>
-<p>まずはwith構文を使っていないコード</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">text = <span class="keyword">None</span></div><div class="line"><span class="keyword">try</span>:</div><div class="line">  text = open(<span class="string">"text.txt"</span>, <span class="string">'w'</span>)</div><div class="line">  <span class="keyword">try</span>:</div><div class="line">    text.write(<span class="string">"Hello, world!"</span>)</div><div class="line">  <span class="keyword">except</span>:</div><div class="line">    <span class="keyword">raise</span></div><div class="line"><span class="keyword">finally</span>:</div><div class="line">  <span class="keyword">if</span> text:</div><div class="line">    text.close()</div></pre></td></tr></table></figure>
-<p>厳密に書こうとすると結構大変ですよね。<br>次にwithを使った書き方についてですが、</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> ファイル読み込み <span class="keyword">as</span> 変数:</div><div class="line">    ...</div></pre></td></tr></table></figure>
-<p>こんな感じの構文になります。<br>先ほどのファイルを開くコードを書き換えると</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">"text.txt"</span>, <span class="string">'w'</span>) <span class="keyword">as</span> text:</div><div class="line">    text.write(<span class="string">"Hello, world!"</span>)</div></pre></td></tr></table></figure>
-<p>すっきりしましたね。これだけでwithを抜けた際にファイルを自動的に閉じてくれます。</p>
-<h2 id="withが使えるオブジェクト"><a href="#withが使えるオブジェクト" class="headerlink" title="withが使えるオブジェクト"></a>withが使えるオブジェクト</h2><p>with構文はコードをスッキリ簡潔にしてくれるのでいろんなところで使いたいですが、<br>使える場合とそうでない場合があります。</p>
-<p>withが使えるのは<strong>enter</strong>メソッドと<strong>exit</strong>メソッドの両方が定義されているオブジェクトの場合です。<br>例えばこんなコードを実行してみます。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span><span class="params">()</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'__init__'</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__enter__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'__enter__'</span></div><div class="line">        <span class="keyword">return</span> self</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__exit__</span><span class="params">(self, *args, **kwargs)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'__exit__'</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'__del__'</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">say</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'hello'</span></div><div class="line"></div><div class="line"><span class="keyword">with</span> Test() <span class="keyword">as</span> obj:</div><div class="line">    obj.say()</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">'end'</span></div></pre></td></tr></table></figure>
-<p>結果は次のようになります。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">__init__</div><div class="line">__enter__</div><div class="line">hello</div><div class="line">__exit__</div><div class="line">end</div><div class="line">__del__</div></pre></td></tr></table></figure>
-<p>withを使うと<strong>enter</strong>メソッドと<strong>exit</strong>メソッドが呼び出されているのがわかると思います。<br>withを使いたい時は<strong>enter</strong>メソッドと<strong>exit</strong>メソッドをきちんと定義してあげましょう。</p>
-<h2 id="TensorFlowでよく使うwith"><a href="#TensorFlowでよく使うwith" class="headerlink" title="TensorFlowでよく使うwith"></a>TensorFlowでよく使うwith</h2><p>ファイルを開く際に安全にcloseしてくれるwith構文ですが、TensorFlowではよくセッションを使用する際に使われていますね。<br>ということはSessionを安全に閉じてくれてるってことです。</p>
-<p>なんでwith構文が使われているんだろうなぁと思っていましたが、そういった理由があったんですね。<br>TensorFlowのリファレンスを見てみるとSessionクラスには確かに<strong>enter</strong>メソッドと<strong>exit</strong>メソッドが定義されています。</p>
-<blockquote>
-<p>tf.Session.__enter__()<br>tf.Session.__exit__(exec_type, exec_value, exec_tb)</p>
-</blockquote>
-<h2 id="withのネスト"><a href="#withのネスト" class="headerlink" title="withのネスト"></a>withのネスト</h2><p>withはネストも出来るみたいです。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> A() <span class="keyword">as</span> a:</div><div class="line">    <span class="keyword">with</span> B() <span class="keyword">as</span> b:</div></pre></td></tr></table></figure>
-<p>このようにネストして書くこともでき、またカンマで繋げても同じ意味になるようです。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> A() <span class="keyword">as</span> a, B() <span class="keyword">as</span> b:</div></pre></td></tr></table></figure>
-<p>終わり</p>
+            <h2 id="パーセプトロンについて"><a href="#パーセプトロンについて" class="headerlink" title="パーセプトロンについて"></a>パーセプトロンについて</h2><p>今読んでる「ゼロから作るディープラーニング」に出てくるパーセプトロンについて調べてみました。</p>
+<h2 id="パーセプトロンとは？"><a href="#パーセプトロンとは？" class="headerlink" title="パーセプトロンとは？"></a>パーセプトロンとは？</h2><p>パーセプトロンとはディープラーニングの起源にとなるアルゴリズムで、ローゼンブラットさんというアメリカの研究者によって1957年に考案されたものです。<br><a id="more"></a></p>
+<p>パーセプトロンは複数の入力を受け、一つの出力を行うものです。<br>複数の入力から出力がどのような結果になるかを計算するもののことですね。</p>
+<p>例えば入力がx1、x2と二つあった場合、yを出力とします。そしてこの入力のx1とx2にはそれぞれ重み付けがあり、その重みをw1、w2とします。<br>この重みはそれぞれの入力と乗算され、<code>w1x1</code>、<code>w2x2</code>と計算されます。この時yの値は以下のような計算式になります。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">y = (w1x1 + w2x2 &lt;= θ) = 0</div><div class="line">y = (w1x1 + w2x2 &gt; θ) = 1</div></pre></td></tr></table></figure>
+<p>この式の<code>θ</code>は閾値であり、ある一定値を示しています。<code>w1x1 + w2x2</code>の結果がこの一定値を超えると出力は1となり、超えないと0になります。この時、閾値を超えることをニューロンが発火するなんて言ったりもします。</p>
+<p>これは重みづけによってそれぞれの入力の重要性をコントロールしており、重みによって閾値を超えるかどうかが変わってくるってことですね。</p>
+<h2 id="ANDゲート"><a href="#ANDゲート" class="headerlink" title="ANDゲート"></a>ANDゲート</h2><p>本の中でも紹介されているANDゲートの例ですが、分かりやすかったので自分なりにまとめてみました。</p>
+<p>ANDゲートとは論理回路で使われる2つの入力から1つの出力を得る論理積のゲートです。<br>下のような図を真理値表と言って入力と出力の関係を図にしたものです。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">x1</th>
+<th style="text-align:left">x2</th>
+<th style="text-align:left">y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+</tr>
+</tbody>
+</table>
+<p>x1とx2が1の場合のみyが1になりそれ以外は0になります。<br>これがANDゲートです。ではこのANDゲートをパーセプトロンで表すとどうなるでしょう。<br>x1、x2、yの値はすでに決まっているので残りの重み(w1、w2)と閾値(θ)の値をこの真理値表を満たすように設定してやれば良いのです。</p>
+<h2 id="ANDゲートを満たす値は？"><a href="#ANDゲートを満たす値は？" class="headerlink" title="ANDゲートを満たす値は？"></a>ANDゲートを満たす値は？</h2><p>実はこのANDゲートを満たす重み(w1、w2)と閾値(θ)の組み合わせは無数にあります。<br><code>(w1, w2, θ) = (0.5, 0.5, 0.7)</code>でもいいですし<code>(w1, w2, θ) = (1.0, 1.0, 1.0)</code>でも問題ありません。考えればもっとたくさんありますし、案外簡単に見つけられますね。</p>
+<h2 id="NANDゲートとORゲート"><a href="#NANDゲートとORゲート" class="headerlink" title="NANDゲートとORゲート"></a>NANDゲートとORゲート</h2><p>次に似たような問題で、NANDゲートとORゲートについても同じように考えてみましょう。<br>まずNANDゲートは以下のような真理値表になります。ANDゲートを反転させたイメージです。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">x1</th>
+<th style="text-align:left">x2</th>
+<th style="text-align:left">y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+</tr>
+</tbody>
+</table>
+<p>NANDゲートも同様にパーセプトロンで表すとどうなるか考えてみましょう。<br>NANDゲートも結構すぐに色々な答えがあることがわかると思います。<br>例えば<code>(w1, w2, θ) = (-0.5, -0.5, -0.8)</code>とかですね。</p>
+<p>次にORゲートです。ORゲートは以下のような真理値表になります。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">x1</th>
+<th style="text-align:left">x2</th>
+<th style="text-align:left">y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+</tr>
+</tbody>
+</table>
+<p>これも考えると結構すぐにわかりますね。</p>
+<h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>パーセプトロンの重みと閾値を自分で考えましたが、この重みと閾値をコンピュータに考えさせ、学習されることができれば機械学習ができてるってことになります。</p>
+<p>また今回は本を参考に真理値表を学習データの例にしていますが、このような学習データがあればその他の分野でも重みと閾値を見つけ出すことができるはずですね。</p>
 
         
         </div>
@@ -274,10 +362,10 @@
             
     <div id="article-share-box" class="article-share-box-on">
     <div class="article-share-links">
-        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/python/python-with/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
-        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/python/python-with/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
-        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/python/python-with/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
-        <a href="https://plus.google.com/share?url=http://devlog.site/python/python-with/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
+        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/ディープラーニング/perceptron/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
+        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/ディープラーニング/perceptron/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
+        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/ディープラーニング/perceptron/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
+        <a href="https://plus.google.com/share?url=http://devlog.site/ディープラーニング/perceptron/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
     </div>
 </div>
 
@@ -290,19 +378,10 @@
         
 <nav id="article-nav">
     
-        <a href="/tensorflow/tensorflow4/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">新しい記事</strong>
-            <div class="article-nav-title">
-                
-                    Tensorとは何か？
-                
-            </div>
-        </a>
     
-    
-        <a href="/python/ipython1/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/DNS/dns1/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">古い記事</strong>
-            <div class="article-nav-title">IPython使ってみた</div>
+            <div class="article-nav-title">DNSレコードについて調べてみた</div>
         </a>
     
 </nav>
@@ -318,7 +397,7 @@
                   <h2>関連記事</h2>
               </div>
           </header>
-          <ul class="related-posts"><li class="related-posts-item"><div class="related-posts-inner"><div class="related-posts-image"><a href="/python/matplotlib/"><img src="/css/images/thumb-default-small.png" /></a></div><div class="related-posts-date">2016-12-03</div><div class="related-posts-title"><a href="/python/matplotlib/" title="matplotlibを少しだけ" rel="bookmark">matplotlibを少しだけ</a></div><div class="related-posts-tags"><a href="/tags/matplotlib/">#matplotlib</a><a href="/tags/python/">#python</a><a href="/tags/プログラミング/">#プログラミング</a></div></div></li></ul>
+          <ul class="related-posts"><li class="related-posts-item"><div class="related-posts-inner"><div class="related-posts-image"><a href="/machine-learning/machine-learning1/"><img src="/css/images/thumb-default-small.png" /></a></div><div class="related-posts-date">2016-11-25</div><div class="related-posts-title"><a href="/machine-learning/machine-learning1/" title="機械学習について調べてみた" rel="bookmark">機械学習について調べてみた</a></div><div class="related-posts-tags"><a href="/tags/機械学習/">#機械学習</a><a href="/tags/ディープラーニング/">#ディープラーニング</a></div></div></li></ul>
       </div>
   </section>
     
