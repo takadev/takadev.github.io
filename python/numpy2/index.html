@@ -3,27 +3,18 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>Hexoでブログをはじめてみた後編 | Devlog</title>
+    <title>行列の計算 | Devlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Hexoでブログをはじめてみた-中編の続きです。
-Github Pagesにブログを公開できたら過ぎに記事をポストしてみます。
-記事の作成記事の作成にはhexoコマンドを使用します。
-1hexo new post [記事のタイトル]">
+    <meta name="description" content="多次元配列の計算について引き続き「ゼロから作るディープラーニング」を読んでます。多次元配列の計算について、忘れないようにメモしておきます。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexoでブログをはじめてみた後編">
-<meta property="og:url" content="http://devlog.site/hexo/Hexo-Blog-Start-3/index.html">
+<meta property="og:title" content="行列の計算">
+<meta property="og:url" content="http://devlog.site/python/numpy2/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="Hexoでブログをはじめてみた-中編の続きです。
-Github Pagesにブログを公開できたら過ぎに記事をポストしてみます。
-記事の作成記事の作成にはhexoコマンドを使用します。
-1hexo new post [記事のタイトル]">
-<meta property="og:updated_time" content="2016-11-26T15:55:06.000Z">
+<meta property="og:description" content="多次元配列の計算について引き続き「ゼロから作るディープラーニング」を読んでます。多次元配列の計算について、忘れないようにメモしておきます。">
+<meta property="og:updated_time" content="2016-12-06T23:23:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexoでブログをはじめてみた後編">
-<meta name="twitter:description" content="Hexoでブログをはじめてみた-中編の続きです。
-Github Pagesにブログを公開できたら過ぎに記事をポストしてみます。
-記事の作成記事の作成にはhexoコマンドを使用します。
-1hexo new post [記事のタイトル]">
+<meta name="twitter:title" content="行列の計算">
+<meta name="twitter:description" content="多次元配列の計算について引き続き「ゼロから作るディープラーニング」を読んでます。多次元配列の計算について、忘れないようにメモしておきます。">
     
 
     
@@ -208,7 +199,7 @@ Github Pagesにブログを公開できたら過ぎに記事をポストして�
 </aside>
 
             
-            <section id="main"><article id="post-Hexo-Blog-Start-3" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-numpy2" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -216,7 +207,7 @@ Github Pagesにブログを公開できたら過ぎに記事をポストして�
                 
     
         <h1 class="article-title" itemprop="name">
-            Hexoでブログをはじめてみた後編
+            行列の計算
         </h1>
     
 
@@ -225,8 +216,8 @@ Github Pagesにブログを公開できたら過ぎに記事をポストして�
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/hexo/Hexo-Blog-Start-3/">
-            <time datetime="2016-11-20T15:00:00.000Z" itemprop="datePublished">2016-11-21</time>
+        <a href="/python/numpy2/">
+            <time datetime="2016-12-06T15:00:00.000Z" itemprop="datePublished">2016-12-07</time>
         </a>
     </div>
 
@@ -234,13 +225,13 @@ Github Pagesにブログを公開できたら過ぎに記事をポストして�
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/hexo/">Hexo</a>
+        <a class="article-category-link" href="/categories/python/">python</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/hexo/">Hexo</a>
+        <a class="tag-link" href="/tags/NumPy/">NumPy</a>, <a class="tag-link" href="/tags/python/">python</a>, <a class="tag-link" href="/tags/数学/">数学</a>
     </div>
 
                     </div>
@@ -251,21 +242,30 @@ Github Pagesにブログを公開できたら過ぎに記事をポストして�
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><a href="http://devlog.site/2016/hexo/Hexo-Blog-Start-2/">Hexoでブログをはじめてみた-中編</a>の続きです。</p>
-<p>Github Pagesにブログを公開できたら過ぎに記事をポストしてみます。</p>
-<h3 id="記事の作成"><a href="#記事の作成" class="headerlink" title="記事の作成"></a>記事の作成</h3><p>記事の作成にはhexoコマンドを使用します。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new post [記事のタイトル]</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>するとsorce/_post/配下に[記事のタイトル].mdファイルが作成されます。<br>次にこの.mdファイルをマークダウンで内容を記述します。<br>内容が書き終わったら、ビルトインサーバを立ち上げて、プレビューしてみましょう</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s</div></pre></td></tr></table></figure>
-<p>確認ができたら前回と同様にGithub Pageへ公開する際のコマンドを実行すると、新しく記事を公開することができます。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d -g</div></pre></td></tr></table></figure>
-<p>ここまでが記事を公開する流れになります。</p>
-<h2 id="テーマのカスタマイズ"><a href="#テーマのカスタマイズ" class="headerlink" title="テーマのカスタマイズ"></a>テーマのカスタマイズ</h2><p>hexoにはたくさんテーマがありますが、基本的にどれも設定ファイルとEJSテンプレートを修正することでテーマを自分なりにカスタマイズすることができます。</p>
-<p>ejsとはいうゆるテンプレートエンジンで設定ファイルから値を読み込み、HTMLを生成するために使用されます。他のテンプレートエンジンを使ったことがある人にはかなり学習コストも低くすぐに使いこなせると思います。</p>
-<p>私が使用しているicarusの場合、layout.ejsでhtml全体の構成を、その中でそれぞれの要素のejsをインクルードしています。変更したいejsファイルにそれぞれ修正を入れました。</p>
-<p>細かい修正内容は省くとして、大まかな部分は設定ファイルの_config.ymlを修正すればいいだけなので、非常に簡単です。</p>
-<p>今後自身のブログを始めたいという方にhexoを検討してみるものいいかもしれません。</p>
+            <h2 id="多次元配列の計算について"><a href="#多次元配列の計算について" class="headerlink" title="多次元配列の計算について"></a>多次元配列の計算について</h2><p>引き続き「ゼロから作るディープラーニング」を読んでます。<br>多次元配列の計算について、忘れないようにメモしておきます。<br><a id="more"></a></p>
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>環境などは<a href="http://devlog.site/python/numpy/">こちら</a>を参考にして下さい。<br>浅〜いメモなので悪しからず。</p>
+<h2 id="NumPyで多次元配列を扱う"><a href="#NumPyで多次元配列を扱う" class="headerlink" title="NumPyで多次元配列を扱う"></a>NumPyで多次元配列を扱う</h2><p>NumPyで多次元の配列について諸々試してみました。<br>まずは1次元配列から</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">In [1]: import numpy as np</div><div class="line">In [2]: A = np.array([1,2,3,4])</div><div class="line">In [3]: print(A)</div><div class="line">[1 2 3 4]</div><div class="line">In [4]: np.ndim(A)</div><div class="line">Out[4]: 1</div><div class="line">In [5]: A.shape</div><div class="line">Out[5]: (4,)</div><div class="line">In [6]: A.shape[0]</div><div class="line">Out[6]: 4</div></pre></td></tr></table></figure>
+<p><code>np.ndim()</code>関数で対象の配列が何次元の配列かがわかります。<br><code>A.shape</code>で配列の形状が取得できます。戻り値はどうやらタプルで返ってくるようですね。<br><code>A.shape[0]</code>とインデックスを指定してあげると対象の次元の形状が取得できるんですね。</p>
+<p>次に2次元配列です。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">In [1]: import numpy as np</div><div class="line">In [2]: B = np.array([[1,2],[3,4],[5,6]])</div><div class="line">In [3]: print(B)</div><div class="line">[[1 2]</div><div class="line"> [3 4]</div><div class="line"> [5 6]]</div><div class="line">In [4]: np.ndim(B)</div><div class="line">Out[4]: 2</div><div class="line">In [5]: B.shape</div><div class="line">Out[5]: (3, 2)</div></pre></td></tr></table></figure>
+<p><strong>np.ndim()</strong>が<strong>2</strong>を返していますね。それと<strong>B.shape</strong>が<strong>(3,2)</strong>になっています。<br>これで3x2の配列であることがわかりますね。<br>3x2の配列とは一つ目の次元に3つ要素があり次の次元に2つの要素があるってことですね。<br>上の式の<code>B = np.array([[1,2],[3,4],[5,6]])</code>をわかりやすく書くと</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">B = [X, Y, Z]</div><div class="line">X = [1, 2]</div><div class="line">Y = [3, 4]</div><div class="line">Z = [5, 6]</div></pre></td></tr></table></figure>
+<p>こんな感じになります。まずBは3つの要素(X, Y, Z)を持っていて、X、Y、Zが<br>[1, 2]、[3, 4]、 [5, 6]の2つの要素が入った配列になっていますので3x2の配列になるんですね。</p>
+<p>またこんな風にも表すことができます。</p>
+<p>$$<br>\begin{bmatrix}<br>1 &amp; 2 \\<br>3 &amp; 4 \\<br>5 &amp; 6<br>\end{bmatrix}<br>$$</p>
+<p>このように表記した場合の横方向の並びを行、縦方向の並びを列を呼びます。<br>ここでは1、2が1つの行、1、3、5が1つの列といった具合です。</p>
+<h2 id="行列の内積"><a href="#行列の内積" class="headerlink" title="行列の内積"></a>行列の内積</h2><p>次に行列の内積についてです。<br>行列の内積の定義は<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a・b = |a||b|cosθ</div></pre></td></tr></table></figure></p>
+<p>で定義されます。θは2つのベクトルの始点をそろえたときにできる「なす角」のことです。<br>内積には幾何的な意味と代数的な意味の二つの定義があり、どちらかというと物理の分野で広く聞く言葉ですね。</p>
+<p>定義を見てもさっぱりだと思うので簡単に言うと「ベクトルaの長さ」と、「ベクトルbをベクトルa上に射影したものの長さ」の積で求められるものということですね。<br>イメージするのが難しいと思うので具体的な計算方法を見てみましょう。<br>Pythonで行列の内積を計算する実装です。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">In [1]: import numpy as np</div><div class="line">In [2]: A = np.array([[1,2],[3,4]])</div><div class="line">In [3]: B = np.array([[5,6],[7,8]])</div><div class="line">In [4]: np.dot(A, B)</div><div class="line">Out[4]: </div><div class="line">array([[19, 22],</div><div class="line">       [43, 50]])</div></pre></td></tr></table></figure>
+<p>ここでは</p>
+<p>$$<br>\begin{bmatrix}<br>1 &amp; 2 \\<br>3 &amp; 4<br>\end{bmatrix}<br>$$</p>
+<p>と</p>
+<p>$$<br>\begin{bmatrix}<br>5 &amp; 6 \\<br>7 &amp; 8<br>\end{bmatrix}<br>$$</p>
+<p>という二つの行列の内積の計算を行っています。<br>内積の計算には<strong>np.dot()</strong>関数を使用します。</p>
+<p>行列の内積の計算は左側の行列の行と右側の配列の列をそれぞれの要素の積とその和で求めることができます。<br>例えば1行目の1列目は<strong>1 <em> 5 + 2 </em> 7</strong>で答えが<strong>19</strong>となります。</p>
+<p>計算自体は簡単ですね。内積は概念がまだまだ理解できていないので今後も詳しく調べていきたいです。<br>ということで終わり。</p>
 
         
         </div>
@@ -273,10 +273,10 @@ Github Pagesにブログを公開できたら過ぎに記事をポストして�
             
     <div id="article-share-box" class="article-share-box-on">
     <div class="article-share-links">
-        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/hexo/Hexo-Blog-Start-3/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
-        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/hexo/Hexo-Blog-Start-3/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
-        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/hexo/Hexo-Blog-Start-3/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
-        <a href="https://plus.google.com/share?url=http://devlog.site/hexo/Hexo-Blog-Start-3/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
+        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/python/numpy2/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
+        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/python/numpy2/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
+        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/python/numpy2/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
+        <a href="https://plus.google.com/share?url=http://devlog.site/python/numpy2/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
     </div>
 </div>
 
@@ -289,19 +289,10 @@ Github Pagesにブログを公開できたら過ぎに記事をポストして�
         
 <nav id="article-nav">
     
-        <a href="/tensorflow/tensorflow1/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">新しい記事</strong>
-            <div class="article-nav-title">
-                
-                    TensorFlowの環境を作ってみた
-                
-            </div>
-        </a>
     
-    
-        <a href="/hexo/Hexo-Blog-Start-2/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/machine-learning/vocabulary1/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">古い記事</strong>
-            <div class="article-nav-title">Hexoでブログをはじめてみた中編</div>
+            <div class="article-nav-title">機械学習用語</div>
         </a>
     
 </nav>
@@ -317,7 +308,7 @@ Github Pagesにブログを公開できたら過ぎに記事をポストして�
                   <h2>関連記事</h2>
               </div>
           </header>
-          <ul class="related-posts"><li class="related-posts-item"><div class="related-posts-inner"><div class="related-posts-image"><a href="/hexo/Hexo-Blog-Start-2/"><img src="/css/images/thumb-default-small.png" /></a></div><div class="related-posts-date">2016-11-20</div><div class="related-posts-title"><a href="/hexo/Hexo-Blog-Start-2/" title="Hexoでブログをはじめてみた中編" rel="bookmark">Hexoでブログをはじめてみた中編</a></div><div class="related-posts-tags"><a href="/tags/hexo/">#Hexo</a></div></div></li></ul>
+          <ul class="related-posts"><li class="related-posts-item"><div class="related-posts-inner"><div class="related-posts-image"><a href="/python/numpy/"><img src="/css/images/thumb-default-small.png" /></a></div><div class="related-posts-date">2016-12-02</div><div class="related-posts-title"><a href="/python/numpy/" title="NumPyを試してみた" rel="bookmark">NumPyを試してみた</a></div><div class="related-posts-tags"><a href="/tags/NumPy/">#NumPy</a><a href="/tags/python/">#python</a><a href="/tags/プログラミング/">#プログラミング</a></div></div></li></ul>
       </div>
   </section>
     
@@ -555,6 +546,23 @@ Github Pagesにブログを公開できたら過ぎに記事をポストして�
 <!-- Custom Scripts -->
 <script src="/js/main.js"></script>
 
-    </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>
