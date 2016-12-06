@@ -3,24 +3,21 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>Docker基本コマンド | Devlog</title>
+    <title>機械学習用語 | Devlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Dockerを使うときのメモ先人からDockerの環境を引き継ぐこととなりDockerほぼ使ったことなかったので色々調べたことをメモしておきます。
-Dockerイメージの検索DockerイメージをDocker Hub上から検索できます。
-1docker search [イメージ名]">
+    <meta name="description" content="わからない用語を調べたディープラーニングを勉強しているとわからない用語がまぁ〜出てきます。今回はわからない用語を調べたのでそれをまとめました。毎度のことながら自分用のメモです。浅くしか調べてません。すいません。
+活性化関数入力信号の総和を出力信号に変換する関数。伝達関数ともいう。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker基本コマンド">
-<meta property="og:url" content="http://devlog.site/docker/docker1/index.html">
+<meta property="og:title" content="機械学習用語">
+<meta property="og:url" content="http://devlog.site/machine-learning/vocabulary1/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="Dockerを使うときのメモ先人からDockerの環境を引き継ぐこととなりDockerほぼ使ったことなかったので色々調べたことをメモしておきます。
-Dockerイメージの検索DockerイメージをDocker Hub上から検索できます。
-1docker search [イメージ名]">
-<meta property="og:updated_time" content="2016-11-29T16:25:09.000Z">
+<meta property="og:description" content="わからない用語を調べたディープラーニングを勉強しているとわからない用語がまぁ〜出てきます。今回はわからない用語を調べたのでそれをまとめました。毎度のことながら自分用のメモです。浅くしか調べてません。すいません。
+活性化関数入力信号の総和を出力信号に変換する関数。伝達関数ともいう。">
+<meta property="og:updated_time" content="2016-12-06T00:22:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker基本コマンド">
-<meta name="twitter:description" content="Dockerを使うときのメモ先人からDockerの環境を引き継ぐこととなりDockerほぼ使ったことなかったので色々調べたことをメモしておきます。
-Dockerイメージの検索DockerイメージをDocker Hub上から検索できます。
-1docker search [イメージ名]">
+<meta name="twitter:title" content="機械学習用語">
+<meta name="twitter:description" content="わからない用語を調べたディープラーニングを勉強しているとわからない用語がまぁ〜出てきます。今回はわからない用語を調べたのでそれをまとめました。毎度のことながら自分用のメモです。浅くしか調べてません。すいません。
+活性化関数入力信号の総和を出力信号に変換する関数。伝達関数ともいう。">
     
 
     
@@ -205,7 +202,7 @@ Dockerイメージの検索DockerイメージをDocker Hub上から検索でき�
 </aside>
 
             
-            <section id="main"><article id="post-docker1" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-vocabulary1" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -213,7 +210,7 @@ Dockerイメージの検索DockerイメージをDocker Hub上から検索でき�
                 
     
         <h1 class="article-title" itemprop="name">
-            Docker基本コマンド
+            機械学習用語
         </h1>
     
 
@@ -222,8 +219,8 @@ Dockerイメージの検索DockerイメージをDocker Hub上から検索でき�
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/docker/docker1/">
-            <time datetime="2016-11-29T15:00:00.000Z" itemprop="datePublished">2016-11-30</time>
+        <a href="/machine-learning/vocabulary1/">
+            <time datetime="2016-12-05T15:00:00.000Z" itemprop="datePublished">2016-12-06</time>
         </a>
     </div>
 
@@ -231,13 +228,13 @@ Dockerイメージの検索DockerイメージをDocker Hub上から検索でき�
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/docker/">Docker</a>
+        <a class="article-category-link" href="/categories/machine-learning/">機械学習</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Docker/">Docker</a>
+        <a class="tag-link" href="/tags/数学/">数学</a>, <a class="tag-link" href="/tags/機械学習/">機械学習</a>
     </div>
 
                     </div>
@@ -248,26 +245,40 @@ Dockerイメージの検索DockerイメージをDocker Hub上から検索でき�
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="Dockerを使うときのメモ"><a href="#Dockerを使うときのメモ" class="headerlink" title="Dockerを使うときのメモ"></a>Dockerを使うときのメモ</h2><p>先人からDockerの環境を引き継ぐこととなりDockerほぼ使ったことなかったので<br>色々調べたことをメモしておきます。</p>
-<h2 id="Dockerイメージの検索"><a href="#Dockerイメージの検索" class="headerlink" title="Dockerイメージの検索"></a>Dockerイメージの検索</h2><p>DockerイメージをDocker Hub上から検索できます。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker search [イメージ名]</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="Dcokerイメージをダウンロード"><a href="#Dcokerイメージをダウンロード" class="headerlink" title="Dcokerイメージをダウンロード"></a>Dcokerイメージをダウンロード</h2><p>Docker Hub上からイメージをダウンロードします</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull [イメージ名]</div></pre></td></tr></table></figure>
-<h2 id="取得したDockerイメージの確認"><a href="#取得したDockerイメージの確認" class="headerlink" title="取得したDockerイメージの確認"></a>取得したDockerイメージの確認</h2><p>pullしてきたイメージの一覧を確認できる</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker images</div></pre></td></tr></table></figure>
-<h2 id="起動中のコンテナの一覧を確認"><a href="#起動中のコンテナの一覧を確認" class="headerlink" title="起動中のコンテナの一覧を確認"></a>起動中のコンテナの一覧を確認</h2><p><code>-a</code>を付けると停止中のコンテナも取得できる</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker ps -a</div></pre></td></tr></table></figure>
-<h2 id="DockerfileからDockerイメージを構築"><a href="#DockerfileからDockerイメージを構築" class="headerlink" title="DockerfileからDockerイメージを構築"></a>DockerfileからDockerイメージを構築</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker build</div></pre></td></tr></table></figure>
-<h2 id="Dockerイメージからコンテナを作成"><a href="#Dockerイメージからコンテナを作成" class="headerlink" title="Dockerイメージからコンテナを作成"></a>Dockerイメージからコンテナを作成</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker create [イメージ名]</div></pre></td></tr></table></figure>
-<h2 id="Dockerコンテナをスタート"><a href="#Dockerコンテナをスタート" class="headerlink" title="Dockerコンテナをスタート"></a>Dockerコンテナをスタート</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker start [コンテナ名]</div></pre></td></tr></table></figure>
-<h2 id="Dockerコンテナのストップ"><a href="#Dockerコンテナのストップ" class="headerlink" title="Dockerコンテナのストップ"></a>Dockerコンテナのストップ</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker stop [コンテナ名]</div></pre></td></tr></table></figure>
-<h2 id="Dcokerコンテナの削除"><a href="#Dcokerコンテナの削除" class="headerlink" title="Dcokerコンテナの削除"></a>Dcokerコンテナの削除</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker rm [コンテナ名]</div></pre></td></tr></table></figure>
-<h2 id="Dockerビルド時の履歴を確認"><a href="#Dockerビルド時の履歴を確認" class="headerlink" title="Dockerビルド時の履歴を確認"></a>Dockerビルド時の履歴を確認</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker history [IMAGE]</div></pre></td></tr></table></figure>
-<h2 id="Dockerのコンテナで動作中のシェルへの接続方法"><a href="#Dockerのコンテナで動作中のシェルへの接続方法" class="headerlink" title="Dockerのコンテナで動作中のシェルへの接続方法"></a>Dockerのコンテナで動作中のシェルへの接続方法</h2><p>動作中のDockerにシェルでつないで色々いじりたいとき</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it [コンテナ名] /bin/bash</div></pre></td></tr></table></figure>
-<h2 id="Dockerコンテナのログを確認"><a href="#Dockerコンテナのログを確認" class="headerlink" title="Dockerコンテナのログを確認"></a>Dockerコンテナのログを確認</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker logs [コンテナ名]</div></pre></td></tr></table></figure>
-<h2 id="Dockerイメージの削除"><a href="#Dockerイメージの削除" class="headerlink" title="Dockerイメージの削除"></a>Dockerイメージの削除</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker rmi [IMAGE]</div></pre></td></tr></table></figure>
+            <h2 id="わからない用語を調べた"><a href="#わからない用語を調べた" class="headerlink" title="わからない用語を調べた"></a>わからない用語を調べた</h2><p>ディープラーニングを勉強しているとわからない用語がまぁ〜出てきます。<br>今回はわからない用語を調べたのでそれをまとめました。<br>毎度のことながら自分用のメモです。浅くしか調べてません。すいません。</p>
+<h2 id="活性化関数"><a href="#活性化関数" class="headerlink" title="活性化関数"></a>活性化関数</h2><p>入力信号の総和を出力信号に変換する関数。伝達関数ともいう。<br><a id="more"></a></p>
+<blockquote>
+<p>活性化関数としてはパーセプトロンが登場した頃の1950年代はステップ関数が多く、1986年のバックプロパゲーションの発表以降はシグモイド関数が最も一般的だったが、現在は ReLU（ランプ関数）の方が良いと言われる。活性化関数は単調増加関数が使われる事が多いが、必ずしもそうしなければいけないという物でもなく動径基底関数なども使われる。</p>
+</blockquote>
+<p>wiki引用</p>
+<p>ステップ関数やシグモイド関数のこと。ディープラーニングでは結構よく出てくる用語の一つですね。</p>
+<h2 id="ネイピア数"><a href="#ネイピア数" class="headerlink" title="ネイピア数"></a>ネイピア数</h2><p>数学の記号eで表す自然対数の底のことです。欧米ではオイラー数とも呼ばれるようです。<br>以下の式で表すことができ、</p>
+<p>$$<br>e = \lim_{n \to \infty} (1 + \frac{1}{\ n})^n<br>$$</p>
+<p>数値自体は<strong>e = 2.71828 18284 59045 23536 02874 71352 …</strong>となります。<br>この定数は、指数関数や対数関数の微分でよく使われています。<br><strong>e^x</strong>を微分すると<strong>e^x</strong>となり、<strong>loge e x</strong>を微分すると<strong>1/x</strong>となる特徴があります。</p>
+<p>まぁよくわからないですが、とりあえず自然対数の底でアルファベットのeと、この程度でまずはいいと思います。今後もっと詳しく調べてみたいと思います。完全に数学です…</p>
+<h2 id="ステップ関数"><a href="#ステップ関数" class="headerlink" title="ステップ関数"></a>ステップ関数</h2><blockquote>
+<p>階段関数（かいだんかんすう、英: step functionまたは英: staircase function）とは、おおまかに言って、グラフが階段状になる実関数のことである。より正確には、区間上の指示関数が有限個あって、それらの線型結合で表される関数である。有限個のみの区分を持った、区分的に定数関数である関数とも表現できる。</p>
+</blockquote>
+<p>wiki引用</p>
+<p>wikiを読んでもよくわからんですね。<br>ちょっと難しいですが、用はグラフが階段状になっていたら、それはステップ関数だってことですね。<br>で、活性化関数として昔は使われていたが、出力の値が<strong>0</strong>か<strong>1</strong>と極端だったので今は使われていないってことを覚えておけば良さそうです。</p>
+<h2 id="シグモイド関数"><a href="#シグモイド関数" class="headerlink" title="シグモイド関数"></a>シグモイド関数</h2><p>活性化関数をステップ関数とすると変化が急すぎるため、ステップ関数の変化を少し滑らかにした関数。それがシグモイド関数です。<br>以下のような式で表すことができます。</p>
+<p>$${\sigma_a}(x) = \frac{1}{\ 1 + e^{-ax}}$$</p>
+<p>この時<code>a</code>の値を大きくすればするほどステップ関数に似たような関数になりますが、急激な変化ではなく少し滑らかな変化になります。<br>これも昔は使われていたが最近はあまり使われなくなっている活性化関数の一つと覚えておけばいいかもですね。</p>
+<h2 id="線形関数"><a href="#線形関数" class="headerlink" title="線形関数"></a>線形関数</h2><p>いわゆる一次関数のような直線で表せる関数のことで、出力が入力の定数倍になるような関数です。また線形性がある関数とも言えます。<br>線形性とは、</p>
+<blockquote>
+<p>線型性（せんけいせい、英語: linearity）あるいは線型、線形、線状、リニア（せんけい、英語: linear、ラテン語: linearis）とは、直線そのもの、または直線のようにまっすぐな図形やそれに似た性質をもつ対象および、そのような性質を保つ変換などを指して用いられている術語である。</p>
+</blockquote>
+<p>wiki引用</p>
+<p>簡単に直線が引ける関数ってことですね。</p>
+<h2 id="非線形関数"><a href="#非線形関数" class="headerlink" title="非線形関数"></a>非線形関数</h2><p>線形関数とは逆で読んで字のごとく線形ではない、線形では表せない関数ってことですね。<br>もっと言うと直線で引けない関数ってことです。<br>ステップ関数やシグモイド関数も非線形関数の一つです。</p>
+<p>これは分かりやすいですね。線形、非線形って言葉も結構よく出てきますので覚えておきましょう。</p>
+<h2 id="ReLU（ランプ）関数"><a href="#ReLU（ランプ）関数" class="headerlink" title="ReLU（ランプ）関数"></a>ReLU（ランプ）関数</h2><p>ReLUでランプと読むようですね。変わってますねw</p>
+<blockquote>
+<p>ランプ関数（英: ramp function）とは、一変数の実関数であり、独立変数とその絶対値の平均として容易に求められる。区分線形関数。<br>この関数は工学において（DSPの理論など）応用を持つ。”ramp function”の名は、グラフの形状が傾斜路（英: ramp）に似ていることに由来する。</p>
+</blockquote>
+<p>wiki引用</p>
+<p>この関数もwikiを読んでもちょっとよくわからないですね。<br>簡単に説明すると、入力が0を超えている場合はその値をそのまま出力して、0以下なら0を出力するといった関数です。</p>
+<p>他にもたくさんありますが、一旦ここで終わり。</p>
 
         
         </div>
@@ -275,10 +286,10 @@ Dockerイメージの検索DockerイメージをDocker Hub上から検索でき�
             
     <div id="article-share-box" class="article-share-box-on">
     <div class="article-share-links">
-        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/docker/docker1/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
-        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/docker/docker1/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
-        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/docker/docker1/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
-        <a href="https://plus.google.com/share?url=http://devlog.site/docker/docker1/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
+        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/machine-learning/vocabulary1/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
+        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/machine-learning/vocabulary1/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
+        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/machine-learning/vocabulary1/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
+        <a href="https://plus.google.com/share?url=http://devlog.site/machine-learning/vocabulary1/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
     </div>
 </div>
 
@@ -291,19 +302,10 @@ Dockerイメージの検索DockerイメージをDocker Hub上から検索でき�
         
 <nav id="article-nav">
     
-        <a href="/git/git-alias/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">新しい記事</strong>
-            <div class="article-nav-title">
-                
-                    gitエイリアス
-                
-            </div>
-        </a>
     
-    
-        <a href="/tensorflow/tensorflow5/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/ディープラーニング/perceptron/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">古い記事</strong>
-            <div class="article-nav-title">TensorFlowの基本的なAPI1</div>
+            <div class="article-nav-title">パーセプトロンについて</div>
         </a>
     
 </nav>
@@ -319,7 +321,7 @@ Dockerイメージの検索DockerイメージをDocker Hub上から検索でき�
                   <h2>関連記事</h2>
               </div>
           </header>
-          
+          <ul class="related-posts"><li class="related-posts-item"><div class="related-posts-inner"><div class="related-posts-image"><a href="/tensorflow/tensorflow2/"><img src="/css/images/thumb-default-small.png" /></a></div><div class="related-posts-date">2016-11-23</div><div class="related-posts-title"><a href="/tensorflow/tensorflow2/" title="TensorFlowで四則演算をやってみた" rel="bookmark">TensorFlowで四則演算をやってみた</a></div><div class="related-posts-tags"><a href="/tags/python/">#python</a><a href="/tags/TensorFlow/">#TensorFlow</a><a href="/tags/機械学習/">#機械学習</a></div></div></li></ul>
       </div>
   </section>
     
@@ -557,6 +559,23 @@ Dockerイメージの検索DockerイメージをDocker Hub上から検索でき�
 <!-- Custom Scripts -->
 <script src="/js/main.js"></script>
 
-    </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>
