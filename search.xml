@@ -4,6 +4,26 @@
   
     
     <entry>
+      <title><![CDATA[ニューラルネットワーク入門]]></title>
+      <url>http://devlog.site/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0/neural-network1/</url>
+      <content type="html"><![CDATA[<h2 id="ニューラルネットワークの実装"><a href="#ニューラルネットワークの実装" class="headerlink" title="ニューラルネットワークの実装"></a>ニューラルネットワークの実装</h2><p>今回も「ゼロから作るディープラーニング」をもとにニューラルネットワークの実装をPythonでお行いたいと思います。<br><a id="more"></a></p>
+<h2 id="入力2出力3のニューラルネットワーク"><a href="#入力2出力3のニューラルネットワーク" class="headerlink" title="入力2出力3のニューラルネットワーク"></a>入力2出力3のニューラルネットワーク</h2><p>NumPyの行列計算を使用して、入力が2つ、出力が3つのニューラルネットワークを実装してみます。<br>ここではバイアスと活性化関数は一旦置いておきます。<br>Xは入力、Wは重み、Yは出力を示しています。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">In [1]: import numpy as np</div><div class="line">In [2]: X = np.array([1,2])</div><div class="line">In [3]: X.shape</div><div class="line">Out[3]: (2,)</div><div class="line">In [4]: W = np.array([[1,3,5],[2,4,6]])</div><div class="line">In [5]: print(W)</div><div class="line">[[1 3 5]</div><div class="line"> [2 4 6]]</div><div class="line">In [6]: W.shape</div><div class="line">Out[6]: (2, 3)</div><div class="line">In [7]: Y = np.dot(X, W)</div><div class="line">In [8]: print(Y)</div><div class="line">[ 5 11 17]</div></pre></td></tr></table></figure>
+<p>Xの入力は2つの要素を持つ1次元配列で、重みのWが2x3の配列となり、出力Yが3つの要素を持つ1次元配列になっていることがわかります。<br>これは入力が2つで出力が3つあるニューラルネットワークになります。</p>
+<h2 id="3層構造のニューラルネットワーク"><a href="#3層構造のニューラルネットワーク" class="headerlink" title="3層構造のニューラルネットワーク"></a>3層構造のニューラルネットワーク</h2><p>次にバイアスと活性化関数を考慮した3層構造のニューラルネットワークを実装してみます。<br>Bをバイアス、A1は行列の内積を示しています。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">In [1]: import numpy as np</div><div class="line">In [2]: X = np.array([1.0, 0.5])</div><div class="line">In [3]: W1 = np.array([[0.1, 0.3, 0.5],[0.2, 0.4, 0.6]])</div><div class="line">In [4]: B1 = np.array([0.1, 0.2, 0.3])</div><div class="line">In [5]: X.shape</div><div class="line">Out[5]: (2,)</div><div class="line">In [6]: W1.shape</div><div class="line">Out[6]: (2, 3)</div><div class="line">In [7]: B1.shape</div><div class="line">Out[7]: (3,)</div><div class="line">In [8]: A1 = np.dot(X, W1) + B1</div></pre></td></tr></table></figure>
+<p>ここまでで0層目から1層目への入力ができました。次にノード内で行われる活性化関数の実装を行いたいと思います。本に従ってシグモイド関数を使用します。<br>Z1は1層目の出力を示しています。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">In [9]: def sigmoid(x):</div><div class="line">   ...:     return 1 / (1 + np.exp(-x))</div><div class="line">   ...: </div><div class="line">In [10]: Z1 = sigmoid(A1)</div><div class="line">In [11]: print(A1)</div><div class="line">[ 0.3  0.7  1.1]</div><div class="line">In [12]: print(Z1)</div><div class="line">[ 0.57444252  0.66818777  0.75026011]</div></pre></td></tr></table></figure>
+<p>次に1層目から2層目への入力を行います。<br>W2が1層目から2層目への重みで、B2がバイアス、Z1が入力、A2が内積を示しています。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">In [13]: W2 = np.array([[0.1, 0.4],[0.2, 0.5],[0.3, 0.6]])</div><div class="line">In [14]: B2 = np.array([0.1, 0.2])</div><div class="line">In [15]: Z1.shape</div><div class="line">Out[15]: (3,)</div><div class="line">In [16]: W2.shape</div><div class="line">Out[16]: (3, 2)</div><div class="line">In [17]: B2.shape</div><div class="line">Out[17]: (2,)</div><div class="line">In [18]: A2 = np.dot(Z1, W2) + B2</div><div class="line">In [19]: Z2 = sigmoid(A2)</div></pre></td></tr></table></figure>
+<p>0層目から1層目に行ったこととほぼ同じですね。最後に2層目から3層目の実装です。<br>予想ができると思いますが、3層目の計算も今までの0層目から1層目、1層目から2層目と同じようなイメージです。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">In [20]: def identity_function(x):</div><div class="line">   ....:     return x</div><div class="line">   ....: </div><div class="line">In [21]: W3 = np.array([[0.1, 0.3],[0.2, 0.4]])</div><div class="line">In [22]: B3 = np.array([0.1, 0.2])</div><div class="line">In [23]: A3 = np.dot(Z2, W3) + B3</div><div class="line">In [24]: Y = identity_function(A3)</div></pre></td></tr></table></figure>
+<p>2層目の実装と少し違うところがあると思います。<br>それは<strong>identity_function()</strong>を定義して活性化関数として最後のノードに使用しているところです。<br>恒等関数と言って入力をそのまま出力する関数です。最後のノードでなぜ恒等関数を使用するかというと、問題の性質に応じてこの関数を変えて欲しいからです。<br>今回は適当なデータでサンプルを実装した為、恒等関数を使用しただけのことです。</p>
+<p>終わり。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Docker入門]]></title>
       <url>http://devlog.site/docker/docker2/</url>
       <content type="html"><![CDATA[<h2 id="Dockerを使ってみた"><a href="#Dockerを使ってみた" class="headerlink" title="Dockerを使ってみた"></a>Dockerを使ってみた</h2><p>業務でDocker環境を引き継いだもののDcokerはさっぱりわからないので、まずは使える環境をローカルにも作ってみました。<br><a id="more"></a></p>
@@ -232,8 +252,8 @@
     <entry>
       <title><![CDATA[DNSレコードについて調べてみた]]></title>
       <url>http://devlog.site/DNS/dns1/</url>
-      <content type="html"><![CDATA[<h2 id="DNSレコードについて調べてみた"><a href="#DNSレコードについて調べてみた" class="headerlink" title="DNSレコードについて調べてみた"></a>DNSレコードについて調べてみた</h2><p>DNSレコードの設定をする機会があり、今まで結構なぁなぁでやっていたのでこれを機に少し調べてみました。<br>簡単なメモです。</p>
-<h2 id="DNSレコードとは？"><a href="#DNSレコードとは？" class="headerlink" title="DNSレコードとは？"></a>DNSレコードとは？</h2><p>まずDNSレコードの前にDNSとは、名前解決、つまりIPアドレスとドメインをマッピングして相互変換するものです。<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<h2 id="DNSレコードについて調べてみた"><a href="#DNSレコードについて調べてみた" class="headerlink" title="DNSレコードについて調べてみた"></a>DNSレコードについて調べてみた</h2><p>DNSレコードの設定をする機会があり、今まで結構なぁなぁでやっていたのでこれを機に少し調べてみました。<br>簡単なメモです。<br><a id="more"></a></p>
+<h2 id="DNSレコードとは？"><a href="#DNSレコードとは？" class="headerlink" title="DNSレコードとは？"></a>DNSレコードとは？</h2><p>まずDNSレコードの前にDNSとは、名前解決、つまりIPアドレスとドメインをマッピングして相互変換するものです。</p>
 <p>ではDNSレコードとは何かというと、その名前解決についての設定の記述の仕方のことです。<br>DNSレコードには種類があり、それぞれに役割があります。<br>例えば、このドメイン名はこのIPアドレスのことですよ。というドメイン名とIPアドレスをマッチンピングする設定をしておく場合はAレコードを指定します。</p>
 <h2 id="DNSレコードの種類"><a href="#DNSレコードの種類" class="headerlink" title="DNSレコードの種類"></a>DNSレコードの種類</h2><p>Aレコード以外にもたくさんの種類があります。<br><a href="https://ja.wikipedia.org/wiki/DNS%E3%83%AC%E3%82%B3%E3%83%BC%E3%83%89%E3%82%BF%E3%82%A4%E3%83%97%E3%81%AE%E4%B8%80%E8%A6%A7" target="_blank" rel="external">wiki</a>を見ていただけるとわかると思いますが、まぁまぁ種類がありますね。</p>
 <p>その中でも主に指定するレコードがこちらです。</p>
@@ -287,8 +307,8 @@
     <entry>
       <title><![CDATA[matplotlibを少しだけ]]></title>
       <url>http://devlog.site/python/matplotlib/</url>
-      <content type="html"><![CDATA[<h2 id="matplotlibについて調べてみた"><a href="#matplotlibについて調べてみた" class="headerlink" title="matplotlibについて調べてみた"></a>matplotlibについて調べてみた</h2><p>引き続き「ゼロから作るディープラーニング」を読んでいます。<br>まだまだ序盤ですが、そこで出てきたのがmatplotlib。どんなものか調べてみました。<br>自分の為の簡単なメモですのであしからず。</p>
-<h2 id="matplotlibとは"><a href="#matplotlibとは" class="headerlink" title="matplotlibとは"></a>matplotlibとは</h2><p>Pythonでグラフを描画するときに便利なライブラリです。<br>NumPyなどと組み合わせてデータの可視化に使われます。Pythonで機械学習やる場合は必須なライブラリみたいです。<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<h2 id="matplotlibについて調べてみた"><a href="#matplotlibについて調べてみた" class="headerlink" title="matplotlibについて調べてみた"></a>matplotlibについて調べてみた</h2><p>引き続き「ゼロから作るディープラーニング」を読んでいます。<br>まだまだ序盤ですが、そこで出てきたのがmatplotlib。どんなものか調べてみました。<br>自分の為の簡単なメモですのであしからず。<br><a id="more"></a></p>
+<h2 id="matplotlibとは"><a href="#matplotlibとは" class="headerlink" title="matplotlibとは"></a>matplotlibとは</h2><p>Pythonでグラフを描画するときに便利なライブラリです。<br>NumPyなどと組み合わせてデータの可視化に使われます。Pythonで機械学習やる場合は必須なライブラリみたいです。</p>
 <p><a href="http://matplotlib.org/gallery.html" target="_blank" rel="external">公式のギャラリー</a>を見ると色々できる見たいですね。</p>
 <h2 id="試してみた"><a href="#試してみた" class="headerlink" title="試してみた"></a>試してみた</h2><p>早速試してみた。<a href="http://devlog.site/python/numpy/">前回</a>ディープラーニングの勉強の為に環境は作ってあるので既にインストールは終わっています。</p>
 <p>簡単なsin関数をグラフに描画してみました。</p>
@@ -347,9 +367,8 @@
     <entry>
       <title><![CDATA[gitエイリアス]]></title>
       <url>http://devlog.site/git/git-alias/</url>
-      <content type="html"><![CDATA[<h2 id="gitエイリアス"><a href="#gitエイリアス" class="headerlink" title="gitエイリアス"></a>gitエイリアス</h2><p>gitはたくさんのコマンドがあってオプションも盛りだくさんなので毎度忘れてしまうし、いちいち打つのが大変なのでそんな時はgitエイリアスが便利です。</p>
+      <content type="html"><![CDATA[<h2 id="gitエイリアス"><a href="#gitエイリアス" class="headerlink" title="gitエイリアス"></a>gitエイリアス</h2><p>gitはたくさんのコマンドがあってオプションも盛りだくさんなので毎度忘れてしまうし、いちいち打つのが大変なのでそんな時はgitエイリアスが便利です。<br><a id="more"></a></p>
 <h2 id="gitconfigファイルで指定"><a href="#gitconfigファイルで指定" class="headerlink" title=".gitconfigファイルで指定"></a>.gitconfigファイルで指定</h2><p>.gitconfigファイルに以下のようにaliasセクションに<code>短縮形 = 展開形</code>というふうに書きます。</p>
-<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[alias]</div><div class="line">    ai = add -i</div></pre></td></tr></table></figure>
 <p>こんな感じで書きます。</p>
 <h2 id="設定しているエイリアス"><a href="#設定しているエイリアス" class="headerlink" title="設定しているエイリアス"></a>設定しているエイリアス</h2><p>私が設定しているエイリアスですが、ちゃんと見返すと全然使ってないものも結構ありましたw</p>
@@ -365,10 +384,9 @@
     <entry>
       <title><![CDATA[Docker基本コマンド]]></title>
       <url>http://devlog.site/docker/docker1/</url>
-      <content type="html"><![CDATA[<h2 id="Dockerを使うときのメモ"><a href="#Dockerを使うときのメモ" class="headerlink" title="Dockerを使うときのメモ"></a>Dockerを使うときのメモ</h2><p>先人からDockerの環境を引き継ぐこととなりDockerほぼ使ったことなかったので<br>色々調べたことをメモしておきます。</p>
+      <content type="html"><![CDATA[<h2 id="Dockerを使うときのメモ"><a href="#Dockerを使うときのメモ" class="headerlink" title="Dockerを使うときのメモ"></a>Dockerを使うときのメモ</h2><p>先人からDockerの環境を引き継ぐこととなりDockerほぼ使ったことなかったので<br>色々調べたことをメモしておきます。<br><a id="more"></a></p>
 <h2 id="Dockerイメージの検索"><a href="#Dockerイメージの検索" class="headerlink" title="Dockerイメージの検索"></a>Dockerイメージの検索</h2><p>DockerイメージをDocker Hub上から検索できます。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker search [イメージ名]</div></pre></td></tr></table></figure>
-<a id="more"></a>
 <h2 id="Dcokerイメージをダウンロード"><a href="#Dcokerイメージをダウンロード" class="headerlink" title="Dcokerイメージをダウンロード"></a>Dcokerイメージをダウンロード</h2><p>Docker Hub上からイメージをダウンロードします</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull [イメージ名]</div></pre></td></tr></table></figure>
 <h2 id="取得したDockerイメージの確認"><a href="#取得したDockerイメージの確認" class="headerlink" title="取得したDockerイメージの確認"></a>取得したDockerイメージの確認</h2><p>pullしてきたイメージの一覧を確認できる</p>
@@ -555,8 +573,8 @@
     <entry>
       <title><![CDATA[IPython使ってみた]]></title>
       <url>http://devlog.site/python/ipython1/</url>
-      <content type="html"><![CDATA[<h2 id="IPython使ってみた"><a href="#IPython使ってみた" class="headerlink" title="IPython使ってみた"></a>IPython使ってみた</h2><p>TensorFlowを勉強してて出てきたIPythonという言葉…なんかだよく分からなかったので調べてみました。</p>
-<h2 id="IPythonとは？"><a href="#IPythonとは？" class="headerlink" title="IPythonとは？"></a>IPythonとは？</h2><p>「あいぱいそん」って読むらしいです。<br>Wikiを見てみると<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<h2 id="IPython使ってみた"><a href="#IPython使ってみた" class="headerlink" title="IPython使ってみた"></a>IPython使ってみた</h2><p>TensorFlowを勉強してて出てきたIPythonという言葉…なんかだよく分からなかったので調べてみました。<br><a id="more"></a></p>
+<h2 id="IPythonとは？"><a href="#IPythonとは？" class="headerlink" title="IPythonとは？"></a>IPythonとは？</h2><p>「あいぱいそん」って読むらしいです。<br>Wikiを見てみると</p>
 <blockquote>
 <p>IPython (あいぱいそん) はPythonを対話的に実行するためのシェルである。オリジナルのPythonに比較して、型推定を強化し、対話的実行のための文法を追加してあり、コード・ハイライティングおよびタブによる補完が行える。</p>
 </blockquote>
@@ -632,9 +650,8 @@
     <entry>
       <title><![CDATA[機械学習について調べてみた]]></title>
       <url>http://devlog.site/machine-learning/machine-learning1/</url>
-      <content type="html"><![CDATA[<h1 id="機械学習とは何か？"><a href="#機械学習とは何か？" class="headerlink" title="機械学習とは何か？"></a>機械学習とは何か？</h1><p>今回はそもそも機械学習とは何か？ということを学んでいきたいと思います。</p>
+      <content type="html"><![CDATA[<h1 id="機械学習とは何か？"><a href="#機械学習とは何か？" class="headerlink" title="機械学習とは何か？"></a>機械学習とは何か？</h1><p>今回はそもそも機械学習とは何か？ということを学んでいきたいと思います。<br><a id="more"></a></p>
 <h2 id="機械学習とは一言で"><a href="#機械学習とは一言で" class="headerlink" title="機械学習とは一言で"></a>機械学習とは一言で</h2><p>機械学習についてネットで調べると色々な記事があり、たくさんの専門用語が出てきて調べれば調べるほどよくわかりません。<br>そんな中<a href="http://www.sas.com/ja_jp/insights/analytics/machine-learning.html" target="_blank" rel="external">こちら</a>のサイトが分かりやすかったので、少し引用させていただくと</p>
-<a id="more"></a>
 <blockquote>
 <p>機械学習とは、データから反復的に学習し、そこに潜むパターンを見つけ出すことです。<br>そして学習した結果を新たなデータにあてはめることで、パターンにしたがって将来を予測することができます。</p>
 </blockquote>
