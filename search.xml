@@ -4,6 +4,26 @@
   
     
     <entry>
+      <title><![CDATA[ttyとptsについて]]></title>
+      <url>http://devlog.site/%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/tty/</url>
+      <content type="html"><![CDATA[<h2 id="ttyとptsがわからなかったので調べてみた"><a href="#ttyとptsがわからなかったので調べてみた" class="headerlink" title="ttyとptsがわからなかったので調べてみた"></a>ttyとptsがわからなかったので調べてみた</h2><p>ttyとptsについて良くわかってなかったので調べてみました。自分メモです。<br><a id="more"></a></p>
+<h2 id="screenコマンド"><a href="#screenコマンド" class="headerlink" title="screenコマンド"></a>screenコマンド</h2><p>ttyとptsの前にscreenコマンドについてです。</p>
+<p>そもそもttyとptsが何なのか調べたのは、このscreenコマンドでDocker for Mac のxhive環境へのログインする必要があり、その前提知識としてtty、ptsどんなものなのか知る必要があったからです。</p>
+<p>で、まずscreenコマンドはというと、<br>screenコマンドは１つのターミナル上で、仮想的に複数の端末を同時にオープンして作業できるようにするコマンドです。仮想端末が開かれた状態を保ったままターミナルをログアウトできたり、後から再度ログインして、screenを呼び出すことで仮想端末の状態に復帰することができます。<br>例えば処理にすごく時間のかかる作業がある場合に仮想端末上でそれを行わせてから元のターミナルで他の作業をするなどに使えるようです。</p>
+<p>結構便利なコマンドですね。全然知りませんでした…<br>このscreenコマンドでDockerのttyを指定できるようです。</p>
+<h2 id="ttyコマンド"><a href="#ttyコマンド" class="headerlink" title="ttyコマンド"></a>ttyコマンド</h2><p>そしてそもそもttyとかptsってなんぞや？ってとこですが、まずttyコマンドというコマンドがあります。<br>ttyコマンドは標準入出力となっている端末デバイスの名前を表示するコマンドです。<br>テレタイプライターでttyだそうです。ttyコマンドはあまり聞きませんが、よくpsコマンドでプロセス確認する時にttyって見かけますよね。こんな感じで。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ ps aux</div><div class="line">USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</div><div class="line">root     21944  0.0  0.0   4064   436 tty1     Ss+  Aug23   0:00 /sbin/mingetty /dev/tty1</div><div class="line">root     23504  0.0  0.0   4080   500 ttyS0    Ss+  Aug23   0:00 /sbin/agetty /dev/ttyS0 115200 vt100-nav</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>tty自体はデバイスファイルとしても存在していて、/dev/ttyにあります。<br>/dev/ttyは物理的な標準出力の端末なので、こんなこともできます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ echo &quot;Hello world&quot; &gt; /dev/tty</div><div class="line">Hello world</div></pre></td></tr></table></figure>
+<p>/dev/ttyへ文字をリダイレクトするとスクリーンにその文字が出力されます。標準出力に文字を送ったので当たり前といば当たり前ですね。<br>ということでttyは物理できな標準出力ってことですね。</p>
+<p>ちなみにptsはsshなどで繋いだ場合の仮想端末のことで、<br>sshで繋いだサーバ上でscreenコマンドで複数の仮想端末を立ち上げるとこんな風になります。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ tty</div><div class="line">/dev/pts/0</div><div class="line">$ screen</div><div class="line">$ tty</div><div class="line">/dev/pts/1</div></pre></td></tr></table></figure>
+<p>screenコマンドで別の仮想端末が立ち上がったことがttyコマンドで確認できますね。<br>Dockerで起動中のコンテナにアタッチした時にscreenコマンドが使えると便利そうですね。</p>
+<p>終わり。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[ニューラルネットワーク入門]]></title>
       <url>http://devlog.site/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0/neural-network1/</url>
       <content type="html"><![CDATA[<h2 id="ニューラルネットワークの実装"><a href="#ニューラルネットワークの実装" class="headerlink" title="ニューラルネットワークの実装"></a>ニューラルネットワークの実装</h2><p>今回も「ゼロから作るディープラーニング」をもとにニューラルネットワークの実装をPythonでお行いたいと思います。<br><a id="more"></a></p>
