@@ -3,18 +3,17 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>ttyとptsについて | Devlog</title>
+    <title>アーカイブ: 2016/12 | Devlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="ttyとptsがわからなかったので調べてみたttyとptsについて良くわかってなかったので調べてみました。自分メモです。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ttyとptsについて">
-<meta property="og:url" content="http://devlog.site/コマンド/tty/index.html">
+    <meta name="description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Devlog">
+<meta property="og:url" content="http://devlog.site/archives/2016/12/page/2/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="ttyとptsがわからなかったので調べてみたttyとptsについて良くわかってなかったので調べてみました。自分メモです。">
-<meta property="og:updated_time" content="2016-12-11T12:05:07.000Z">
+<meta property="og:description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ttyとptsについて">
-<meta name="twitter:description" content="ttyとptsがわからなかったので調べてみたttyとptsについて良くわかってなかったので調べてみました。自分メモです。">
+<meta name="twitter:title" content="Devlog">
+<meta name="twitter:description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
     
 
     
@@ -199,130 +198,54 @@
 </aside>
 
             
-            <section id="main"><article id="post-tty" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+            <section id="main"><div class="timeline timeline-wrap">
+    
+            <div class="timeline-row timeline-row-major">
+                <span class="node"><i class="fa fa-calendar"></i></span>
+                <h1 class="title">2016</h1>
+            </div>
         
-        
-            <header class="article-header">
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
                 
     
-        <h1 class="article-title" itemprop="name">
-            ttyとptsについて
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/git/git-alias/">gitエイリアス</a>
         </h1>
     
 
-                
-                    <div class="article-meta">
-                        
+                <div class="article-meta">
+                    
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/コマンド/tty/">
-            <time datetime="2016-12-10T15:00:00.000Z" itemprop="datePublished">2016-12-11</time>
+        <a href="/git/git-alias/">
+            <time datetime="2016-11-30T15:00:00.000Z" itemprop="datePublished">2016-12-01</time>
         </a>
     </div>
 
 
-                        
+                    
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/コマンド/">コマンド</a>
+        <a class="article-category-link" href="/categories/git/">git</a>
     </div>
 
-                        
+                    
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Docker/">Docker</a>, <a class="tag-link" href="/tags/pts/">pts</a>, <a class="tag-link" href="/tags/tty/">tty</a>
+        <a class="tag-link" href="/tags/alias/">alias</a>, <a class="tag-link" href="/tags/git/">git</a>
     </div>
 
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="ttyとptsがわからなかったので調べてみた"><a href="#ttyとptsがわからなかったので調べてみた" class="headerlink" title="ttyとptsがわからなかったので調べてみた"></a>ttyとptsがわからなかったので調べてみた</h2><p>ttyとptsについて良くわかってなかったので調べてみました。自分メモです。<br><a id="more"></a></p>
-<h2 id="screenコマンド"><a href="#screenコマンド" class="headerlink" title="screenコマンド"></a>screenコマンド</h2><p>ttyとptsの前にscreenコマンドについてです。</p>
-<p>そもそもttyとptsが何なのか調べたのは、このscreenコマンドでDocker for Mac のxhive環境へのログインする必要があり、その前提知識としてtty、ptsどんなものなのか知る必要があったからです。</p>
-<p>で、まずscreenコマンドはというと、<br>screenコマンドは１つのターミナル上で、仮想的に複数の端末を同時にオープンして作業できるようにするコマンドです。仮想端末が開かれた状態を保ったままターミナルをログアウトできたり、後から再度ログインして、screenを呼び出すことで仮想端末の状態に復帰することができます。<br>例えば処理にすごく時間のかかる作業がある場合に仮想端末上でそれを行わせてから元のターミナルで他の作業をするなどに使えるようです。</p>
-<p>結構便利なコマンドですね。全然知りませんでした…<br>このscreenコマンドでDockerのttyを指定できるようです。</p>
-<h2 id="ttyコマンド"><a href="#ttyコマンド" class="headerlink" title="ttyコマンド"></a>ttyコマンド</h2><p>そしてそもそもttyとかptsってなんぞや？ってとこですが、まずttyコマンドというコマンドがあります。<br>ttyコマンドは標準入出力となっている端末デバイスの名前を表示するコマンドです。<br>テレタイプライターでttyだそうです。ttyコマンドはあまり聞きませんが、よくpsコマンドでプロセス確認する時にttyって見かけますよね。こんな感じで。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ ps aux</div><div class="line">USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</div><div class="line">root     21944  0.0  0.0   4064   436 tty1     Ss+  Aug23   0:00 /sbin/mingetty /dev/tty1</div><div class="line">root     23504  0.0  0.0   4080   500 ttyS0    Ss+  Aug23   0:00 /sbin/agetty /dev/ttyS0 115200 vt100-nav</div><div class="line">...</div></pre></td></tr></table></figure>
-<p>tty自体はデバイスファイルとしても存在していて、/dev/ttyにあります。<br>/dev/ttyは物理的な標準出力の端末なので、こんなこともできます。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ echo &quot;Hello world&quot; &gt; /dev/tty</div><div class="line">Hello world</div></pre></td></tr></table></figure>
-<p>/dev/ttyへ文字をリダイレクトするとスクリーンにその文字が出力されます。標準出力に文字を送ったので当たり前といば当たり前ですね。<br>ということでttyは物理できな標準出力ってことですね。</p>
-<p>ちなみにptsはsshなどで繋いだ場合の仮想端末のことで、<br>sshで繋いだサーバ上でscreenコマンドで複数の仮想端末を立ち上げるとこんな風になります。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ tty</div><div class="line">/dev/pts/0</div><div class="line">$ screen</div><div class="line">$ tty</div><div class="line">/dev/pts/1</div></pre></td></tr></table></figure>
-<p>screenコマンドで別の仮想端末が立ち上がったことがttyコマンドで確認できますね。<br>Dockerで起動中のコンテナにアタッチした時にscreenコマンドが使えると便利そうですね。</p>
-<p>終わり。</p>
-
-        
+                </div>
+            </div>
         </div>
-        <footer class="article-footer">
-            
-    <div id="article-share-box" class="article-share-box-on">
-    <div class="article-share-links">
-        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/コマンド/tty/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
-        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/コマンド/tty/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
-        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/コマンド/tty/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
-        <a href="https://plus.google.com/share?url=http://devlog.site/コマンド/tty/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
-    </div>
+    
 </div>
 
-
-
-            
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/Go/go1/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">新しい記事</strong>
-            <div class="article-nav-title">
-                
-                    Go言語インストール
-                
-            </div>
-        </a>
-    
-    
-        <a href="/ディープラーニング/neural-network1/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">古い記事</strong>
-            <div class="article-nav-title">ニューラルネットワーク入門</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-  <section id="related">
-      <div class="related-inner">
-          <header class="related-header">
-              <div class="related-header-line">
-                  <h2>関連記事</h2>
-              </div>
-          </header>
-          <ul class="related-posts"><li class="related-posts-item"><div class="related-posts-inner"><div class="related-posts-image"><a href="/docker/docker1/"><img src="/css/images/thumb-default-small.png" /></a></div><div class="related-posts-date">2016-11-30</div><div class="related-posts-title"><a href="/docker/docker1/" title="Docker基本コマンド" rel="bookmark">Docker基本コマンド</a></div><div class="related-posts-tags"><a href="/tags/Docker/">#Docker</a></div></div></li></ul>
-      </div>
-  </section>
-    
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-
-
-    
-    </section>
-
-
+    <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/archives/2016/12/">&laquo; 前</a><a class="page-number" href="/archives/2016/12/">1</a><span class="page-number current">2</span>
+    </nav>
 </section>
             
                 <aside id="sidebar">
@@ -512,7 +435,7 @@
 <script>
   (function() {
     var d = document, s = d.createElement('script');
-    s.src = '//devlog-2.disqus.com/embed.js';
+    s.src = '//devlog-2.disqus.com/count.js';
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
   })();
@@ -541,23 +464,6 @@
 <!-- Custom Scripts -->
 <script src="/js/main.js"></script>
 
-    </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+    </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

@@ -4,6 +4,49 @@
   
     
     <entry>
+      <title><![CDATA[Go言語インストール]]></title>
+      <url>http://devlog.site/Go/go1/</url>
+      <content type="html"><![CDATA[<h2 id="Go入門"><a href="#Go入門" class="headerlink" title="Go入門"></a>Go入門</h2><p>仕事でGoを使う必要があったので、今更ながらGoを勉強してみたいと思います。<br><a id="more"></a></p>
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>環境はMacです。自分の為の備忘録ですので悪しからず。</p>
+<h2 id="gvmインストール"><a href="#gvmインストール" class="headerlink" title="gvmインストール"></a>gvmインストール</h2><p>gvmでGoの管理をしたいと思います。<br>gvmのインストールには以下を実行します。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bash &lt; &lt;(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)</div></pre></td></tr></table></figure>
+<p>インストールが終わったらコンソールの指示に従って以下を実行します。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source ~/.gvm/scripts/gvm</div></pre></td></tr></table></figure>
+<p>ちゃんと動くか確認します。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ gvm version</div><div class="line">Go Version Manager v1.0.22 installed at /Users/hoge/.gvm</div></pre></td></tr></table></figure>
+<p>大丈夫そうですね。</p>
+<h2 id="Goのインストール"><a href="#Goのインストール" class="headerlink" title="Goのインストール"></a>Goのインストール</h2><p>インストールできるバージョンの一覧を確認します。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">gvm listall</div><div class="line">   go1</div><div class="line">   go1.0.1</div><div class="line">   go1.0.2</div><div class="line">   go1.0.3</div><div class="line">   go1.1</div><div class="line">   go1.1.1</div><div class="line">   ...</div></pre></td></tr></table></figure>
+<p>今回は1.7.4をインストールしてみたいと思います。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gvm install go1.7.4</div></pre></td></tr></table></figure>
+<p>と、途中でエラーが出てしまいました。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ gvm install go1.7.4</div><div class="line">Downloading Go source...</div><div class="line">Installing go1.7.4...</div><div class="line"> * Compiling...</div><div class="line">ERROR: Failed to compile. Check the logs at /Users/hoge/.gvm/logs/go-go1.7.4-compile.log</div><div class="line">ERROR: Failed to use installed version</div></pre></td></tr></table></figure>
+<p>エラーログの中身を確認するとgoの1.4がないって怒られている様子。<br>なので先に1.4.3をインストールしてみます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gvm install go1.4.3</div></pre></td></tr></table></figure>
+<p>go1.4.3は素直にインストールができました。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gvm use go1.4.3</div></pre></td></tr></table></figure>
+<p>バージョンを1.4.3に切り替えて再度1.7.4をインストールしてみるとソースのダウンロードに結構時間がかかりましたが、無事にインストールが終わりました。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ gvm list</div><div class="line"></div><div class="line">=&gt; go1.4.3</div><div class="line">   go1.7.4</div><div class="line">   system</div></pre></td></tr></table></figure>
+<p>ちゃんとインストールされていますね。<br>このままだと1.4.3になっているので1.7.3に切り替えます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gvm use go1.7.4 --default</div></pre></td></tr></table></figure>
+<p>ちゃんと切り替わっていますね。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ gvm list</div><div class="line"></div><div class="line">   go1.4.3</div><div class="line">=&gt; go1.7.4</div><div class="line">   system</div></pre></td></tr></table></figure>
+<p>無事Goのインストールができました。<br>この後、少しGoで遊んでみました。</p>
+<h2 id="Goのimportの書き方"><a href="#Goのimportの書き方" class="headerlink" title="Goのimportの書き方"></a>Goのimportの書き方</h2><p>Goを書き始めてまず気になったimportの書き方についてです。<br>Githubからパッケージをそのままインポートできたりしてすごく便利なんですが、結構色々な書き方があるみたいなので調べてみました。</p>
+<h3 id="ファイルからの相対パスで指定"><a href="#ファイルからの相対パスで指定" class="headerlink" title="ファイルからの相対パスで指定"></a>ファイルからの相対パスで指定</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import &quot;./model&quot;</div></pre></td></tr></table></figure>
+<h3 id="GOPATHからの絶対パスで指定"><a href="#GOPATHからの絶対パスで指定" class="headerlink" title="GOPATHからの絶対パスで指定"></a>GOPATHからの絶対パスで指定</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import &quot;shorturl/model&quot;</div></pre></td></tr></table></figure>
+<h3 id="グループ化して複数指定"><a href="#グループ化して複数指定" class="headerlink" title="グループ化して複数指定"></a>グループ化して複数指定</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import (</div><div class="line">    &quot;fmt&quot;</div><div class="line">    &quot;string&quot;</div><div class="line">)</div></pre></td></tr></table></figure>
+<h3 id="ドットをパッケージの前に書く"><a href="#ドットをパッケージの前に書く" class="headerlink" title="ドットをパッケージの前に書く"></a>ドットをパッケージの前に書く</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import (</div><div class="line">    . &quot;fmt&quot;</div><div class="line">    &quot;string&quot;</div><div class="line">)</div></pre></td></tr></table></figure>
+<p><strong>fmt.Println(“hello world”)</strong>と書くところをドットをつけると<strong>Println(“hello world”)</strong>とパッケージ名を省略することができます。</p>
+<h3 id="エイリアスを付ける"><a href="#エイリアスを付ける" class="headerlink" title="エイリアスを付ける"></a>エイリアスを付ける</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import (</div><div class="line">    f &quot;fmt&quot;</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>パッケージ名の前にエイリアスを指定することで、<strong>fmt.Println(“hello world”)</strong>と書くところ<strong>f.Println(“hello world”)</strong>と書くことができます。<br>パッケージ名が同じ他のパッケージを使用したい場合などにエイリアスを指定して別名を付けてあげる場合などに使用します。</p>
+<h3 id="アンダースコアをパッケージの前に書く"><a href="#アンダースコアをパッケージの前に書く" class="headerlink" title="アンダースコアをパッケージの前に書く"></a>アンダースコアをパッケージの前に書く</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import (</div><div class="line">    &quot;database&quot;</div><div class="line">    _ &quot;github.com/go-sql-driver/mysql&quot;</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>対象のパッケージのinit関数だけ実行されます。<br>これはブランク識別子というもので、importした対象のパッケージと依存関係のある他のパッケージをimportするときに指定します。</p>
+<p>Goについても今後少しづつ勉強していこうと思います。<br>終わり。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[ttyとptsについて]]></title>
       <url>http://devlog.site/%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/tty/</url>
       <content type="html"><![CDATA[<h2 id="ttyとptsがわからなかったので調べてみた"><a href="#ttyとptsがわからなかったので調べてみた" class="headerlink" title="ttyとptsがわからなかったので調べてみた"></a>ttyとptsがわからなかったので調べてみた</h2><p>ttyとptsについて良くわかってなかったので調べてみました。自分メモです。<br><a id="more"></a></p>
