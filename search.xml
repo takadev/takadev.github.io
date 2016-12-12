@@ -4,6 +4,42 @@
   
     
     <entry>
+      <title><![CDATA[Revelフレームワーク]]></title>
+      <url>http://devlog.site/Go/go2/</url>
+      <content type="html"><![CDATA[<h2 id="Revelフレームワークを試してみた"><a href="#Revelフレームワークを試してみた" class="headerlink" title="Revelフレームワークを試してみた"></a>Revelフレームワークを試してみた</h2><p>RevelはgoのフルスタックのWebフレームワークです。Dockerと一緒にこのRevelでできたWebアプリも引き継ぐことになったので今回は勉強の為、ローカルでチュートリアルを試してみようと思います。<br><a id="more"></a></p>
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>goのインストールはすでに終わっています。<br><a href="http://devlog.site/Go/go1/">前回</a>、gvmでインストールしてますので、気になる方は見てみてください。</p>
+<h2 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h2><p>go getによりリポジトリからrevelをインストールします。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">go get github.com/robfig/revel</div></pre></td></tr></table></figure>
+<p>次にコマンドラインツールをインストールします。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">go get github.com/revel/cmd/revel</div></pre></td></tr></table></figure>
+<p>インストールできているか確認します。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ revel version                                                                                                  </div><div class="line">~</div><div class="line">~ revel! http://revel.github.io</div><div class="line">~</div><div class="line">Version(s):</div><div class="line">   Revel v0.13.1 (2016-06-06)</div><div class="line">   go1.7 darwin/amd64</div></pre></td></tr></table></figure>
+<p>バージョンの確認ができましたね。これでインストールは終わりです。</p>
+<h2 id="Revelコマンド"><a href="#Revelコマンド" class="headerlink" title="Revelコマンド"></a>Revelコマンド</h2><p>Revelには6つのコマンドがあります。<br>1つ1つ見ていきましょう。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">revel new</div></pre></td></tr></table></figure>
+<p>アプリケーションのスケルトンを作成します。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">revel run</div></pre></td></tr></table></figure>
+<p>テスト用にアプリケーションを起動します。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">revel build</div></pre></td></tr></table></figure>
+<p>アプリケーションをビルドします。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">revel package</div></pre></td></tr></table></figure>
+<p>アプリケーションをデプロイ用パッケージを作成します。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">revel clean</div></pre></td></tr></table></figure>
+<p>一時ファイルを削除します。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">revel test</div></pre></td></tr></table></figure>
+<p>テストを実行します。</p>
+<h2 id="サンプルアプリを作ってみる"><a href="#サンプルアプリを作ってみる" class="headerlink" title="サンプルアプリを作ってみる"></a>サンプルアプリを作ってみる</h2><p>revelがインストールできたら早速アプリを作ってみたいと思います。<br>revelコマンドから新しくサンプルアプリを作成します。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">revel new myapp</div></pre></td></tr></table></figure>
+<p>$GOPATH/src/myapp にアプリケーションのスケルトンが作成されます。<br>myapp以下のディレクトリ構造はこんな感じです。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">|--.gitignore</div><div class="line">|--README.md</div><div class="line">|--app</div><div class="line">|  |--controllers</div><div class="line">|  |  |--app.go</div><div class="line">|  |--init.go</div><div class="line">|  |--routes</div><div class="line">|  |  |--routes.go</div><div class="line">|  |--tmp</div><div class="line">|  |  |--main.go</div><div class="line">|  |--views</div><div class="line">|  |  |--App</div><div class="line">|  |  |  |--Index.html</div><div class="line">|  |  |--debug.html</div><div class="line">|  |  |--errors</div><div class="line">|  |  |  |--404.html</div><div class="line">|  |  |  |--500.html</div><div class="line">|  |  |--flash.html</div><div class="line">|  |  |--footer.html</div><div class="line">|  |  |--header.html</div><div class="line">|--conf</div><div class="line">|  |--app.conf</div><div class="line">|  |--routes</div><div class="line">|--messages</div><div class="line">|  |--sample.en</div><div class="line">|--public</div><div class="line">|  |--css</div><div class="line">|  |  |--bootstrap-3.3.6.min.css</div><div class="line">|  |--fonts</div><div class="line">|  |  |--glyphicons-halflings-regular.ttf</div><div class="line">|  |  |--glyphicons-halflings-regular.woff</div><div class="line">|  |  |--glyphicons-halflings-regular.woff2</div><div class="line">|  |--img</div><div class="line">|  |  |--favicon.png</div><div class="line">|  |--js</div><div class="line">|  |  |--bootstrap-3.3.6.min.js</div><div class="line">|  |  |--jquery-2.2.4.min.js</div><div class="line">|--tests</div><div class="line">|  |--apptest.go</div></pre></td></tr></table></figure>
+<p>実際にアプリケーションを起動してみましょう。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">revel run myapp</div></pre></td></tr></table></figure>
+<p>revelのビルトインサーバーが立ち上がるのでlocalhost:9000にアクセスしてみましょう。<br>アプリの画面が表示されると思います。</p>
+<p>終わり。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Go言語インストール]]></title>
       <url>http://devlog.site/Go/go1/</url>
       <content type="html"><![CDATA[<h2 id="Go入門"><a href="#Go入門" class="headerlink" title="Go入門"></a>Go入門</h2><p>仕事でGoを使う必要があったので、今更ながらGoを勉強してみたいと思います。<br><a id="more"></a></p>
