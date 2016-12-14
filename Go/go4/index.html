@@ -3,17 +3,18 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>タグ: ディープラーニング | Devlog|デブログ</title>
+    <title>Glideを使ってみた | Devlog|デブログ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Devlog|デブログ">
-<meta property="og:url" content="http://devlog.site/tags/ディープラーニング/index.html">
+    <meta name="description" content="Glideについて今回はGoのパッケージマネージャーのGlideを使ってみました。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Glideを使ってみた">
+<meta property="og:url" content="http://devlog.site/Go/go4/index.html">
 <meta property="og:site_name" content="Devlog|デブログ">
-<meta property="og:description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
+<meta property="og:description" content="Glideについて今回はGoのパッケージマネージャーのGlideを使ってみました。">
+<meta property="og:updated_time" content="2016-12-14T15:08:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Devlog|デブログ">
-<meta name="twitter:description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
+<meta name="twitter:title" content="Glideを使ってみた">
+<meta name="twitter:description" content="Glideについて今回はGoのパッケージマネージャーのGlideを使ってみました。">
     
 
     
@@ -198,122 +199,133 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#ディープラーニング</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-go4" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/ディープラーニング/neural-network1/">ニューラルネットワーク入門</a>
+        <h1 class="article-title" itemprop="name">
+            Glideを使ってみた
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/ディープラーニング/neural-network1/">
-            <time datetime="2016-12-08T15:00:00.000Z" itemprop="datePublished">2016-12-09</time>
+        <a href="/Go/go4/">
+            <time datetime="2016-12-14T15:00:00.000Z" itemprop="datePublished">2016-12-15</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/ディープラーニング/">ディープラーニング</a>
+        <a class="article-category-link" href="/categories/Go/">Go</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/python/">python</a>, <a class="tag-link" href="/tags/ディープラーニング/">ディープラーニング</a>
+        <a class="tag-link" href="/tags/Glide/">Glide</a>, <a class="tag-link" href="/tags/Go/">Go</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/ディープラーニング/perceptron/">パーセプトロンについて</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="Glideについて"><a href="#Glideについて" class="headerlink" title="Glideについて"></a>Glideについて</h2><p>今回はGoのパッケージマネージャーのGlideを使ってみました。<br><a id="more"></a></p>
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>環境はmacです。GlideはGo1.5以降でないと使用できません。<br>GlideはGo1.5から追加されたVendoring機能を使用しているからです。<br>Goの環境は<a href="http://devlog.site/Go/go1/">依然の記事</a>で作成しています。</p>
+<h2 id="Glide入れてみた"><a href="#Glide入れてみた" class="headerlink" title="Glide入れてみた"></a>Glide入れてみた</h2><p>Goの標準には<strong>go get</strong>という依存パッケージをダウンロードしてくれる便利なコマンドがあります。<br>ただし、<strong>go get</strong>はバージョンを指定することができないという難点があります。<br>なので今回はGlideを入れてみました。ちなみにグライド？って読むと思います。</p>
+<p>まずはインストールです。Homebrewで一発です。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">brew update</div><div class="line">brew install glide</div></pre></td></tr></table></figure>
+<p>インストールできたか確認してみます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">glide -v</div><div class="line">glide version 0.12.3</div></pre></td></tr></table></figure>
+<p>無事にインストール出来てますね。<br>これで終わりです。簡単ですね。</p>
+<h2 id="バージョン定義ファイルの作成"><a href="#バージョン定義ファイルの作成" class="headerlink" title="バージョン定義ファイルの作成"></a>バージョン定義ファイルの作成</h2><p>インストールができたら次にバージョン定義ファイルの作成を行います。<br>以下のコマンドで作成ができます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">glide init</div></pre></td></tr></table></figure>
+<p>コマンドが終了するとインポートしている外部ライブラリの一覧をglide.yamlファイルに書き出してくれます。</p>
+<p>glide.yamlファイルの中身はこんな感じでそれぞれのパッケージとバージョンが記載されています。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">package: .</div><div class="line">import:</div><div class="line">- package: github.com/cpuguy83/go-md2man</div><div class="line">  version: ^1.0.6</div><div class="line">  subpackages:</div><div class="line">  - md2man</div><div class="line">...</div></pre></td></tr></table></figure>
+<h2 id="パッケージを取得"><a href="#パッケージを取得" class="headerlink" title="パッケージを取得"></a>パッケージを取得</h2><p>定義ファイルの作成ができたら、定義に従ってパッケージを更新します。<br>これでバージョンが固定されます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">glide install</div></pre></td></tr></table></figure>
+<p>実行後はvendorディレクトリが作成され、依存パッケージがダウンロード・展開されます。<br>また、glide.lockというファイルも作られ、このファイルによってバージョンが固定されます。</p>
+<h2 id="パッケージの追加"><a href="#パッケージの追加" class="headerlink" title="パッケージの追加"></a>パッケージの追加</h2><p>パッケージの追加には<strong>go get</strong>の代わりに以下のコマンドを使用します。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">glide get github.com/xxx/xxxx</div></pre></td></tr></table></figure>
+<p>このコマンドを使用すると自動的にglide.yamlの更新やvendorディレクトリへの展開を行ってくれます。</p>
+<h2 id="パッケージの更新"><a href="#パッケージの更新" class="headerlink" title="パッケージの更新"></a>パッケージの更新</h2><p>パッケージにパッチが当たってバグの修正などのアップデートが行われた場合に、パッケージを更新したいことがあるかと思います。<br>その場合には以下のコマンドを叩くだけでアップデートが行えます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">glide up</div></pre></td></tr></table></figure>
+<p>このコマンドはglide.yamlにおいてバージョンが指定されていないパッケージのみ、最新のバージョンにアップデートしてくれます。<br>glide.yamlにバージョンを指定しているパッケージは特にアップデートは行いません。</p>
+<h2 id="その他"><a href="#その他" class="headerlink" title="その他"></a>その他</h2><p>リスト形式で依存パッケージを表示してくれる便利コマンドやツリー形式に表示してくれるものあります。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">glide list</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">glide tree</div></pre></td></tr></table></figure>
+<p>終わり。</p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/ディープラーニング/perceptron/">
-            <time datetime="2016-12-04T15:00:00.000Z" itemprop="datePublished">2016-12-05</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/ディープラーニング/">ディープラーニング</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/ディープラーニング/">ディープラーニング</a>, <a class="tag-link" href="/tags/パーセプトロン/">パーセプトロン</a>, <a class="tag-link" href="/tags/論理回路/">論理回路</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/machine-learning/machine-learning1/">機械学習について調べてみた</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/machine-learning/machine-learning1/">
-            <time datetime="2016-11-24T15:00:00.000Z" itemprop="datePublished">2016-11-25</time>
-        </a>
+        <footer class="article-footer">
+            
+    <div id="article-share-box" class="article-share-box-on">
+    <div class="article-share-links">
+        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/Go/go4/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
+        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/Go/go4/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
+        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/Go/go4/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
+        <a href="https://plus.google.com/share?url=http://devlog.site/Go/go4/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
     </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/machine-learning/">機械学習</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/ディープラーニング/">ディープラーニング</a>, <a class="tag-link" href="/tags/機械学習/">機械学習</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
+
+
+
+            
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/Go/go3/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">古い記事</strong>
+            <div class="article-nav-title">Revelフレームワークpart2</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+  <section id="related">
+      <div class="related-inner">
+          <header class="related-header">
+              <div class="related-header-line">
+                  <h2>関連記事</h2>
+              </div>
+          </header>
+          <ul class="related-posts"><li class="related-posts-item"><div class="related-posts-inner"><div class="related-posts-image"><a href="/Go/go2/"><img src="/css/images/thumb-default-small.png" /></a></div><div class="related-posts-date">2016-12-13</div><div class="related-posts-title"><a href="/Go/go2/" title="Revelフレームワークpart1" rel="bookmark">Revelフレームワークpart1</a></div><div class="related-posts-tags"><a href="/tags/Go/">#Go</a><a href="/tags/Revel/">#Revel</a><a href="/tags/プログラミング/">#プログラミング</a></div></div></li></ul>
+      </div>
+  </section>
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
 </section>
             
                 <aside id="sidebar">
@@ -503,7 +515,7 @@
 <script>
   (function() {
     var d = document, s = d.createElement('script');
-    s.src = '//devlog-2.disqus.com/count.js';
+    s.src = '//devlog-2.disqus.com/embed.js';
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
   })();
