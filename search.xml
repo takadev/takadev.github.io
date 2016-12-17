@@ -4,6 +4,45 @@
   
     
     <entry>
+      <title><![CDATA[ディープラーニング用語]]></title>
+      <url>http://devlog.site/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0/machine-learning2/</url>
+      <content type="html"><![CDATA[<h2 id="わからない用語調べてみた"><a href="#わからない用語調べてみた" class="headerlink" title="わからない用語調べてみた"></a>わからない用語調べてみた</h2><p>先日、「ゼロから作るディープラーニング」をやっとこ読み終えました。<br>かなり面白くて勉強になりました！ディープラーニングを始めてみようって人にはめちゃめちゃオススメです。理解が浅買った箇所をもう一度読み直してみようと思ってます。<br>そんな中、分からなかった用語を調べたのでメモしておこうと思います。<br><a id="more"></a></p>
+<h2 id="特徴量"><a href="#特徴量" class="headerlink" title="特徴量"></a>特徴量</h2><p>4章辺りで特徴量という言葉が出てきます。最初一瞬わからなかったんですが、前後の流れでなんとくこんな意味かなぁと思ってたらその通りでした。<br>これは文字通り特徴の量のことで、よく画像認識なんかを扱う文脈で出てきます。<br>「特徴量を記述する」とかっていう文章をたまに見かけますね。</p>
+<h2 id="特徴点"><a href="#特徴点" class="headerlink" title="特徴点"></a>特徴点</h2><p>特徴量と似ていますが、こちらも画像認識の文脈で使われ、言葉通り画像内のどこに特徴があるかを点で表したものです。</p>
+<h2 id="OpenCV"><a href="#OpenCV" class="headerlink" title="OpenCV"></a>OpenCV</h2><p>OpneCV自体は本の中には多分出てこなかったと思いますが、画像認識周りでこの用語も出てくるので、前提知識として調べてみました。</p>
+<blockquote>
+<p>OpenCV（オープンシーヴィ、英語: Open Source Computer Vision Library）とはインテルが開発・公開したオープンソースのコンピュータビジョン向けライブラリ</p>
+</blockquote>
+<p><a href="https://ja.wikipedia.org/wiki/OpenCV" target="_blank" rel="external">wiki引用</a></p>
+<p>画像を扱う便利なオープンソースのライブラリですね。まぁこれもなんとなく想像はできますよね。</p>
+<h2 id="SIFT"><a href="#SIFT" class="headerlink" title="SIFT"></a>SIFT</h2><p><strong>Scale-Invariant Feature Transform</strong>の頭文字を取ってSIFTです。<br>SIFTは画像認識のためのアルゴリズムの一つで、特徴点の検出や特徴量の記述を行います。<br>SIFTは画像の照明の変化や回転、スケール変化などに対して不変な特徴量を記述することができます。<br>その分処理コストがかなり高いそうです。多分シフトって読むと思います。</p>
+<h2 id="SURF"><a href="#SURF" class="headerlink" title="SURF"></a>SURF</h2><p><strong>Speed-Up Robust Features</strong>の頭文字を取ってSURFです。<br>SURFは処理コストが高かったSIFTの改良版で、精度はSIFTに劣りますが高速にマッチングすることが可能です。<br>SIFTでは特徴点を検出する方法として、DoG画像生成や勾配ヒストグラム生成などのコストの高い計算をしていましたが、SURFは積分画像を利用することにより約10倍の高速化しています。<br>多分サーフって読むと思います。</p>
+<h2 id="HOG"><a href="#HOG" class="headerlink" title="HOG"></a>HOG</h2><p><strong>Histograms of Oriented Gradients</strong>の頭文字を取ってHOGです。<br>HOGは画像を細かいグリッドに分割して、1つ1つのセルごとに方向つき輝度勾配のヒストグラムを連結したものです。メリットとしては、勾配情報をもとにしているため、異なるサイズの画像を対象としても同じサイズにリサイズすることで比較することが可能です。<br>多分ホグって読むと思います。</p>
+<h2 id="回帰"><a href="#回帰" class="headerlink" title="回帰"></a>回帰</h2><p>普通の日本語ですが、よく出てくるので正確に理解しておきたいと思い調べました。</p>
+<blockquote>
+<p>回帰（かいき）とは一般にはもとの位置または状態に戻ること、あるいはそれを繰り返すこと。</p>
+</blockquote>
+<p><a href="https://ja.wikipedia.org/wiki/%E5%9B%9E%E5%B8%B0" target="_blank" rel="external">wiki引用</a></p>
+<p>この回帰がつく用語としてよくロジスティック回帰分析という言葉を見かけますね。</p>
+<h2 id="ロジスティック回帰分析"><a href="#ロジスティック回帰分析" class="headerlink" title="ロジスティック回帰分析"></a>ロジスティック回帰分析</h2><p>これはよく統計学やマーケティング関連の文脈で出てくる言葉で、YesかNoの二択のどちらかになるかを分析するための分析方法です。もっと言えば0か1、TrueかFalseのように2値をとる場合に有効です。線形回帰分析は量的変数を予測しますが、ロジスティック回帰分析は発生確率を予測する手法ということです。</p>
+<h2 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h2><p><strong>Support Vector Machine</strong>の頭文字を取ってSVM(サポートベクターマシン)です。</p>
+<blockquote>
+<p>サポートベクターマシン（英: support vector machine, SVM）は、教師あり学習を用いるパターン認識モデルの一つである。分類や回帰へ適用できる。</p>
+</blockquote>
+<p><a href="https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%83%99%E3%82%AF%E3%82%BF%E3%83%BC%E3%83%9E%E3%82%B7%E3%83%B3" target="_blank" rel="external">wiki引用</a></p>
+<h2 id="KNN"><a href="#KNN" class="headerlink" title="KNN"></a>KNN</h2><p><strong>k-nearest neighbor algorithm</strong>の頭文字を取ってKNNです。<br>日本語ではk近傍法(ケイきんぼうほう)というようです。某姉貴ではない。</p>
+<blockquote>
+<p>基づいた分類の手法であり、パターン認識でよく使われる。最近傍探索問題の一つ。k近傍法は、インスタンスに基づく学習の一種であり、怠惰学習 (lazy learning) の一種である。その関数は局所的な近似に過ぎず、全ての計算は分類時まで後回しにされる。また、回帰分析にも使われる。</p>
+</blockquote>
+<p><a href="https://ja.wikipedia.org/wiki/K%E8%BF%91%E5%82%8D%E6%B3%95" target="_blank" rel="external">wiki引用</a></p>
+<h2 id="ソフトマックス関数"><a href="#ソフトマックス関数" class="headerlink" title="ソフトマックス関数"></a>ソフトマックス関数</h2><p>ソフトマックス関数は活性化関数の一種で、分類問題解く場合に、出力層で用いられる関数です。一般的に分類問題を解く場合はこのソフトマックス関数が用いられるようです。</p>
+<h2 id="教師データ"><a href="#教師データ" class="headerlink" title="教師データ"></a>教師データ</h2><p>機械学習を行う際の訓練用のデータのことです。単に訓練データという時もあるようです。<br>まんまですね。一応調べたので書きました。</p>
+<h2 id="損失関数"><a href="#損失関数" class="headerlink" title="損失関数"></a>損失関数</h2><p>機械学習のモデルがどれだけ性能が悪いかを表す関数です。現在、教師データとどれだけ適合していないかをこの関数を通して判断することができます。有名なものに2乗和誤差や交差エントロピー誤差などがあります。</p>
+<p>まだまだ調べないといけない用語がたくさんありますが、調べごとばかりしていると奥さんに怒られるので今回はこの辺で。<br>終わり。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Glideを使ってみた]]></title>
       <url>http://devlog.site/Go/go4/</url>
       <content type="html"><![CDATA[<h2 id="Glideについて"><a href="#Glideについて" class="headerlink" title="Glideについて"></a>Glideについて</h2><p>今回はGoのパッケージマネージャーのGlideを使ってみました。<br><a id="more"></a></p>
