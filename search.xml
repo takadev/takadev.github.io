@@ -4,6 +4,38 @@
   
     
     <entry>
+      <title><![CDATA[anyenvについて]]></title>
+      <url>http://devlog.site/anyenv/anyenv/</url>
+      <content type="html"><![CDATA[<h2 id="anyenvを入れてみた"><a href="#anyenvを入れてみた" class="headerlink" title="anyenvを入れてみた"></a>anyenvを入れてみた</h2><p>仕事でRailsを使って簡単なWebアプリを作ることになり、rubyは昔書いてたことがある為なし崩しに自分がやることになりました。rbenvを使ってrubyの管理を行おうと思いましたが、pyenvやndenv、rbenvと~envが増えてきたのでそれを一括管理するanyenvというのを今回使ってみました。<br><a id="more"></a></p>
+<p>##　はじめに<br>環境はMacでまだEl Capitanです。<br>簡単な備忘録なんで悪しからず。</p>
+<h2 id="anyenvのインストール"><a href="#anyenvのインストール" class="headerlink" title="anyenvのインストール"></a>anyenvのインストール</h2><p>まずはgitでクローンしてきます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/riywo/anyenv ~/.anyenv</div></pre></td></tr></table></figure>
+<p>自分はbashがデフォルトなので.bash_profileを編集します。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ echo &apos;export PATH=&quot;$HOME/.anyenv/bin:$PATH&quot;&apos; &gt;&gt; ~/.bash_profile</div><div class="line">$ echo &apos;eval &quot;$(anyenv init -)&quot;&apos; &gt;&gt; ~/.bash_profile</div><div class="line">$ exec $SHELL -l</div></pre></td></tr></table></figure>
+<p>これでインストールは終了です。簡単ですね。</p>
+<h2 id="rbenvをインストールしてみる"><a href="#rbenvをインストールしてみる" class="headerlink" title="rbenvをインストールしてみる"></a>rbenvをインストールしてみる</h2><p>インストールできるenv系の一覧をまずチェックしてみましょう</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">nyenv install -l</div><div class="line">Available **envs:</div><div class="line">  Renv</div><div class="line">  crenv</div><div class="line">  denv</div><div class="line">  erlenv</div><div class="line">  exenv</div><div class="line">  goenv</div><div class="line">  hsenv</div><div class="line">  jenv</div><div class="line">  luaenv</div><div class="line">  ndenv</div><div class="line">  nenv</div><div class="line">  nodenv</div><div class="line">  phpenv</div><div class="line">  plenv</div><div class="line">  pyenv</div><div class="line">  rbenv</div><div class="line">  sbtenv</div><div class="line">  scalaenv</div><div class="line">  swiftenv</div></pre></td></tr></table></figure>
+<p>こんなにたくさんあるんですね。知らなかった。<br>rbenvももちろんいますね。ではrbenvをanyenvを使ってインストールしてみます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">anyenv install rbenv</div></pre></td></tr></table></figure>
+<p>インストールが終わるとシェルを再起動してくれと出ます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exec $SHELL -l</div></pre></td></tr></table></figure>
+<p>これでrbenvのインストールが終わります。</p>
+<h2 id="rbenvでrubyをインストール"><a href="#rbenvでrubyをインストール" class="headerlink" title="rbenvでrubyをインストール"></a>rbenvでrubyをインストール</h2><p>rbenvが無事インストールできたので続いてRubyをインストールしてみます。<br>インストールできるバージョンを確認してみます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">rbenv install -l</div><div class="line">Available versions:</div><div class="line">  1.8.5-p113</div><div class="line">  1.8.5-p114</div><div class="line">  1.8.5-p115</div><div class="line">  1.8.5-p231</div><div class="line">  ...</div></pre></td></tr></table></figure>
+<p>今回はRuby2.3.3をインストールしてみます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rbenv install 2.3.3</div></pre></td></tr></table></figure>
+<p>インストールができたか確認してみます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">rbenv versions</div><div class="line">* system (set by /Users/hoge/.rbenv/version)</div><div class="line">  2.3.3</div></pre></td></tr></table></figure>
+<p>2.3.3が入ってますね。このままだとデフォルトのrubyなのでバージョンを切り替えてみましょう。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">rbenv global 2.3.3</div><div class="line">rbenv versions</div><div class="line">  system (set by /Users/hoge/.rbenv/version)</div><div class="line">* 2.3.3</div></pre></td></tr></table></figure>
+<p>これでバージョンが切り替わりました。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ruby -v</div><div class="line">ruby 2.3.3p222 (2016-11-21 revision 56859) [x86_64-darwin15]</div></pre></td></tr></table></figure>
+<p>無事切り替わってますね。これでrubyのインストールは終了です。</p>
+<p>この際env系で統一してもいいかなと思いました。<br>終わり。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[ディープラーニング用語]]></title>
       <url>http://devlog.site/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0/machine-learning2/</url>
       <content type="html"><![CDATA[<h2 id="わからない用語調べてみた"><a href="#わからない用語調べてみた" class="headerlink" title="わからない用語調べてみた"></a>わからない用語調べてみた</h2><p>先日、「ゼロから作るディープラーニング」をやっとこ読み終えました。<br>かなり面白くて勉強になりました！ディープラーニングを始めてみようって人にはめちゃめちゃオススメです。理解が浅買った箇所をもう一度読み直してみようと思ってます。<br>そんな中、分からなかった用語を調べたのでメモしておこうと思います。<br><a id="more"></a></p>
