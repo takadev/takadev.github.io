@@ -4,6 +4,34 @@
   
     
     <entry>
+      <title><![CDATA[Sassを使ってみた]]></title>
+      <url>http://devlog.site/Sass/sass/</url>
+      <content type="html"><![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>環境はmacです。OSはEl Capitanです。<br>rubyのインストールは<a href="http://devlog.site/anyenv/anyenv/">以前の記事</a>を参照してください。<br><a id="more"></a></p>
+<h2 id="Sassとは？"><a href="#Sassとは？" class="headerlink" title="Sassとは？"></a>Sassとは？</h2><p>SASSとは、CSSを拡張するメタ言語のことです。CSSでは使えなかった変数やネスト、ループなんかもできて非常に便利です。<strong>Syntactically Awesome Style Sheets</strong>の頭文字でSassのようです。</p>
+<h2 id="Sassインストール"><a href="#Sassインストール" class="headerlink" title="Sassインストール"></a>Sassインストール</h2><p>早速インストールしてみます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem install sass</div></pre></td></tr></table></figure>
+<p>gemコマンドで一発でインストールできます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sass -v</div><div class="line">Sass 3.4.22 (Selective Steve)</div></pre></td></tr></table></figure>
+<p>簡単ですね。</p>
+<h2 id="Sass使ってみる"><a href="#Sass使ってみる" class="headerlink" title="Sass使ってみる"></a>Sass使ってみる</h2><p>簡単なコードを書いてみたいと思います。</p>
+<h3 id="変数の定義"><a href="#変数の定義" class="headerlink" title="変数の定義"></a>変数の定義</h3><p>Sassでは変数が使えます。<br>$colorが変数で<strong>#00ccff</strong>を指定して宣言しています。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$color: #00ccff;</div><div class="line"></div><div class="line">button &#123;</div><div class="line">  color: $color;</div><div class="line">&#125;</div><div class="line">p &#123;</div><div class="line">  color: $color;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="ネスト"><a href="#ネスト" class="headerlink" title="ネスト"></a>ネスト</h3><p>CSSではいちいちセレクタを全て指定する必要がありましたが、Sassの場合ネストすることができるので省略できます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.article &#123;</div><div class="line">  width: 700px;</div><div class="line">  margin: 10 auto;</div><div class="line">  background-color: #069fff;</div><div class="line">  background-image: url(&quot;../img/background.png&quot;)</div><div class="line">  </div><div class="line">  .title &#123;</div><div class="line">    color: #ffffff;</div><div class="line">  &#125;</div><div class="line">  .text .name &#123;</div><div class="line">    color: #000000;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>コーディングする時も楽ですしすごく読みやすいですね。</p>
+<h3 id="for文-if文"><a href="#for文-if文" class="headerlink" title="for文/if文"></a>for文/if文</h3><p>Sassではfor文やif文もかけます。制御構文の頭には<strong>@for</strong>や<strong>@if</strong>のように<strong>@</strong>をつけます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">@for $i from 1 through 10 &#123;</div><div class="line">  .sample#&#123;$i&#125; &#123;</div><div class="line">    margin: &#123;</div><div class="line">      @if $i &lt;= 5 &#123;</div><div class="line">        bottom: 10px;</div><div class="line">      &#125;</div><div class="line">      @else &#123;</div><div class="line">        bottom: 20px;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>もっとたくさん便利な機能がありますが、一旦ここまでで、style.scssとしてファイルを保存しておきます。</p>
+<h2 id="コンパイルする"><a href="#コンパイルする" class="headerlink" title="コンパイルする"></a>コンパイルする</h2><p>先ほど保存したstyle.scssファイルをコンパイルしてcssへ変換してみます。<br>Sassのコンパイルの仕方は手動コンパルと自動コンパイルがあります。<br>まず手動コンパイルをしてみたいと思います。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass style.scss:style.css</div></pre></td></tr></table></figure>
+<p>コンパイルするとstyle.cssファイルが生成されていることがわかると思います。<br>この状態だとsassを修正するたびにコマンドを発行する必要がありますが、<br>自動コンパイルを指定しておくとsassを修正すると自動的にコンパイルされcssが更新されます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch style.scss:style.css</div></pre></td></tr></table></figure>
+<p><strong>–watch</strong>オプションを指定するとstyle.scssが更新されるたびに自動的にコンパイルしてくれます。<br>またファイルのみではなくディレクトリを指定することができ、ディレクトリ内のscssファイルを監視してくれます。</p>
+<p>終わり。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[anyenvについて]]></title>
       <url>http://devlog.site/anyenv/anyenv/</url>
       <content type="html"><![CDATA[<h2 id="anyenvを入れてみた"><a href="#anyenvを入れてみた" class="headerlink" title="anyenvを入れてみた"></a>anyenvを入れてみた</h2><p>仕事でRailsを使って簡単なWebアプリを作ることになり、rubyは昔書いてたことがある為なし崩しに自分がやることになりました。rbenvを使ってrubyの管理を行おうと思いましたが、pyenvやndenv、rbenvと~envが増えてきたのでそれを一括管理するanyenvというのを今回使ってみました。<br><a id="more"></a></p>
