@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title><![CDATA[Compassを使ってみた]]></title>
+      <url>http://devlog.site/Compass/compass/</url>
+      <content type="html"><![CDATA[<h2 id="Compassについて"><a href="#Compassについて" class="headerlink" title="Compassについて"></a>Compassについて</h2><p><a href="http://devlog.site/Sass/sass/">前回</a>Sassをインストールしてみたので今回はCompassをインストールしてみたいと思います。<br><a id="more"></a></p>
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>環境はMacでEl Capitanです。<br>自分の為の備忘録なので悪しからず。</p>
+<h2 id="Compassとは"><a href="#Compassとは" class="headerlink" title="Compassとは"></a>Compassとは</h2><p>Compassとは、オープンソースのCSSフレームワークです。Sassを使ってCSSを書く場合はCompassを併用することが一般的になっています。</p>
+<h2 id="Compassのインストール"><a href="#Compassのインストール" class="headerlink" title="Compassのインストール"></a>Compassのインストール</h2><p>Sass同様にgemでインストールできます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gem install compass</div></pre></td></tr></table></figure>
+<p>インストールが正常に終わったら、compassコマンドが使用できるようになっているはずです。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ compass -v</div><div class="line">Compass 1.0.3 (Polaris)</div><div class="line">Copyright (c) 2008-2016 Chris Eppstein</div><div class="line">Released under the MIT License.</div><div class="line">Compass is charityware.</div><div class="line">Please make a tax deductable donation for a worthy cause: http://umdf.org/compass</div></pre></td></tr></table></figure>
+<p>問題なさそうですね。</p>
+<h2 id="Compass使ってみる"><a href="#Compass使ってみる" class="headerlink" title="Compass使ってみる"></a>Compass使ってみる</h2><p>早速Compassを使ってみたいと思います。<br>まずは以下のコマンドを発行するとCompass用のディレクトリや設定ファイルが作成されます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ compass create</div></pre></td></tr></table></figure>
+<p>こんな感じでディレクトリとファイルが作成されるかと思います。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">|--config.rb</div><div class="line">|--sass</div><div class="line">|  |--ie.scss</div><div class="line">|  |--print.scss</div><div class="line">|  |--screen.scss</div><div class="line">|--stylesheets</div><div class="line">|  |--ie.css</div><div class="line">|  |--print.css</div><div class="line">|  |--screen.css</div></pre></td></tr></table></figure>
+<p>sassはsassファイルを格納するディレクトリです。コンパイルされたcssファイルはstylesheetsディレクトリに生成されます。config.rbはCompassの設定ファイルになります。</p>
+<h2 id="Sassファイルの作成"><a href="#Sassファイルの作成" class="headerlink" title="Sassファイルの作成"></a>Sassファイルの作成</h2><p>ではsassディレクトリ配下にsassファイルを作成してみましょう。<br>以下のようにCompassを使用する場合は<strong>@import “compass”;</strong>とインポート文を最初に書きます。</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">import</span> <span class="string">"compass"</span>;</div><div class="line"> </div><div class="line"><span class="selector-tag">a</span> &#123;</div><div class="line">     <span class="attribute">text-decoration</span>: none;</div><div class="line">     &amp;:hover &#123;</div><div class="line">          <span class="attribute">text-decoration</span>: underline;</div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>次にこのsassをコンパイルしてます。<br>前回はsassコマンドでコンパイルを行いましたが、今回はcompassコマンドを使用して自動でコンパイルしてみたいと思います。</p>
+<h2 id="Compassの起動"><a href="#Compassの起動" class="headerlink" title="Compassの起動"></a>Compassの起動</h2><p>以下のコマンドを発行するとsassコマンドのwatchオプションを指定した挙動と同じように自動でsassファイルを監視し、変更があるたびにコンパイルを行ってくれます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ compass watch</div><div class="line">&gt;&gt;&gt; Compass is watching for changes. Press Ctrl-C to Stop.</div><div class="line">DEPRECATION WARNING on line 87 of /Users/hoge/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_deprecated-support.scss: #&#123;&#125; interpolation near operators will be simplified</div><div class="line">in a future version of Sass. To preserve the current behavior, use quotes:</div><div class="line">....</div></pre></td></tr></table></figure>
+<p>これで起動状態となり、scssファイルを更新すると自動でコンパイルが走ります。</p>
+<h2 id="Mixinを利用してみる"><a href="#Mixinを利用してみる" class="headerlink" title="Mixinを利用してみる"></a>Mixinを利用してみる</h2><p>ここまでではSassと特に変わらないので便利さがいまいちわからないと思います。<br>CompassにはMixinがたくさんあり、様々な機能を提供してくれていますのでそれを使わない手はありません。</p>
+<h2 id="Mixinとは"><a href="#Mixinとは" class="headerlink" title="Mixinとは"></a>Mixinとは</h2><p>そもそもMixinとは何かというと、MixinとはScss全体で再利用することができる様々なスタイルのことです。また制御構文などで動的にスタイルの構成を変えることができるものです。</p>
+<p>Mixinは<strong>@include</strong>を使って次のように指定することができます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">@include opacity(.5);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>これは透過を指定するopacity()というMixinです。<br>コンパイルされたcssを見てみると</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);</div><div class="line">  opacity: 0.5;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>各種ブラウザの差異を気にしなくて済みますね。非常に便利です。<br>これは機能の一部ですので、詳しくは<a href="http://compass-style.org/reference/compass/css3/" target="_blank" rel="external">公式サイト</a>をご覧ください。</p>
+<p>終わり。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Sassを使ってみた]]></title>
       <url>http://devlog.site/Sass/sass/</url>
       <content type="html"><![CDATA[<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>環境はmacです。OSはEl Capitanです。<br>rubyのインストールは<a href="http://devlog.site/anyenv/anyenv/">以前の記事</a>を参照してください。<br><a id="more"></a></p>
