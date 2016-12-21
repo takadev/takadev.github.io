@@ -4,6 +4,50 @@
   
     
     <entry>
+      <title><![CDATA[go getについて]]></title>
+      <url>http://devlog.site/Go/go5/</url>
+      <content type="html"><![CDATA[<h2 id="go-getコマンドについて"><a href="#go-getコマンドについて" class="headerlink" title="go getコマンドについて"></a>go getコマンドについて</h2><p>今回は少し短いですが、go getコマンドについて調べてみたので備忘録として残しておきたいと思います。<br><a id="more"></a></p>
+<h2 id="go-getの基本"><a href="#go-getの基本" class="headerlink" title="go getの基本"></a>go getの基本</h2><p>go getコマンドはgoをインストールするだけですぐに使用することができます。<br>基本的には以下のようなコマンドでパッケージをダウンロードしてくることができます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">go get パッケージ名</div></pre></td></tr></table></figure>
+<p>go getコマンドを実行すると自動的に$GOPATH/srcへダウンロードが行われ、依存関係のあるパッケージも同時にダウンロードされます。そしてダウンロードしてきたパッケージのビルドが行われ、パッケージとして使用することができます。</p>
+<h2 id="go-getのオプション"><a href="#go-getのオプション" class="headerlink" title="go getのオプション"></a>go getのオプション</h2><p>go getコマンドのオプションには、主に以下のようなものがあります。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">オプション</th>
+<th style="text-align:left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-d</td>
+<td style="text-align:left">ダウンロードのみを行い、ビルドを行いません。</td>
+</tr>
+<tr>
+<td style="text-align:left">-fix</td>
+<td style="text-align:left">ソースコードをダウンロードするとまずfixを実行してから他の事を行うようになります。</td>
+</tr>
+<tr>
+<td style="text-align:left">-t</td>
+<td style="text-align:left">パッケージのダウンロード後、ビルド前にユニットテストの実行を行います。テストに失敗した場合はビルドを行わずに終了します。</td>
+</tr>
+<tr>
+<td style="text-align:left">-u</td>
+<td style="text-align:left">常にリポジトリの最新のコミットをダウンロードしてきます。このオプションを指定しない場合はローカルに存在しないリポジトリのみダウンロードが行われます。</td>
+</tr>
+<tr>
+<td style="text-align:left">-v</td>
+<td style="text-align:left">実行しているコマンドを表示します。</td>
+</tr>
+</tbody>
+</table>
+<p>他にもオプションがありますがここでは割愛しています。気になる方は<a href="http://golang-jp.org/cmd/go/#hdr-Go__________________________" target="_blank" rel="external">公式サイト</a>をご覧ください。</p>
+<h2 id="パッケージの削除"><a href="#パッケージの削除" class="headerlink" title="パッケージの削除"></a>パッケージの削除</h2><p>go getでダウンロードしてきたパッケージを削除したいということがあると思います。そんな時はソースコードとパッケージ自体を削除するだけで問題ありません。<br>ただし依存関係があるパッケージを削除してしまうとうまく動作しなくなってしまうので注意しましょう。<br>またパッケージ管理には<a href="http://devlog.site/Go/go4/">以前の記事</a>で紹介したglideもオススメです。</p>
+<p>終わり。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Compassを使ってみた]]></title>
       <url>http://devlog.site/Compass/compass/</url>
       <content type="html"><![CDATA[<h2 id="Compassについて"><a href="#Compassについて" class="headerlink" title="Compassについて"></a>Compassについて</h2><p><a href="http://devlog.site/Sass/sass/">前回</a>Sassをインストールしてみたので今回はCompassをインストールしてみたいと思います。<br><a id="more"></a></p>
