@@ -3,18 +3,17 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>matplotlibを少しだけ | Devlog|デブログ</title>
+    <title>カテゴリ: フロント | Devlog|デブログ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="matplotlibについて調べてみた引き続き「ゼロから作るディープラーニング」を読んでいます。まだまだ序盤ですが、そこで出てきたのがmatplotlib。どんなものか調べてみました。自分の為の簡単なメモですのであしからず。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="matplotlibを少しだけ">
-<meta property="og:url" content="http://devlog.site/python/matplotlib/index.html">
+    <meta name="description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Devlog|デブログ">
+<meta property="og:url" content="http://devlog.site/categories/フロント/index.html">
 <meta property="og:site_name" content="Devlog|デブログ">
-<meta property="og:description" content="matplotlibについて調べてみた引き続き「ゼロから作るディープラーニング」を読んでいます。まだまだ序盤ですが、そこで出てきたのがmatplotlib。どんなものか調べてみました。自分の為の簡単なメモですのであしからず。">
-<meta property="og:updated_time" content="2016-12-09T13:08:15.000Z">
+<meta property="og:description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="matplotlibを少しだけ">
-<meta name="twitter:description" content="matplotlibについて調べてみた引き続き「ゼロから作るディープラーニング」を読んでいます。まだまだ序盤ですが、そこで出てきたのがmatplotlib。どんなものか調べてみました。自分の為の簡単なメモですのであしからず。">
+<meta name="twitter:title" content="Devlog|デブログ">
+<meta name="twitter:description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
     
 
     
@@ -199,132 +198,50 @@
 </aside>
 
             
-            <section id="main"><article id="post-matplotlib" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
+            <section id="main">
+<div class="timeline timeline-wrap">
+    <div class="timeline-row timeline-row-major">
+        <span class="node"><i class="fa fa-folder"></i></span>
+        <h1 class="title">フロント</h1>
+    </div>
+    
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
                 
     
-        <h1 class="article-title" itemprop="name">
-            matplotlibを少しだけ
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/フロント/jpegtran/">jpegtran使ってみた</a>
         </h1>
     
 
-                
-                    <div class="article-meta">
-                        
+                <div class="article-meta">
+                    
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/python/matplotlib/">
-            <time datetime="2016-12-02T15:00:00.000Z" itemprop="datePublished">2016-12-03</time>
+        <a href="/フロント/jpegtran/">
+            <time datetime="2016-12-24T15:00:00.000Z" itemprop="datePublished">2016-12-25</time>
         </a>
     </div>
 
 
-                        
+                    
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/python/">python</a>
+        <a class="article-category-link" href="/categories/フロント/">フロント</a>
     </div>
 
-                        
+                    
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/matplotlib/">matplotlib</a>, <a class="tag-link" href="/tags/python/">python</a>, <a class="tag-link" href="/tags/プログラミング/">プログラミング</a>
+        <a class="tag-link" href="/tags/jpegtran/">jpegtran</a>, <a class="tag-link" href="/tags/フロント/">フロント</a>, <a class="tag-link" href="/tags/最適化/">最適化</a>
     </div>
 
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="matplotlibについて調べてみた"><a href="#matplotlibについて調べてみた" class="headerlink" title="matplotlibについて調べてみた"></a>matplotlibについて調べてみた</h2><p>引き続き「ゼロから作るディープラーニング」を読んでいます。<br>まだまだ序盤ですが、そこで出てきたのがmatplotlib。どんなものか調べてみました。<br>自分の為の簡単なメモですのであしからず。<br><a id="more"></a></p>
-<h2 id="matplotlibとは"><a href="#matplotlibとは" class="headerlink" title="matplotlibとは"></a>matplotlibとは</h2><p>Pythonでグラフを描画するときに便利なライブラリです。<br>NumPyなどと組み合わせてデータの可視化に使われます。Pythonで機械学習やる場合は必須なライブラリみたいです。</p>
-<p><a href="http://matplotlib.org/gallery.html" target="_blank" rel="external">公式のギャラリー</a>を見ると色々できる見たいですね。</p>
-<h2 id="試してみた"><a href="#試してみた" class="headerlink" title="試してみた"></a>試してみた</h2><p>早速試してみた。<a href="http://devlog.site/python/numpy/">前回</a>ディープラーニングの勉強の為に環境は作ってあるので既にインストールは終わっています。</p>
-<p>簡単なsin関数をグラフに描画してみました。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">In [1]: import numpy as np</div><div class="line">In [2]: import matplotlib.py</div><div class="line">matplotlib.pylab      matplotlib.pyparsing  matplotlib.pyplot     </div><div class="line">In [2]: import matplotlib.pyplot as plt</div><div class="line">In [3]: x = np.arange(0, 6, 1)</div><div class="line">In [4]: y = np.sin(x)</div><div class="line">In [5]: plt.plot(x, y)</div><div class="line">Out[5]: [&lt;matplotlib.lines.Line2D at 0x110738e10&gt;]</div><div class="line">In [6]: plt.show()</div></pre></td></tr></table></figure>
-<p><code>show()</code>を実行するとグラフが描画されます。</p>
-<p>次に線グラフではなくプロットにしてみましょう。<br><code>plot()</code>の第三引数にオプションを指定できるみたいで、<code>&quot;o&quot;</code>とすることでプロットのグラフになります。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">In [3]: x = np.random.randn(30)</div><div class="line">In [4]: y = np.sin(x) + np.random.randn(30)</div><div class="line">In [5]: plt.plot(x, y, &quot;o&quot;)</div><div class="line">Out[5]: [&lt;matplotlib.lines.Line2D at 0x110709e48&gt;]</div><div class="line">In [6]: plt.show()</div></pre></td></tr></table></figure>
-<p>簡単にグラフが描画できましたね。</p>
-<h2 id="タイトルや軸にラベルをつけてみた"><a href="#タイトルや軸にラベルをつけてみた" class="headerlink" title="タイトルや軸にラベルをつけてみた"></a>タイトルや軸にラベルをつけてみた</h2><p>グラフにタイトルや軸の名前をつけることもできるみたいです。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">In [1]: import numpy as np</div><div class="line">In [3]: import matplotlib.pyplot as plt</div><div class="line">In [4]: x = np.arange(0, 6, 0.1)</div><div class="line">In [5]: y1 = np.sin(x)</div><div class="line">In [6]: y2 = np.cos(x)</div><div class="line">In [7]: plt.plot(x, y1, label=&quot;sin&quot;)</div><div class="line">Out[7]: [&lt;matplotlib.lines.Line2D at 0x110723160&gt;]</div><div class="line">In [8]: plt.plot(x, y2, linestyle=&quot;--&quot;, label=&quot;cos&quot;)</div><div class="line">Out[8]: [&lt;matplotlib.lines.Line2D at 0x110723cf8&gt;]</div><div class="line">In [9]: plt.xlabel(&quot;x&quot;)</div><div class="line">Out[9]: &lt;matplotlib.text.Text at 0x10a2be0b8&gt;</div><div class="line">In [10]: plt.ylabel(&quot;y&quot;)</div><div class="line">Out[10]: &lt;matplotlib.text.Text at 0x1106e2780&gt;</div><div class="line">In [11]: plt.title(&apos;sin &amp; cos&apos;)</div><div class="line">Out[11]: &lt;matplotlib.text.Text at 0x1106f95c0&gt;</div><div class="line">In [12]: plt.legend()</div><div class="line">Out[12]: &lt;matplotlib.legend.Legend at 0x110723c18&gt;</div><div class="line">In [13]: plt.show()</div></pre></td></tr></table></figure>
-<p><code>plt.savefig(&quot;イメージ名.png&quot;)</code>とすることでファイルとして保存することもできるみたいです。</p>
-<h2 id="画像の読み込み"><a href="#画像の読み込み" class="headerlink" title="画像の読み込み"></a>画像の読み込み</h2><p>matplotlibのimageモジュールを使用することで画像を読み込むこともできるようです。<br>先ほど保存した画像を読み込んでみたいと思います。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">In [29]: from matplotlib.image import imread</div><div class="line">In [30]: img = imread(&quot;イメージ名.png&quot;)</div><div class="line">In [31]: plt.imshow(img)</div><div class="line">Out[31]: &lt;matplotlib.image.AxesImage at 0x1115d0b38&gt;</div><div class="line">In [32]: plt.show()</div></pre></td></tr></table></figure>
-<p>もっと複雑なことが色々できるみたいですが、一旦この辺りで終わり。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            
-    <div id="article-share-box" class="article-share-box-on">
-    <div class="article-share-links">
-        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/python/matplotlib/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
-        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/python/matplotlib/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
-        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/python/matplotlib/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
-        <a href="https://plus.google.com/share?url=http://devlog.site/python/matplotlib/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
-    </div>
-</div>
-
-
-
-            
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/DNS/dns1/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">新しい記事</strong>
-            <div class="article-nav-title">
-                
-                    DNSレコードについて調べてみた
-                
+                </div>
             </div>
-        </a>
+        </div>
     
-    
-        <a href="/python/numpy/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">古い記事</strong>
-            <div class="article-nav-title">NumPyを試してみた</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-  <section id="related">
-      <div class="related-inner">
-          <header class="related-header">
-              <div class="related-header-line">
-                  <h2>関連記事</h2>
-              </div>
-          </header>
-          <ul class="related-posts"><li class="related-posts-item"><div class="related-posts-inner"><div class="related-posts-image"><a href="/python/numpy/"><img src="/css/images/thumb-default-small.png" /></a></div><div class="related-posts-date">2016-12-02</div><div class="related-posts-title"><a href="/python/numpy/" title="NumPyを試してみた" rel="bookmark">NumPyを試してみた</a></div><div class="related-posts-tags"><a href="/tags/プログラミング/">#プログラミング</a><a href="/tags/python/">#python</a><a href="/tags/NumPy/">#NumPy</a></div></div></li></ul>
-      </div>
-  </section>
-    
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-
-
-    
-    </section>
-
-
+</div>
 </section>
             
                 <aside id="sidebar">
@@ -514,7 +431,7 @@
 <script>
   (function() {
     var d = document, s = d.createElement('script');
-    s.src = '//devlog-2.disqus.com/embed.js';
+    s.src = '//devlog-2.disqus.com/count.js';
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
   })();

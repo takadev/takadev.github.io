@@ -4,6 +4,41 @@
   
     
     <entry>
+      <title><![CDATA[jpegtran使ってみた]]></title>
+      <url>http://devlog.site/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88/jpegtran/</url>
+      <content type="html"><![CDATA[<h2 id="画像最適化してみた"><a href="#画像最適化してみた" class="headerlink" title="画像最適化してみた"></a>画像最適化してみた</h2><p>今回も少し短いですが、jpgの画像最適化をやってみました。<br>最適化ツールとしてはjpegtranとjpegoptimがありますが、jpegtranを使用してみました。<br><a id="more"></a></p>
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>環境はmacでOSはEl Capitanです。<br>自分用のメモなので悪しからず。</p>
+<h2 id="jpegtranのインストール"><a href="#jpegtranのインストール" class="headerlink" title="jpegtranのインストール"></a>jpegtranのインストール</h2><p>まずはインストールしてみます。と思ったらデフォルトでインストールされていました。<br>ただHomebrewで一発なので簡単です。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install jpeg</div></pre></td></tr></table></figure>
+<p>インストールできたか確認してみましょう。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jpegtran -v</div></pre></td></tr></table></figure>
+<p>無事インストールできたみたいですね。</p>
+<h2 id="最適化"><a href="#最適化" class="headerlink" title="最適化"></a>最適化</h2><p>最適化してみましょう。以下のようなコマンドで行います。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jpegtran -copy none -optimize -outfile hoge.jpg base.jpg</div></pre></td></tr></table></figure>
+<p>オプションの意味はこんな感じです。</p>
+<ul>
+<li>-copy none<ul>
+<li>JPEG ファイルのメタデータをすべて削除する。</li>
+</ul>
+</li>
+<li>-optimize<ul>
+<li>ハフマンテーブルを最適化する。</li>
+</ul>
+</li>
+<li>-outfile<ul>
+<li>ファイルの出力先の指定</li>
+</ul>
+</li>
+</ul>
+<h2 id="まとめて最適化"><a href="#まとめて最適化" class="headerlink" title="まとめて最適化"></a>まとめて最適化</h2><p>1ファイルづつはめんどくさいのでディレクトリ内のjpgをまとめて最適化してみます。<br>以下のようなコマンドで一発で最適化できます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /path/to/image/ -name &quot;*.jpg&quot; -type f -exec jpegtran -copy none -optimize -outfile &#123;&#125; &#123;&#125; \;</div></pre></td></tr></table></figure>
+<p>楽チンですね。</p>
+<h2 id="PNGの場合"><a href="#PNGの場合" class="headerlink" title="PNGの場合"></a>PNGの場合</h2><p>pngの場合はOptiPNGやPNGOUTなどのツールがありますので、機会があれば試してみたいと思います。</p>
+<p>終わり。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[量子コンピュータについて]]></title>
       <url>http://devlog.site/%E9%87%8F%E5%AD%90%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF/quantum/</url>
       <content type="html"><![CDATA[<h1 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h1><p>何を隠そう私は大学の卒業研究で量子コンピュータを研究していました。そのため、量子コンピュータ関係のニュースには目がなく、ちょくちょく自分でも調べていました。ですので今回は量子コンピュータについて調べたことを書こうと思います。<br><a id="more"></a></p>
