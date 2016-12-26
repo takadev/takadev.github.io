@@ -10,18 +10,17 @@
 </script>
     <meta charset="utf-8">
     
-    <title>機械学習について調べてみた | Devlog|デブログ</title>
+    <title>タグ: php | Devlog|デブログ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="機械学習とは何か？今回はそもそも機械学習とは何か？ということを学んでいきたいと思います。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="機械学習について調べてみた">
-<meta property="og:url" content="http://devlog.site/machine-learning/machine-learning1/index.html">
+    <meta name="description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Devlog|デブログ">
+<meta property="og:url" content="http://devlog.site/tags/php/index.html">
 <meta property="og:site_name" content="Devlog|デブログ">
-<meta property="og:description" content="機械学習とは何か？今回はそもそも機械学習とは何か？ということを学んでいきたいと思います。">
-<meta property="og:updated_time" content="2016-12-09T13:07:58.000Z">
+<meta property="og:description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="機械学習について調べてみた">
-<meta name="twitter:description" content="機械学習とは何か？今回はそもそも機械学習とは何か？ということを学んでいきたいと思います。">
+<meta name="twitter:title" content="Devlog|デブログ">
+<meta name="twitter:description" content="takadevのエンジニアブログです。興味のある技術について日々発信していきます。">
     
 
     
@@ -206,167 +205,50 @@
 </aside>
 
             
-            <section id="main"><article id="post-machine-learning1" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
+            <section id="main">
+<div class="timeline timeline-wrap">
+    <div class="timeline-row timeline-row-major">
+        <span class="node"><i class="fa fa-tag"></i></span>
+        <h1 class="title">#php</h1>
+    </div>
+    
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
                 
     
-        <h1 class="article-title" itemprop="name">
-            機械学習について調べてみた
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/docker/docker3/">Dockerで開発環境</a>
         </h1>
     
 
-                
-                    <div class="article-meta">
-                        
+                <div class="article-meta">
+                    
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/machine-learning/machine-learning1/">
-            <time datetime="2016-11-24T15:00:00.000Z" itemprop="datePublished">2016-11-25</time>
+        <a href="/docker/docker3/">
+            <time datetime="2016-12-25T15:00:00.000Z" itemprop="datePublished">2016-12-26</time>
         </a>
     </div>
 
 
-                        
+                    
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/machine-learning/">機械学習</a>
+        <a class="article-category-link" href="/categories/docker/">Docker</a>
     </div>
 
-                        
+                    
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/ディープラーニング/">ディープラーニング</a>, <a class="tag-link" href="/tags/機械学習/">機械学習</a>
+        <a class="tag-link" href="/tags/Docker/">Docker</a>, <a class="tag-link" href="/tags/mysql/">mysql</a>, <a class="tag-link" href="/tags/nginx/">nginx</a>, <a class="tag-link" href="/tags/php/">php</a>
     </div>
 
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="機械学習とは何か？"><a href="#機械学習とは何か？" class="headerlink" title="機械学習とは何か？"></a>機械学習とは何か？</h1><p>今回はそもそも機械学習とは何か？ということを学んでいきたいと思います。<br><a id="more"></a></p>
-<h2 id="機械学習とは一言で"><a href="#機械学習とは一言で" class="headerlink" title="機械学習とは一言で"></a>機械学習とは一言で</h2><p>機械学習についてネットで調べると色々な記事があり、たくさんの専門用語が出てきて調べれば調べるほどよくわかりません。<br>そんな中<a href="http://www.sas.com/ja_jp/insights/analytics/machine-learning.html" target="_blank" rel="external">こちら</a>のサイトが分かりやすかったので、少し引用させていただくと</p>
-<blockquote>
-<p>機械学習とは、データから反復的に学習し、そこに潜むパターンを見つけ出すことです。<br>そして学習した結果を新たなデータにあてはめることで、パターンにしたがって将来を予測することができます。</p>
-</blockquote>
-<p>とのことです。<br>簡潔に言うと機械学習とは「パターン認識」ってことですね。<br>そのパターンを見つけ出す過程のことを学習と呼んでいるようです。</p>
-<p>そしてパターンがわかってしまえば、新たなデータがそのパターンに当てはまるかを調べればいいだけなので、<br>予測することができるってわけですね。</p>
-<h2 id="機械学習は何の役に立つのか？"><a href="#機械学習は何の役に立つのか？" class="headerlink" title="機械学習は何の役に立つのか？"></a>機械学習は何の役に立つのか？</h2><p>機械学習はパターンを認識するものということですが、一体どんなことに役立つのでしょうか？<br>いくつか事例を考えてみましょう。</p>
-<ol>
-<li>画像認識<ul>
-<li>ex)写真の特徴のパターンを摘出することで、他の写真と一致するかどうかは判定する</li>
-</ul>
-</li>
-<li>声紋認証<ul>
-<li>ex)音声の特徴パターンを摘出することで、他人の声と本人の声かどうか判定する</li>
-</ul>
-</li>
-<li>おすすめの商品<ul>
-<li>ex)自分と似た行動パターンを持つ人を摘出することで、購入履歴などからおすすめの商品を判定する</li>
-</ul>
-</li>
-</ol>
-<p>便利な機能にたくさん使われているみたいですね。<br>と、やはりどの事例もパターンを見つけ出して、それを新しいデータに適応して予測するということをやっているようですね。<br>機械学習を学ぶということは、このパターンを見つけ出す様々な方法やその精度を上げるにはどうしたらいいのかということを学ぶってことのようです。</p>
-<h2 id="なぜ機械学習が流行っているのか？"><a href="#なぜ機械学習が流行っているのか？" class="headerlink" title="なぜ機械学習が流行っているのか？"></a>なぜ機械学習が流行っているのか？</h2><p>最近、AlphaGoというプログラムが囲碁で世界トップクラスの棋士に勝ったり、機械学習でGoogle翻訳が良くなったとか、はたまた宇宙人の探索に機械学習を使うとか、そんな機械学習についてのニュースを良く目にしますよね。なぜいま機械学習はこんなに流行っているんでしょう？</p>
-<p>結論から言うとストレージの低価格化とコンピューティング・パワーが上昇した為です。</p>
-<p>機械学習のブームは今回が初めてではなく、過去にも何回かありました。<br>流行っては廃れ、また流行っては廃れを繰り返して、またここ最近流行りがきています。</p>
-<p>では今こんなにも流行っている機械学習がなぜ過去には廃れてしまったかというと、<br>機械学習は先にも述べたように膨大なサンプルデータとそこからパターンを見つけ出す計算処理を行う必要があったからです。</p>
-<p>膨大なサンプルデータを保持しておく為には大容量のストレージが必要ですし、その膨大なサンプルデータからパターンを見つけだす為にはさらに膨大な量の計算処理を行う必要があり、それにはかなりのコンピューティング・パワーを必要とします。<br>昔は今よりストレージの確保も容易ではなくマシーンのパワーもなかった為、ブームは去ってしまったようです。</p>
-<p>逆を言うと今はストレージは安く手に入りCPUやGPUの性能も向上しているので個人でも簡単に機械学習を試すことできる為、<br>こんなにも流行っているんですね。</p>
-<h2 id="機械学習の進め方"><a href="#機械学習の進め方" class="headerlink" title="機械学習の進め方"></a>機械学習の進め方</h2><p>流行っているとなればやはりやるしかない、ということで機械学習に取り組んでいきたいのですが、どうゆう風に進めるべきなんでしょうか。<br>機械学習の進め方としてはまず、どんなデータからどんなパターンを摘出したいかを考えるところからはじめるのが良さそうです。<br>それによって機械学習で使用するアルゴリズムや処理が変わると思いますので、まずは機械学習を利用して何がしたいかを考えてみましょう。</p>
-<p>そして、何がしたいかが決まればサンプルデータの収集を行い、ストレージに保存、機械学習を行い、学習結果を分析、結果からフィードバックを得て、より精度の高いパターンを摘出するといった流れになると思います。</p>
-<p>まとめると</p>
-<ol>
-<li>機械学習でどんなことがしたいかを考える</li>
-<li>サンプルデータの収集を行う</li>
-<li>収集したデータを保存する</li>
-<li>機械学習でパターンを摘出する</li>
-<li>結果を分析する</li>
-<li>フィードバックからより良く改善していく</li>
-</ol>
-<p>こんな感じでしょうか。<br>専門的なアルゴリズムや技法は進める中で順々に学んでいこうと思います。いきなり難しい数式の勉強とかやっても挫折しそうなので…</p>
-<h2 id="機械学習で大事なところ"><a href="#機械学習で大事なところ" class="headerlink" title="機械学習で大事なところ"></a>機械学習で大事なところ</h2><p>機械学習はパターン認識だと言いましたが、パターン認識とは具体的にどんなことでしょうか？</p>
-<p>人間は文字を見たとき、例えば「おはよう」という文字を見たとき、これが文字で朝の挨拶だと認識できます。<br>また、犬の写真を見たときにそれが写真で犬が写っていると認識できます。<br>これと同じことを機械が出来るようにするにはどうしたらいいでしょう？</p>
-<p>まず人間はどうやって文字や写真を認識しているのか考えてみましょう。<br>詳しくは脳科学の話になってしまうと思うのでわかりませんが、<br>人間は外部からの情報の<strong>特徴</strong>を摘出し、その意味を正しく認識することによってそれが何であるかを理解しています。</p>
-<p>文字には文字の特徴、写真には写真の特徴、それぞれの特徴があります。その特徴を摘出することができれば、<br>機械にも同じことが出来るようになるはずなんです。</p>
-<p>そう機械学習で大事なことはこの特徴を見つけ出すことです。</p>
-<h2 id="特徴はどうやって決まるの？"><a href="#特徴はどうやって決まるの？" class="headerlink" title="特徴はどうやって決まるの？"></a>特徴はどうやって決まるの？</h2><p>外部の情報から特徴を見つけ出せれば機械にもそれがどんなものか認識できるということですが、その特徴はどうやって決まっているのでしょうか？<br>例えば「9」という数字の特徴は上に円があって円の右下から尻尾がはえ下がって少し丸まっているといった感じでしょうか。<br>このように数字や文字などは簡単に特徴が思いつくと思います。</p>
-<p>では迷惑メールか、そうでない通常のメールかを判断しようとした場合、迷惑メールの特徴とはどういったものでしょうか？<br>“無料”とか”出会い”とか”今すぐ”などといった言葉が多く含まれればといった感じでしょうか？<br>これは少し難しいですよね。</p>
-<p>ですが機械はどういった特徴があるものが迷惑メールなのかという、最初の基準となるデータがなければ学習をスタートすることはできません。つまり機械学習では対象のデータがどんな意味を持つかということは人間が決めなければならないのです。</p>
-<h2 id="ディープラーニング"><a href="#ディープラーニング" class="headerlink" title="ディープラーニング"></a>ディープラーニング</h2><p>機械学習では人間が特徴を決める必要があると先ほど書きましたが、実はその特徴すら機械が見つけ出すことも可能なんです。<br>それが機械学習の一種であるディープラーニング(深層学習)です。</p>
-<p>このディープラーニングは様々な分野で活用されており、車の自動運転や冒頭でも書いたAlphaGoにも利用されており今後より研究開発が進むと考えられています。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            
-    <div id="article-share-box" class="article-share-box-on">
-    <div class="article-share-links">
-        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/machine-learning/machine-learning1/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
-        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/machine-learning/machine-learning1/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
-        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/machine-learning/machine-learning1/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
-        <a href="https://plus.google.com/share?url=http://devlog.site/machine-learning/machine-learning1/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
-    </div>
-</div>
-
-
-
-            
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/python/ipython1/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">新しい記事</strong>
-            <div class="article-nav-title">
-                
-                    IPython使ってみた
-                
+                </div>
             </div>
-        </a>
+        </div>
     
-    
-        <a href="/tensorflow/tensorflow3/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">古い記事</strong>
-            <div class="article-nav-title">TensorFlowの基礎</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-  <section id="related">
-      <div class="related-inner">
-          <header class="related-header">
-              <div class="related-header-line">
-                  <h2>関連記事</h2>
-              </div>
-          </header>
-          <ul class="related-posts"><li class="related-posts-item"><div class="related-posts-inner"><div class="related-posts-image"><a href="/ディープラーニング/machine-learning2/"><img src="/css/images/thumb-default-small.png" /></a></div><div class="related-posts-date">2016-12-17</div><div class="related-posts-title"><a href="/ディープラーニング/machine-learning2/" title="ディープラーニング用語" rel="bookmark">ディープラーニング用語</a></div><div class="related-posts-tags"><a href="/tags/機械学習/">#機械学習</a><a href="/tags/ディープラーニング/">#ディープラーニング</a></div></div></li></ul>
-      </div>
-  </section>
-    
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-
-
-    
-    </section>
-
-
+</div>
 </section>
             
                 <aside id="sidebar">
@@ -556,7 +438,7 @@
 <script>
   (function() {
     var d = document, s = d.createElement('script');
-    s.src = '//devlog-2.disqus.com/embed.js';
+    s.src = '//devlog-2.disqus.com/count.js';
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
   })();
