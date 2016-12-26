@@ -10,18 +10,18 @@
 </script>
     <meta charset="utf-8">
     
-    <title>機械学習について調べてみた | Devlog|デブログ</title>
+    <title>Dockerで開発環境 | Devlog|デブログ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="機械学習とは何か？今回はそもそも機械学習とは何か？ということを学んでいきたいと思います。">
+    <meta name="description" content="Dockerで開発環境構築今回はDockerで開発環境を作成してみたいと思います。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="機械学習について調べてみた">
-<meta property="og:url" content="http://devlog.site/machine-learning/machine-learning1/index.html">
+<meta property="og:title" content="Dockerで開発環境">
+<meta property="og:url" content="http://devlog.site/docker/docker3/index.html">
 <meta property="og:site_name" content="Devlog|デブログ">
-<meta property="og:description" content="機械学習とは何か？今回はそもそも機械学習とは何か？ということを学んでいきたいと思います。">
-<meta property="og:updated_time" content="2016-12-09T13:07:58.000Z">
+<meta property="og:description" content="Dockerで開発環境構築今回はDockerで開発環境を作成してみたいと思います。">
+<meta property="og:updated_time" content="2016-12-26T12:47:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="機械学習について調べてみた">
-<meta name="twitter:description" content="機械学習とは何か？今回はそもそも機械学習とは何か？ということを学んでいきたいと思います。">
+<meta name="twitter:title" content="Dockerで開発環境">
+<meta name="twitter:description" content="Dockerで開発環境構築今回はDockerで開発環境を作成してみたいと思います。">
     
 
     
@@ -206,7 +206,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-machine-learning1" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-docker3" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -214,7 +214,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            機械学習について調べてみた
+            Dockerで開発環境
         </h1>
     
 
@@ -223,8 +223,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/machine-learning/machine-learning1/">
-            <time datetime="2016-11-24T15:00:00.000Z" itemprop="datePublished">2016-11-25</time>
+        <a href="/docker/docker3/">
+            <time datetime="2016-12-25T15:00:00.000Z" itemprop="datePublished">2016-12-26</time>
         </a>
     </div>
 
@@ -232,13 +232,13 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/machine-learning/">機械学習</a>
+        <a class="article-category-link" href="/categories/docker/">Docker</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/ディープラーニング/">ディープラーニング</a>, <a class="tag-link" href="/tags/機械学習/">機械学習</a>
+        <a class="tag-link" href="/tags/Docker/">Docker</a>, <a class="tag-link" href="/tags/mysql/">mysql</a>, <a class="tag-link" href="/tags/nginx/">nginx</a>, <a class="tag-link" href="/tags/php/">php</a>
     </div>
 
                     </div>
@@ -249,57 +249,50 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="機械学習とは何か？"><a href="#機械学習とは何か？" class="headerlink" title="機械学習とは何か？"></a>機械学習とは何か？</h1><p>今回はそもそも機械学習とは何か？ということを学んでいきたいと思います。<br><a id="more"></a></p>
-<h2 id="機械学習とは一言で"><a href="#機械学習とは一言で" class="headerlink" title="機械学習とは一言で"></a>機械学習とは一言で</h2><p>機械学習についてネットで調べると色々な記事があり、たくさんの専門用語が出てきて調べれば調べるほどよくわかりません。<br>そんな中<a href="http://www.sas.com/ja_jp/insights/analytics/machine-learning.html" target="_blank" rel="external">こちら</a>のサイトが分かりやすかったので、少し引用させていただくと</p>
-<blockquote>
-<p>機械学習とは、データから反復的に学習し、そこに潜むパターンを見つけ出すことです。<br>そして学習した結果を新たなデータにあてはめることで、パターンにしたがって将来を予測することができます。</p>
-</blockquote>
-<p>とのことです。<br>簡潔に言うと機械学習とは「パターン認識」ってことですね。<br>そのパターンを見つけ出す過程のことを学習と呼んでいるようです。</p>
-<p>そしてパターンがわかってしまえば、新たなデータがそのパターンに当てはまるかを調べればいいだけなので、<br>予測することができるってわけですね。</p>
-<h2 id="機械学習は何の役に立つのか？"><a href="#機械学習は何の役に立つのか？" class="headerlink" title="機械学習は何の役に立つのか？"></a>機械学習は何の役に立つのか？</h2><p>機械学習はパターンを認識するものということですが、一体どんなことに役立つのでしょうか？<br>いくつか事例を考えてみましょう。</p>
-<ol>
-<li>画像認識<ul>
-<li>ex)写真の特徴のパターンを摘出することで、他の写真と一致するかどうかは判定する</li>
-</ul>
-</li>
-<li>声紋認証<ul>
-<li>ex)音声の特徴パターンを摘出することで、他人の声と本人の声かどうか判定する</li>
-</ul>
-</li>
-<li>おすすめの商品<ul>
-<li>ex)自分と似た行動パターンを持つ人を摘出することで、購入履歴などからおすすめの商品を判定する</li>
-</ul>
-</li>
-</ol>
-<p>便利な機能にたくさん使われているみたいですね。<br>と、やはりどの事例もパターンを見つけ出して、それを新しいデータに適応して予測するということをやっているようですね。<br>機械学習を学ぶということは、このパターンを見つけ出す様々な方法やその精度を上げるにはどうしたらいいのかということを学ぶってことのようです。</p>
-<h2 id="なぜ機械学習が流行っているのか？"><a href="#なぜ機械学習が流行っているのか？" class="headerlink" title="なぜ機械学習が流行っているのか？"></a>なぜ機械学習が流行っているのか？</h2><p>最近、AlphaGoというプログラムが囲碁で世界トップクラスの棋士に勝ったり、機械学習でGoogle翻訳が良くなったとか、はたまた宇宙人の探索に機械学習を使うとか、そんな機械学習についてのニュースを良く目にしますよね。なぜいま機械学習はこんなに流行っているんでしょう？</p>
-<p>結論から言うとストレージの低価格化とコンピューティング・パワーが上昇した為です。</p>
-<p>機械学習のブームは今回が初めてではなく、過去にも何回かありました。<br>流行っては廃れ、また流行っては廃れを繰り返して、またここ最近流行りがきています。</p>
-<p>では今こんなにも流行っている機械学習がなぜ過去には廃れてしまったかというと、<br>機械学習は先にも述べたように膨大なサンプルデータとそこからパターンを見つけ出す計算処理を行う必要があったからです。</p>
-<p>膨大なサンプルデータを保持しておく為には大容量のストレージが必要ですし、その膨大なサンプルデータからパターンを見つけだす為にはさらに膨大な量の計算処理を行う必要があり、それにはかなりのコンピューティング・パワーを必要とします。<br>昔は今よりストレージの確保も容易ではなくマシーンのパワーもなかった為、ブームは去ってしまったようです。</p>
-<p>逆を言うと今はストレージは安く手に入りCPUやGPUの性能も向上しているので個人でも簡単に機械学習を試すことできる為、<br>こんなにも流行っているんですね。</p>
-<h2 id="機械学習の進め方"><a href="#機械学習の進め方" class="headerlink" title="機械学習の進め方"></a>機械学習の進め方</h2><p>流行っているとなればやはりやるしかない、ということで機械学習に取り組んでいきたいのですが、どうゆう風に進めるべきなんでしょうか。<br>機械学習の進め方としてはまず、どんなデータからどんなパターンを摘出したいかを考えるところからはじめるのが良さそうです。<br>それによって機械学習で使用するアルゴリズムや処理が変わると思いますので、まずは機械学習を利用して何がしたいかを考えてみましょう。</p>
-<p>そして、何がしたいかが決まればサンプルデータの収集を行い、ストレージに保存、機械学習を行い、学習結果を分析、結果からフィードバックを得て、より精度の高いパターンを摘出するといった流れになると思います。</p>
-<p>まとめると</p>
-<ol>
-<li>機械学習でどんなことがしたいかを考える</li>
-<li>サンプルデータの収集を行う</li>
-<li>収集したデータを保存する</li>
-<li>機械学習でパターンを摘出する</li>
-<li>結果を分析する</li>
-<li>フィードバックからより良く改善していく</li>
-</ol>
-<p>こんな感じでしょうか。<br>専門的なアルゴリズムや技法は進める中で順々に学んでいこうと思います。いきなり難しい数式の勉強とかやっても挫折しそうなので…</p>
-<h2 id="機械学習で大事なところ"><a href="#機械学習で大事なところ" class="headerlink" title="機械学習で大事なところ"></a>機械学習で大事なところ</h2><p>機械学習はパターン認識だと言いましたが、パターン認識とは具体的にどんなことでしょうか？</p>
-<p>人間は文字を見たとき、例えば「おはよう」という文字を見たとき、これが文字で朝の挨拶だと認識できます。<br>また、犬の写真を見たときにそれが写真で犬が写っていると認識できます。<br>これと同じことを機械が出来るようにするにはどうしたらいいでしょう？</p>
-<p>まず人間はどうやって文字や写真を認識しているのか考えてみましょう。<br>詳しくは脳科学の話になってしまうと思うのでわかりませんが、<br>人間は外部からの情報の<strong>特徴</strong>を摘出し、その意味を正しく認識することによってそれが何であるかを理解しています。</p>
-<p>文字には文字の特徴、写真には写真の特徴、それぞれの特徴があります。その特徴を摘出することができれば、<br>機械にも同じことが出来るようになるはずなんです。</p>
-<p>そう機械学習で大事なことはこの特徴を見つけ出すことです。</p>
-<h2 id="特徴はどうやって決まるの？"><a href="#特徴はどうやって決まるの？" class="headerlink" title="特徴はどうやって決まるの？"></a>特徴はどうやって決まるの？</h2><p>外部の情報から特徴を見つけ出せれば機械にもそれがどんなものか認識できるということですが、その特徴はどうやって決まっているのでしょうか？<br>例えば「9」という数字の特徴は上に円があって円の右下から尻尾がはえ下がって少し丸まっているといった感じでしょうか。<br>このように数字や文字などは簡単に特徴が思いつくと思います。</p>
-<p>では迷惑メールか、そうでない通常のメールかを判断しようとした場合、迷惑メールの特徴とはどういったものでしょうか？<br>“無料”とか”出会い”とか”今すぐ”などといった言葉が多く含まれればといった感じでしょうか？<br>これは少し難しいですよね。</p>
-<p>ですが機械はどういった特徴があるものが迷惑メールなのかという、最初の基準となるデータがなければ学習をスタートすることはできません。つまり機械学習では対象のデータがどんな意味を持つかということは人間が決めなければならないのです。</p>
-<h2 id="ディープラーニング"><a href="#ディープラーニング" class="headerlink" title="ディープラーニング"></a>ディープラーニング</h2><p>機械学習では人間が特徴を決める必要があると先ほど書きましたが、実はその特徴すら機械が見つけ出すことも可能なんです。<br>それが機械学習の一種であるディープラーニング(深層学習)です。</p>
-<p>このディープラーニングは様々な分野で活用されており、車の自動運転や冒頭でも書いたAlphaGoにも利用されており今後より研究開発が進むと考えられています。</p>
+            <h2 id="Dockerで開発環境構築"><a href="#Dockerで開発環境構築" class="headerlink" title="Dockerで開発環境構築"></a>Dockerで開発環境構築</h2><p>今回はDockerで開発環境を作成してみたいと思います。<br><a id="more"></a></p>
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>仕事で必要になったのでNginx + PHP(Phalcon) + MySQL + Redisの環境を作ってみます。<br>Docker自体は<a href="http://devlog.site/docker/docker2/">以前の記事</a>で環境は整えてあります。</p>
+<h2 id="各種サービスのコンテナ作成"><a href="#各種サービスのコンテナ作成" class="headerlink" title="各種サービスのコンテナ作成"></a>各種サービスのコンテナ作成</h2><p>それぞれのサービス用コンテナを作成していこうと思いますが、その前に今回はDocker Composeを使用したいと思います。<br>Docker composeとは、複数のコンテナから成るサービスを構築・実行する手順を自動で行うことができ、また管理することができるものです。Docker composeを使用することで1回のコマンド実行で、すべてのコンテナサービスを起動することができたりなんかしちゃいます。すごく便利ですね。Docker compose自体はDocker for Macに入っているので以下のコマンドで確認してみましょう。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-compose -v</div></pre></td></tr></table></figure>
+<p>バージョンが確認できましたね。<br>docker-composeはYAMLファイルで各コンテナを管理することができます。YAMLファイルの書式はほぼdocker runのオプションと対応していますので、書き方などはそこまで難しくないと思います。</p>
+<p>それでは次に各種サービスのコンテナを作成したいと思います。docker hubからイメージを取得してきます。まずはnginxとphalconのイメージです。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull alfonso/nginx-phalcon</div></pre></td></tr></table></figure>
+<p>次にmysqlのイメージです。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull mysql</div></pre></td></tr></table></figure>
+<p>最後にRedisです。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull redis</div></pre></td></tr></table></figure>
+<p>確認してみましょう。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">docker images</div><div class="line">REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">redis                   latest              d59dc9e6d0bf        11 days ago         182.9 MB</div><div class="line">mysql                   latest              594dc21de8de        12 days ago         400.2 MB</div><div class="line">alfonso/nginx-phalcon   latest              6a69953541cf        2 years ago         540.5 MB</div></pre></td></tr></table></figure>
+<p>イメージがダウンロードされていますね。<br>あとは各種イメージのコンテナを作成しましょう。<br>まずはredisのコンテナを立ち上げます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name redis -p 6379:6379 -d redis redis-server --appendonly yes</div></pre></td></tr></table></figure>
+<p>次にmysqlのコンテナです。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name ban_mysql -p 3306:3306 --volumes-from ban_data -e MYSQL_ROOT_PASSWORD=hoge -d mysql</div></pre></td></tr></table></figure>
+<p>最後にnginx-phalconです。<br><strong>-v</strong>オプションではコードのパスを指定します。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name php -p 8888:80 -d -v=&quot;/path/code&quot;:&quot;/var/www&quot; alfonso/nginx-phalcon</div></pre></td></tr></table></figure>
+<p>これでコンテナが作成されました。確認してみましょう。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">docker ps -a</div><div class="line">CONTAINER ID        IMAGE                   COMMAND                  CREATED             STATUS                  PORTS                    NAMES</div><div class="line">1cc31121475c        alfonso/nginx-phalcon   &quot;/bin/sh -c &apos;service &quot;   15 seconds ago      Up 15 seconds           0.0.0.0:8888-&gt;80/tcp     php</div><div class="line">d0919a3a1bd6        mysql                   &quot;docker-entrypoint.sh&quot;   1 minutes ago       Up 1 minutes            0.0.0.0:3306-&gt;3306/tcp   mysql</div><div class="line">7198ba879cf6        redis                   &quot;docker-entrypoint.sh&quot;   1 minutes ago       Up 1 minutes            0.0.0.0:6379-&gt;6379/tcp   redis</div></pre></td></tr></table></figure>
+<p>無事に作成されていますね。<br>サービスのコンテナ作成はここまでです。</p>
+<h2 id="テータコンテナの作成"><a href="#テータコンテナの作成" class="headerlink" title="テータコンテナの作成"></a>テータコンテナの作成</h2><p>最後に今回はデータの永続化を行いたいと思うので、BusyBoxを使ってみます。<br>BusyBoxとは標準UNIXコマンドの主要コマンドをまとめて1つの実行ファイル化したものです。BusyBoxは主要なコマンドとシェルを備えているので、これだけで基本的なLinux環境を整えることができます。</p>
+<p>実際にBusyBoxを使ってみましょう。以下のコマンドでイメージのダウンロードからコンテナの作成まで行い、コンテナへアタッチすることができます。<strong>–rm</strong>オプションを指定しているのでコンテナから出ると自動でコンテナが削除されます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -it --rm busybox</div></pre></td></tr></table></figure>
+<p>簡易Linux環境って感じですね。<br>しかしDocker便利ですね。では、実際にデータコンテナのどこにデータを保存するかを指定してコンテナを立ち上げてみましょう。以下のコマンドで<strong>/data</strong>ディレクトリ以下がデータの保存先になります。<strong>-v</strong>オプションを指定したディレクトリが保存先となります。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -it -v /data --name data busybox /bin/sh</div></pre></td></tr></table></figure>
+<p>ログイン後に<strong>/data</strong>ディレクトリ配下に適当にファイルを作成してみましょう。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/ # echo &quot;TEST!!!&quot; &gt;&gt; /data/test.txt</div></pre></td></tr></table></figure>
+<p>次にこのデータコンテナのデータを使用するコンテナを立ち上げてみましょう。<br>本来は先ほどダウンロードしてきたmysqlイメージのコンテナを使うところですが、mysqlのデータがまだないので確認のためにCentOSのイメージを使用したいと思います。<br>以下のように<strong>–volumes-from</strong>オプションでbusyboxコンテナの名前を指定することでデータコンテナへマウントすることができます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -it --volumes-from data --name tmp_os centos /bin/bash</div></pre></td></tr></table></figure>
+<p>ログイン後<strong>/data</strong>配下に先ほど作成した<strong>test.txt</strong>ファイルがあることがわかると思います。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@3fcdf68d7070 /]# cat /data/test.txt </div><div class="line">TEST!!!</div></pre></td></tr></table></figure>
+<p>ちゃんとマウントされていることがわかりますね。無事にデータの永続化ができました。</p>
+<h2 id="docker-compose-ymlの作成"><a href="#docker-compose-ymlの作成" class="headerlink" title="docker-compose.ymlの作成"></a>docker-compose.ymlの作成</h2><p>ここまでで一つ一つコンテナを作成してきましたが、冒頭でも書きましたがDocker Compseを使ってそれぞれのコンテナを自動で構築することができるんです。<br>そのためには<strong>docker-compse.yml</strong>ファイルを作成します。<br>以下のようなファイルを作成してください。詳しい構文などは<a href="https://docs.docker.com/compose/compose-file/#/version-2" target="_blank" rel="external">公式サイト</a>を参照してください。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">version: &apos;2&apos;</div><div class="line">services:</div><div class="line">  php:</div><div class="line">    image: alfonso/nginx-phalcon</div><div class="line">    ports:</div><div class="line">      - &quot;8000:80&quot;</div><div class="line">    volumes:</div><div class="line">      - ./project_name:/var/www</div><div class="line">    depends_on:</div><div class="line">      - db</div><div class="line">      - redis</div><div class="line">    container_name: php</div><div class="line">  busybox:</div><div class="line">    image: busybox</div><div class="line">    volumes:</div><div class="line">          - /data:/var/lib/mysql</div><div class="line">    command: /bin/sh</div><div class="line">    stdin_open: true</div><div class="line">    container_name: data </div><div class="line">  mysql:</div><div class="line">    image: mysql</div><div class="line">    volumes_from:</div><div class="line">      - busybox</div><div class="line">    environment:</div><div class="line">      MYSQL_ROOT_PASSWORD: &apos;hoge&apos;</div><div class="line">      MYSQL_USER: &apos;bar&apos;</div><div class="line">      MYSQL_PASSWORD: &apos;fuga&apos;</div><div class="line">      MYSQL_DATABASE: &apos;piyo&apos;</div><div class="line">    ports:</div><div class="line">      - &apos;3306:3306&apos;</div><div class="line">    container_name: mysql</div><div class="line">  redis:</div><div class="line">    image: redis</div><div class="line">    ports:</div><div class="line">      - &apos;6379:6379&apos;</div><div class="line">    container_name: redis</div></pre></td></tr></table></figure>
+<p>docker-compse.ymlファイルはPhalconのプロジェクトのディレクトリと同階層に配置してある想定です。</p>
+<h2 id="アプリケーションを立ち上げる"><a href="#アプリケーションを立ち上げる" class="headerlink" title="アプリケーションを立ち上げる"></a>アプリケーションを立ち上げる</h2><p><strong>docker-compse.yml</strong>ファイルを作成が終わったら実際にアプリを立ち上げてみましょう。<br>以下のコマンドで立ち上がります。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-compose up</div></pre></td></tr></table></figure>
+<p>実行するとコンソールにログが一気に流れてコンテナが立ち上がるのがわかると思います。<br>ただしデータコンテナだけ起動しないと思います。データコンテナはデータの保持だけが目的なのでコンテナとして起動している必要がありませんので問題ありません。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-compose up -d &#123;コンテナー名&#125;</div></pre></td></tr></table></figure>
+<p><strong>-d</strong>オプションをつけるバックグラウンドで実行できます。<br>またコンテナ名を指定することで個別に起動することもできます。</p>
+<p>これでdockerでの環境構築は終わりです。他のマシーンに同じ環境を作る際はデータコンテナをロードすればそのままデータも同じものが使えるのでかなり便利ですね。</p>
+<p>終わり。</p>
 
         
         </div>
@@ -307,10 +300,10 @@
             
     <div id="article-share-box" class="article-share-box-on">
     <div class="article-share-links">
-        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/machine-learning/machine-learning1/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
-        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/machine-learning/machine-learning1/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
-        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/machine-learning/machine-learning1/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
-        <a href="https://plus.google.com/share?url=http://devlog.site/machine-learning/machine-learning1/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
+        <a href="https://twitter.com/intent/tweet?url=http://devlog.site/docker/docker3/" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>
+        <a href="https://www.facebook.com/sharer.php?u=http://devlog.site/docker/docker3/" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>
+        <a href="http://pinterest.com/pin/create/button/?url=http://devlog.site/docker/docker3/" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>
+        <a href="https://plus.google.com/share?url=http://devlog.site/docker/docker3/" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>
     </div>
 </div>
 
@@ -323,19 +316,10 @@
         
 <nav id="article-nav">
     
-        <a href="/python/ipython1/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">新しい記事</strong>
-            <div class="article-nav-title">
-                
-                    IPython使ってみた
-                
-            </div>
-        </a>
     
-    
-        <a href="/tensorflow/tensorflow3/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/python/scrapy/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">古い記事</strong>
-            <div class="article-nav-title">TensorFlowの基礎</div>
+            <div class="article-nav-title">スクレイピングしてみた</div>
         </a>
     
 </nav>
@@ -351,7 +335,7 @@
                   <h2>関連記事</h2>
               </div>
           </header>
-          <ul class="related-posts"><li class="related-posts-item"><div class="related-posts-inner"><div class="related-posts-image"><a href="/ディープラーニング/machine-learning2/"><img src="/css/images/thumb-default-small.png" /></a></div><div class="related-posts-date">2016-12-17</div><div class="related-posts-title"><a href="/ディープラーニング/machine-learning2/" title="ディープラーニング用語" rel="bookmark">ディープラーニング用語</a></div><div class="related-posts-tags"><a href="/tags/機械学習/">#機械学習</a><a href="/tags/ディープラーニング/">#ディープラーニング</a></div></div></li></ul>
+          <ul class="related-posts"><li class="related-posts-item"><div class="related-posts-inner"><div class="related-posts-image"><a href="/docker/docker2/"><img src="/css/images/thumb-default-small.png" /></a></div><div class="related-posts-date">2016-12-08</div><div class="related-posts-title"><a href="/docker/docker2/" title="Docker入門" rel="bookmark">Docker入門</a></div><div class="related-posts-tags"><a href="/tags/Docker/">#Docker</a><a href="/tags/mysql/">#mysql</a></div></div></li></ul>
       </div>
   </section>
     
