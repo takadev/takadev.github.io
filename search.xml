@@ -4,6 +4,36 @@
   
     
     <entry>
+      <title><![CDATA[久々にPHPやってみた]]></title>
+      <url>http://devlog.site/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/php1/</url>
+      <content type="html"><![CDATA[<h2 id="PHPのお勉強"><a href="#PHPのお勉強" class="headerlink" title="PHPのお勉強"></a>PHPのお勉強</h2><p>折角PHPを書く機会ができたので少し勉強してみようと思います。<br>ソースコードを読んでてわからなかったところや気になったところ、知らなかったライブラリなど取り留めないですが、色々と調べてみました。<br><a id="more"></a></p>
+<h2 id="HybridAuth-ハイブリッドオース"><a href="#HybridAuth-ハイブリッドオース" class="headerlink" title="HybridAuth(ハイブリッドオース)"></a>HybridAuth(ハイブリッドオース)</h2><p>作ってるアプリがOAuth認証のライブラリにこのHybridAuthというのを使っていて、知らなかったので調べました。<br>HybridAuthは、PHPのOAuthのライブラリでFacebookとかTwitterからMySpaceやLinkedInといった多くのプロバイダに対応してるみたいです。GPL/MITライセンスのオープンソース・ソフトウェアで結構有名みたいです。知らなくってすいません…</p>
+<p>公式サイトは<a href="http://hybridauth.sourceforge.net/index.html" target="_blank" rel="external">こちら</a>になります。<br>詳細は公式サイトを見てみて下さい。</p>
+<p>ついでにいつも忘れちゃうAuthenticationとAuthorizationの違いについても調べました。<br>日本語で言うと認証と認可の違いですね。<br><a href="http://www.slideshare.net/matake/id-openid-technight-vol13?ref=http://oauth.jp/blog/2016/02/25/oauth-authentication/" target="_blank" rel="external">このスライド</a>がすごくわかりやすかったので参考にさせて頂きました。</p>
+<h3 id="Authentication"><a href="#Authentication" class="headerlink" title="Authentication"></a>Authentication</h3><p>認証のことです。認証とは正当性を検証することで、例えばユーザ名とパスワードを使って、サイト利用者きちんとその権利があるかどうかや、その人が本人かどうかを確認することですね。<br>先ほどのスライドから引用させていただくと、</p>
+<blockquote>
+<p>ブラウザの前のにいるEntityがサービス側が認識するどのIdentityと紐付いているかの確証を得ること。<br>「あの時お越しいただいたお客様ですね」と確証を持って言えればOK。</p>
+</blockquote>
+<p>これがAuthenticationです。</p>
+<h3 id="Authorization"><a href="#Authorization" class="headerlink" title="Authorization"></a>Authorization</h3><p>認可のことです。認可とは、ある特定の条件に対しリソースアクセスの権限を与えることやまたはその条件のことを言います。<br>こちらも先ほどのスライドから引用させていただくと</p>
+<blockquote>
+<p>リソースにアクセスするための条件を定めること。<br>「20歳以上」とか「社長限定」とか。<br>ユーザーの属性がそのリソースにアクセスするに足りるかをチェックすること。</p>
+</blockquote>
+<p>これがAuthorizationです。</p>
+<h2 id="AMF"><a href="#AMF" class="headerlink" title="AMF"></a>AMF</h2><p>AMFという単語が出てきて何のことだかわからなかったので調べてみました。<br>AMFは<strong>Action Message Format</strong>の略でどうやらクライアントとサーバ間で通信する際に使用されるフォーマットのようです。Flexで使用されるバイナリフォーマットのことみたいですね。<br>このフォーマットを使用することにより軽量で高速にFlexとサーバ間の通信をおこなうことができ、結果としてWebアプリケーションのパフォーマンスを上げることができるとのことです。</p>
+<p>PHPではAMFPHPというライブラリがZendFrameworkでサポートされているようで、結構古くから存在して実績もあるようです。</p>
+<h2 id="サブクラス自信をnewする場合"><a href="#サブクラス自信をnewする場合" class="headerlink" title="サブクラス自信をnewする場合"></a>サブクラス自信をnewする場合</h2><p>打って変わってPHPの構文についてです。PHPは昔少し書いてたことがありましたが、サブクラス自信をnewする際の構文を今まで全然知らなかったです。お恥ずかしい。</p>
+<p><a href="http://qiita.com/armorik83/items/9fc7cfd59abc05bab49a" target="_blank" rel="external">こちらのQiitaのエントリ</a>を参考に実験的に以下のようなコードを書いてみました。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class A &#123;</div><div class="line">    public static function get_self() &#123;</div><div class="line">        return new self();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static function get_static() &#123;</div><div class="line">        return new static();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class B extends A &#123;&#125;</div><div class="line"></div><div class="line">echo get_class(B::get_self());   // A</div><div class="line">echo get_class(B::get_static()); // B</div><div class="line">echo get_class(A::get_static()); // A</div></pre></td></tr></table></figure>
+<p>サブクラスから<strong>new self()</strong>を行うとサブクラスではなくスーパークラスが帰ってきてしますので、サブクラス自信をnewしたい時は<strong>new static()</strong>という構文を使わないといけないようですね。</p>
+<h2 id="php-uname関数"><a href="#php-uname関数" class="headerlink" title="php_uname関数"></a>php_uname関数</h2><p>PHPが稼動しているOSに関する情報を返す関数です。<br>構文はこんな感じです。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">string php_uname ([ string $mode = &quot;a&quot; ] )</div></pre></td></tr></table></figure>
+<p>引数によって取得できる情報が違うようです。<br>詳しくは<a href="http://php.net/manual/ja/function.php-uname.php" target="_blank" rel="external">こちらのマニュアル</a>を参照してください。</p>
+<p>終わり</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[2017年目標]]></title>
       <url>http://devlog.site/%E7%9B%AE%E6%A8%99/new-years-resolution/</url>
       <content type="html"><![CDATA[<p>2017年一発目なので今年の目標を決めておこうと思います。<br>毎年一応、今年はこれを頑張るぞとかこれを成し遂げるぞと決めているのですが、なかなか実現できていません。やはり目標達成には途中途中のFBが大切だと思うのできちんと自分でFBするためにもブログに書いておこうと思います。<br><a id="more"></a></p>
@@ -202,6 +232,41 @@
     </entry>
     
     <entry>
+      <title><![CDATA[jpegtran使ってみた]]></title>
+      <url>http://devlog.site/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88/jpegtran/</url>
+      <content type="html"><![CDATA[<h2 id="画像最適化してみた"><a href="#画像最適化してみた" class="headerlink" title="画像最適化してみた"></a>画像最適化してみた</h2><p>今回も少し短いですが、jpgの画像最適化をやってみました。<br>最適化ツールとしてはjpegtranとjpegoptimがありますが、jpegtranを使用してみました。<br><a id="more"></a></p>
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>環境はmacでOSはEl Capitanです。<br>自分用のメモなので悪しからず。</p>
+<h2 id="jpegtranのインストール"><a href="#jpegtranのインストール" class="headerlink" title="jpegtranのインストール"></a>jpegtranのインストール</h2><p>まずはインストールしてみます。と思ったらデフォルトでインストールされていました。<br>ただHomebrewで一発なので簡単です。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install jpeg</div></pre></td></tr></table></figure>
+<p>インストールできたか確認してみましょう。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jpegtran -v</div></pre></td></tr></table></figure>
+<p>無事インストールできたみたいですね。</p>
+<h2 id="最適化"><a href="#最適化" class="headerlink" title="最適化"></a>最適化</h2><p>最適化してみましょう。以下のようなコマンドで行います。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jpegtran -copy none -optimize -outfile hoge.jpg base.jpg</div></pre></td></tr></table></figure>
+<p>オプションの意味はこんな感じです。</p>
+<ul>
+<li>-copy none<ul>
+<li>JPEG ファイルのメタデータをすべて削除する。</li>
+</ul>
+</li>
+<li>-optimize<ul>
+<li>ハフマンテーブルを最適化する。</li>
+</ul>
+</li>
+<li>-outfile<ul>
+<li>ファイルの出力先の指定</li>
+</ul>
+</li>
+</ul>
+<h2 id="まとめて最適化"><a href="#まとめて最適化" class="headerlink" title="まとめて最適化"></a>まとめて最適化</h2><p>1ファイルづつはめんどくさいのでディレクトリ内のjpgをまとめて最適化してみます。<br>以下のようなコマンドで一発で最適化できます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /path/to/image/ -name &quot;*.jpg&quot; -type f -exec jpegtran -copy none -optimize -outfile &#123;&#125; &#123;&#125; \;</div></pre></td></tr></table></figure>
+<p>楽チンですね。</p>
+<h2 id="PNGの場合"><a href="#PNGの場合" class="headerlink" title="PNGの場合"></a>PNGの場合</h2><p>pngの場合はOptiPNGやPNGOUTなどのツールがありますので、機会があれば試してみたいと思います。</p>
+<p>終わり。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[スクレイピングしてみた]]></title>
       <url>http://devlog.site/python/scrapy/</url>
       <content type="html"><![CDATA[<h2 id="Pythonでスクレイピングしてみた"><a href="#Pythonでスクレイピングしてみた" class="headerlink" title="Pythonでスクレイピングしてみた"></a>Pythonでスクレイピングしてみた</h2><p>今後、機械学習で必要になると思うのでスクレイピングをしてみました。<br><a id="more"></a></p>
@@ -233,41 +298,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scrapy crawl gunosy</div></pre></td></tr></table></figure>
 <p>コンソールに取得したかったタイトル、URL、サブカテゴリーがずらずらっと出力されたかと思います。<br>スクレイピングが無事に出来ていますね。</p>
 <p>参考にさせていただいたサイトではこの後にScrapy Cloudを使用してデータを保存していますが、今回はここまでにします。<br>今後は機械学習で大量のデータが必要になると思うのでscrapyを使って色々なデータをスクレイピングしてみたいと思います。</p>
-<p>終わり。</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[jpegtran使ってみた]]></title>
-      <url>http://devlog.site/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88/jpegtran/</url>
-      <content type="html"><![CDATA[<h2 id="画像最適化してみた"><a href="#画像最適化してみた" class="headerlink" title="画像最適化してみた"></a>画像最適化してみた</h2><p>今回も少し短いですが、jpgの画像最適化をやってみました。<br>最適化ツールとしてはjpegtranとjpegoptimがありますが、jpegtranを使用してみました。<br><a id="more"></a></p>
-<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>環境はmacでOSはEl Capitanです。<br>自分用のメモなので悪しからず。</p>
-<h2 id="jpegtranのインストール"><a href="#jpegtranのインストール" class="headerlink" title="jpegtranのインストール"></a>jpegtranのインストール</h2><p>まずはインストールしてみます。と思ったらデフォルトでインストールされていました。<br>ただHomebrewで一発なので簡単です。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install jpeg</div></pre></td></tr></table></figure>
-<p>インストールできたか確認してみましょう。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jpegtran -v</div></pre></td></tr></table></figure>
-<p>無事インストールできたみたいですね。</p>
-<h2 id="最適化"><a href="#最適化" class="headerlink" title="最適化"></a>最適化</h2><p>最適化してみましょう。以下のようなコマンドで行います。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jpegtran -copy none -optimize -outfile hoge.jpg base.jpg</div></pre></td></tr></table></figure>
-<p>オプションの意味はこんな感じです。</p>
-<ul>
-<li>-copy none<ul>
-<li>JPEG ファイルのメタデータをすべて削除する。</li>
-</ul>
-</li>
-<li>-optimize<ul>
-<li>ハフマンテーブルを最適化する。</li>
-</ul>
-</li>
-<li>-outfile<ul>
-<li>ファイルの出力先の指定</li>
-</ul>
-</li>
-</ul>
-<h2 id="まとめて最適化"><a href="#まとめて最適化" class="headerlink" title="まとめて最適化"></a>まとめて最適化</h2><p>1ファイルづつはめんどくさいのでディレクトリ内のjpgをまとめて最適化してみます。<br>以下のようなコマンドで一発で最適化できます。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /path/to/image/ -name &quot;*.jpg&quot; -type f -exec jpegtran -copy none -optimize -outfile &#123;&#125; &#123;&#125; \;</div></pre></td></tr></table></figure>
-<p>楽チンですね。</p>
-<h2 id="PNGの場合"><a href="#PNGの場合" class="headerlink" title="PNGの場合"></a>PNGの場合</h2><p>pngの場合はOptiPNGやPNGOUTなどのツールがありますので、機会があれば試してみたいと思います。</p>
 <p>終わり。</p>
 ]]></content>
     </entry>
