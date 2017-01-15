@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title><![CDATA[中国のセキュリティ]]></title>
+      <url>http://devlog.site/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3/security1/</url>
+      <content type="html"><![CDATA[<p>セキュリティの勉強の一環として中国のセキュリティについて少し調べてみました。<br><a href="https://cybersecurity-jp.com/security-measures/6729" target="_blank" rel="external">こちらのサイト</a>を参考にさせて頂きました。<br><a id="more"></a></p>
+<h2 id="中国のセキュリティ"><a href="#中国のセキュリティ" class="headerlink" title="中国のセキュリティ"></a>中国のセキュリティ</h2><p>中国にはインターネットの検閲システムが存在し、特定のキーワードや内容を閲覧できなくなっています。これは<strong>金盾(きんじゅん)</strong>(ジンドゥンっぽい発音)というシステムが中国には存在するためです。</p>
+<p>金盾は中国本土において実施されているインターネット情報検閲システムであり、インターネット利用者に対して中国政府、特に中国共産党や政治家に不都合な情報にアクセスできないようにフィルタリングするファイアウォール機能を持っています。<br>金盾のファイアーフォールはグレートウォール(万里の長城)をもじってグレート・ファイアウォール(防火長城)と呼ばれています。</p>
+<p>このグレート・ファイアーウォールはWebサーバへの接続の規制において、検閲対象用語を基に遮断を行なうのが特徴です。今後、パソコンのIPアドレスごとに履歴を解析し、ユーザー各人の政治的傾向を分析した上で接続の可否を判断する推論機能を持たせる予定であり、システム自体が人工知能に近付いてきています。</p>
+<h2 id="監視対象は？"><a href="#監視対象は？" class="headerlink" title="監視対象は？"></a>監視対象は？</h2><p>ほぼすべての通信を監視しているようです。メールの内容やはたまたIP電話での会話も含まれているとかいないとか。<br>様々なサイトが監視されており、特定の内容やキーワードを含むものにはアクセスできないようになっています。<br>中国ではこのグレート・ファイアーフォールによりGoogle、YouTube、Facebook、Twitter、一部ニュースサイトなど様々なWebサイトの接続が遮断されています。</p>
+<p><a href="http://www.greatfirewallofchina.org" target="_blank" rel="external">このサイト</a>で接続可能かチェックできるみたいですね。<br>このサイトだとGoogleはOKみたいですね。</p>
+<h2 id="アクセスを遮断する仕組み"><a href="#アクセスを遮断する仕組み" class="headerlink" title="アクセスを遮断する仕組み"></a>アクセスを遮断する仕組み</h2><p>では、その仕組みはどのようになっているのでしょうか。<br>グレートファイアウォールは4段階に分かれているとされています。<br>1つづつ見ていきましょう。</p>
+<h3 id="DNSによるアクセス制御"><a href="#DNSによるアクセス制御" class="headerlink" title="DNSによるアクセス制御"></a>DNSによるアクセス制御</h3><p>1段目はDNSの段階でのブロックで、URLを打ち込むとDNSは対象のIPアドレスを探しに行きますが、このURLをチェックしています。アクセスしたいURLがブロック対象になっていた場合、DNSによるアクセス制御を行いIPアドレスを返却しないようにします。<br>IPアドレスが返されないので対象のURLへアクセスすることができません。</p>
+<h3 id="接続フェーズの監視"><a href="#接続フェーズの監視" class="headerlink" title="接続フェーズの監視"></a>接続フェーズの監視</h3><p>2段階目は接続フェーズの監視です。<br>IPアドレスを直接入力するなどDNSのチェックをくぐりぬけた場合でも、IPアドレス自体のブラックリストを管理し、アクセスしたいIPアドレスがブラックリストに入っているものであれば、接続は遮断される仕組みとなっています。</p>
+<h3 id="特定キーワードに対するブロック"><a href="#特定キーワードに対するブロック" class="headerlink" title="特定キーワードに対するブロック"></a>特定キーワードに対するブロック</h3><p>3段階目は特定のキーワードを含むURLかをチェックしてブロックします。<br>DNS、接続フェーズの監視を抜けてもURLの中に禁止ワードが含まれている場合は接続を遮断されます。</p>
+<h3 id="接続対象サイトに対するスキャン"><a href="#接続対象サイトに対するスキャン" class="headerlink" title="接続対象サイトに対するスキャン"></a>接続対象サイトに対するスキャン</h3><p>前述の項目を全てクリアした場合であっても、接続対象のWebサイトの内容は監視システムによってスキャンされ閲覧しても問題ないか判断されます。問題がある場合はブラックリストに登録され閲覧ができなくなります。</p>
+<h2 id="グレート・ファイアーフォールをくぐり抜ける"><a href="#グレート・ファイアーフォールをくぐり抜ける" class="headerlink" title="グレート・ファイアーフォールをくぐり抜ける"></a>グレート・ファイアーフォールをくぐり抜ける</h2><p>グレート・ファイアウォールをくぐり抜ける方法としてはVPNとプロキシの利用があります。プロキシに関してはTORやFreegateがあります。プロキシですので、もともとはホームページへの匿名アクセスをするために用いられますが、グレート・ファイアウォールを回避させる方法として利用することができます。<br>VPNもいろいろなサービスを利用することがありますが、ここ数年VPN接続自体も規制がされはじめてきたようです。</p>
+<p>終わり。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[機械学習用語2]]></title>
       <url>http://devlog.site/machine-learning/machine-learning3/</url>
       <content type="html"><![CDATA[<p>今年の目標にあげた月に1冊以上本を読むを早速実行してみたいと思います。<br>一冊めですのでまずは簡単な本から行きたいと思います。<br>今月はこの本、「<a href="http://amzn.to/2jE6IKp" target="_blank" rel="external">イラストで学ぶ　人工知能概論</a>」を読んでみたいと思います。<br><a id="more"></a></p>
@@ -264,41 +283,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[jpegtran使ってみた]]></title>
-      <url>http://devlog.site/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88/jpegtran/</url>
-      <content type="html"><![CDATA[<h2 id="画像最適化してみた"><a href="#画像最適化してみた" class="headerlink" title="画像最適化してみた"></a>画像最適化してみた</h2><p>今回も少し短いですが、jpgの画像最適化をやってみました。<br>最適化ツールとしてはjpegtranとjpegoptimがありますが、jpegtranを使用してみました。<br><a id="more"></a></p>
-<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>環境はmacでOSはEl Capitanです。<br>自分用のメモなので悪しからず。</p>
-<h2 id="jpegtranのインストール"><a href="#jpegtranのインストール" class="headerlink" title="jpegtranのインストール"></a>jpegtranのインストール</h2><p>まずはインストールしてみます。と思ったらデフォルトでインストールされていました。<br>ただHomebrewで一発なので簡単です。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install jpeg</div></pre></td></tr></table></figure>
-<p>インストールできたか確認してみましょう。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jpegtran -v</div></pre></td></tr></table></figure>
-<p>無事インストールできたみたいですね。</p>
-<h2 id="最適化"><a href="#最適化" class="headerlink" title="最適化"></a>最適化</h2><p>最適化してみましょう。以下のようなコマンドで行います。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jpegtran -copy none -optimize -outfile hoge.jpg base.jpg</div></pre></td></tr></table></figure>
-<p>オプションの意味はこんな感じです。</p>
-<ul>
-<li>-copy none<ul>
-<li>JPEG ファイルのメタデータをすべて削除する。</li>
-</ul>
-</li>
-<li>-optimize<ul>
-<li>ハフマンテーブルを最適化する。</li>
-</ul>
-</li>
-<li>-outfile<ul>
-<li>ファイルの出力先の指定</li>
-</ul>
-</li>
-</ul>
-<h2 id="まとめて最適化"><a href="#まとめて最適化" class="headerlink" title="まとめて最適化"></a>まとめて最適化</h2><p>1ファイルづつはめんどくさいのでディレクトリ内のjpgをまとめて最適化してみます。<br>以下のようなコマンドで一発で最適化できます。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /path/to/image/ -name &quot;*.jpg&quot; -type f -exec jpegtran -copy none -optimize -outfile &#123;&#125; &#123;&#125; \;</div></pre></td></tr></table></figure>
-<p>楽チンですね。</p>
-<h2 id="PNGの場合"><a href="#PNGの場合" class="headerlink" title="PNGの場合"></a>PNGの場合</h2><p>pngの場合はOptiPNGやPNGOUTなどのツールがありますので、機会があれば試してみたいと思います。</p>
-<p>終わり。</p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[スクレイピングしてみた]]></title>
       <url>http://devlog.site/python/scrapy/</url>
       <content type="html"><![CDATA[<h2 id="Pythonでスクレイピングしてみた"><a href="#Pythonでスクレイピングしてみた" class="headerlink" title="Pythonでスクレイピングしてみた"></a>Pythonでスクレイピングしてみた</h2><p>今後、機械学習で必要になると思うのでスクレイピングをしてみました。<br><a id="more"></a></p>
@@ -330,6 +314,41 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scrapy crawl gunosy</div></pre></td></tr></table></figure>
 <p>コンソールに取得したかったタイトル、URL、サブカテゴリーがずらずらっと出力されたかと思います。<br>スクレイピングが無事に出来ていますね。</p>
 <p>参考にさせていただいたサイトではこの後にScrapy Cloudを使用してデータを保存していますが、今回はここまでにします。<br>今後は機械学習で大量のデータが必要になると思うのでscrapyを使って色々なデータをスクレイピングしてみたいと思います。</p>
+<p>終わり。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[jpegtran使ってみた]]></title>
+      <url>http://devlog.site/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88/jpegtran/</url>
+      <content type="html"><![CDATA[<h2 id="画像最適化してみた"><a href="#画像最適化してみた" class="headerlink" title="画像最適化してみた"></a>画像最適化してみた</h2><p>今回も少し短いですが、jpgの画像最適化をやってみました。<br>最適化ツールとしてはjpegtranとjpegoptimがありますが、jpegtranを使用してみました。<br><a id="more"></a></p>
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>環境はmacでOSはEl Capitanです。<br>自分用のメモなので悪しからず。</p>
+<h2 id="jpegtranのインストール"><a href="#jpegtranのインストール" class="headerlink" title="jpegtranのインストール"></a>jpegtranのインストール</h2><p>まずはインストールしてみます。と思ったらデフォルトでインストールされていました。<br>ただHomebrewで一発なので簡単です。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install jpeg</div></pre></td></tr></table></figure>
+<p>インストールできたか確認してみましょう。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jpegtran -v</div></pre></td></tr></table></figure>
+<p>無事インストールできたみたいですね。</p>
+<h2 id="最適化"><a href="#最適化" class="headerlink" title="最適化"></a>最適化</h2><p>最適化してみましょう。以下のようなコマンドで行います。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jpegtran -copy none -optimize -outfile hoge.jpg base.jpg</div></pre></td></tr></table></figure>
+<p>オプションの意味はこんな感じです。</p>
+<ul>
+<li>-copy none<ul>
+<li>JPEG ファイルのメタデータをすべて削除する。</li>
+</ul>
+</li>
+<li>-optimize<ul>
+<li>ハフマンテーブルを最適化する。</li>
+</ul>
+</li>
+<li>-outfile<ul>
+<li>ファイルの出力先の指定</li>
+</ul>
+</li>
+</ul>
+<h2 id="まとめて最適化"><a href="#まとめて最適化" class="headerlink" title="まとめて最適化"></a>まとめて最適化</h2><p>1ファイルづつはめんどくさいのでディレクトリ内のjpgをまとめて最適化してみます。<br>以下のようなコマンドで一発で最適化できます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /path/to/image/ -name &quot;*.jpg&quot; -type f -exec jpegtran -copy none -optimize -outfile &#123;&#125; &#123;&#125; \;</div></pre></td></tr></table></figure>
+<p>楽チンですね。</p>
+<h2 id="PNGの場合"><a href="#PNGの場合" class="headerlink" title="PNGの場合"></a>PNGの場合</h2><p>pngの場合はOptiPNGやPNGOUTなどのツールがありますので、機会があれば試してみたいと思います。</p>
 <p>終わり。</p>
 ]]></content>
     </entry>
