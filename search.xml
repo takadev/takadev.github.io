@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title><![CDATA[機械学習用語5]]></title>
+      <url>http://devlog.site/machine-learning/machine-learning5/</url>
+      <content type="html"><![CDATA[<p>今回は「<a href="http://amzn.to/2jE6IKp" target="_blank" rel="external">イラストで学ぶ　人工知能概論</a>」と同時並行的に読んでいる「<a href="http://amzn.to/2k2pyiC" target="_blank" rel="external">初めてのディープラーニング</a>」で出てくる用語について調べてみました。<br>最近用語ばっかり調べてる気がします。<br><a id="more"></a></p>
+<h2 id="GPGPU-General-Purpose-Graphics-Processing-Unit"><a href="#GPGPU-General-Purpose-Graphics-Processing-Unit" class="headerlink" title="GPGPU(General Purpose Graphics Processing Unit)"></a>GPGPU(General Purpose Graphics Processing Unit)</h2><p>GPGPUはGPUを画像処理ではなく他の目的に応用する技術のこと。</p>
+<h2 id="FLOP-Floating-point-Operations-Per-Second"><a href="#FLOP-Floating-point-Operations-Per-Second" class="headerlink" title="FLOP(Floating-point Operations Per Second)"></a>FLOP(Floating-point Operations Per Second)</h2><p>1秒間に行える浮動小数点演算の回数を表すコンピュータの処理能力を表す指標の一つ。<br>よくRebuildでGPUの話をする時にhakさんが使ってますよねw</p>
+<h2 id="CUDA-Compute-Unified-Device-Architecture"><a href="#CUDA-Compute-Unified-Device-Architecture" class="headerlink" title="CUDA(Compute Unified Device Architecture)"></a>CUDA(Compute Unified Device Architecture)</h2><blockquote>
+<p>NVIDIAが提供するGPU向けのC言語の統合開発環境であり、コンパイラ (nvcc) やライブラリなどから構成されている。アプリケーションを実行する基盤となるプラットフォーム／アーキテクチャそのものをCUDAと呼ぶこともある。</p>
+<p><a href="https://ja.wikipedia.org/wiki/CUDA" target="_blank" rel="external">wiki引用</a></p>
+</blockquote>
+<p>クーダって読むみたいですね。</p>
+<h2 id="活性化関数が果たす役割"><a href="#活性化関数が果たす役割" class="headerlink" title="活性化関数が果たす役割"></a>活性化関数が果たす役割</h2><p>脳でいうシナプスの役割。シナプスは伝わってきた電気信号がある閾値を超えると、発火して次のニューロンに電気信号を伝えるという動きをする。これを模倣したのが活性化関数。<br>活性化関数は値がある閾値より小さい時は出力値を小さな値に抑え、ある閾値を超えると急に出力値が大きくなるような関数を利用する。</p>
+<h2 id="活性化関数の種類"><a href="#活性化関数の種類" class="headerlink" title="活性化関数の種類"></a>活性化関数の種類</h2><h3 id="ハイパボリックタンジェント関数"><a href="#ハイパボリックタンジェント関数" class="headerlink" title="ハイパボリックタンジェント関数"></a>ハイパボリックタンジェント関数</h3><p>$$f(x) = tanh(x)$$</p>
+<h3 id="シグモイド関数"><a href="#シグモイド関数" class="headerlink" title="シグモイド関数"></a>シグモイド関数</h3><p>$$f(x) = \frac{1}{\ 1 + e^{-x}}$$</p>
+<h3 id="ReLU関数"><a href="#ReLU関数" class="headerlink" title="ReLU関数"></a>ReLU関数</h3><p>$$f(x) = max(0, x)$$</p>
+<h3 id="ソフトマックス関数"><a href="#ソフトマックス関数" class="headerlink" title="ソフトマックス関数"></a>ソフトマックス関数</h3><p>出力層で使用される活性化関数。確率ベクトルを得たい場合に使用される。</p>
+<h2 id="層の種類"><a href="#層の種類" class="headerlink" title="層の種類"></a>層の種類</h2><h3 id="全結合層"><a href="#全結合層" class="headerlink" title="全結合層"></a>全結合層</h3><p>前の層のノードと自分の層のノードが、全てのエッジで結ばれている層のこと。ノード同士の組み合わせ分のエッジが必要になるのでこの層を処理するための計算量は大きくなる傾向がある。隠れ層の後半や出力層で用いられることが多い。</p>
+<h3 id="畳み込み層"><a href="#畳み込み層" class="headerlink" title="畳み込み層"></a>畳み込み層</h3><p>CNNで用いられる層で、前の層の近隣にあるノード同士の集合が、自分の層のノードとエッジで結ばれている層のこと。近隣にあるノード同士の集合を「局所的なノード」という言い方をする場合がある。画像を畳み込み層を通して計算することは、画像にフィルタをかけることと同じ効果を持つ。画像から特徴抽出を行っている。</p>
+<h3 id="プーリング層"><a href="#プーリング層" class="headerlink" title="プーリング層"></a>プーリング層</h3><p>CNNで用いられる層で、前の層の局所的なノードから定る値を自分のノードの値とする層。画像をプーリング層に通して計算すると、画像の少しの変化を吸収する役割を果たす。つまり画像が少し変わっていても同じ結果を返すということ。</p>
+<h2 id="勾配法"><a href="#勾配法" class="headerlink" title="勾配法"></a>勾配法</h2><p>ある関数が与えられている時に、その関数の最小値を取るような変数を求める際に使用される。変数の初期値を定め、その変数に応じた関数の勾配を求める。次に変数を勾配の方向に動かし次の変数の値とし、さらに勾配を求める。これを繰り返し行い最小値となる値に近づけていく。</p>
+<p>##　学習率<br>機械学習の最適化においてどのくらい値を動かすかというハイパーパラメータ。例えば勾配法では繰り返し変数を進める際の、どの程度進めるかという値。</p>
+<p>終わり</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[機械学習用語3]]></title>
       <url>http://devlog.site/machine-learning/machine-learning4/</url>
       <content type="html"><![CDATA[<p>引き続き<br>「<a href="http://amzn.to/2jE6IKp" target="_blank" rel="external">イラストで学ぶ　人工知能概論</a>」を読んでいます。<br>半分程度読み終わりました。月1冊の目標は余裕で達成できそうですね。もう1冊ぐらい頑張って読んでみようと思います。<br>本の自体の内容は分かり易いですし、ストーリー仕立ての話もすごく面白いんでこのままサクッと読んでしまおうと思います。<br><a id="more"></a></p>
@@ -309,41 +334,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[jpegtran使ってみた]]></title>
-      <url>http://devlog.site/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88/jpegtran/</url>
-      <content type="html"><![CDATA[<h2 id="画像最適化してみた"><a href="#画像最適化してみた" class="headerlink" title="画像最適化してみた"></a>画像最適化してみた</h2><p>今回も少し短いですが、jpgの画像最適化をやってみました。<br>最適化ツールとしてはjpegtranとjpegoptimがありますが、jpegtranを使用してみました。<br><a id="more"></a></p>
-<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>環境はmacでOSはEl Capitanです。<br>自分用のメモなので悪しからず。</p>
-<h2 id="jpegtranのインストール"><a href="#jpegtranのインストール" class="headerlink" title="jpegtranのインストール"></a>jpegtranのインストール</h2><p>まずはインストールしてみます。と思ったらデフォルトでインストールされていました。<br>ただHomebrewで一発なので簡単です。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install jpeg</div></pre></td></tr></table></figure>
-<p>インストールできたか確認してみましょう。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jpegtran -v</div></pre></td></tr></table></figure>
-<p>無事インストールできたみたいですね。</p>
-<h2 id="最適化"><a href="#最適化" class="headerlink" title="最適化"></a>最適化</h2><p>最適化してみましょう。以下のようなコマンドで行います。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jpegtran -copy none -optimize -outfile hoge.jpg base.jpg</div></pre></td></tr></table></figure>
-<p>オプションの意味はこんな感じです。</p>
-<ul>
-<li>-copy none<ul>
-<li>JPEG ファイルのメタデータをすべて削除する。</li>
-</ul>
-</li>
-<li>-optimize<ul>
-<li>ハフマンテーブルを最適化する。</li>
-</ul>
-</li>
-<li>-outfile<ul>
-<li>ファイルの出力先の指定</li>
-</ul>
-</li>
-</ul>
-<h2 id="まとめて最適化"><a href="#まとめて最適化" class="headerlink" title="まとめて最適化"></a>まとめて最適化</h2><p>1ファイルづつはめんどくさいのでディレクトリ内のjpgをまとめて最適化してみます。<br>以下のようなコマンドで一発で最適化できます。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /path/to/image/ -name &quot;*.jpg&quot; -type f -exec jpegtran -copy none -optimize -outfile &#123;&#125; &#123;&#125; \;</div></pre></td></tr></table></figure>
-<p>楽チンですね。</p>
-<h2 id="PNGの場合"><a href="#PNGの場合" class="headerlink" title="PNGの場合"></a>PNGの場合</h2><p>pngの場合はOptiPNGやPNGOUTなどのツールがありますので、機会があれば試してみたいと思います。</p>
-<p>終わり。</p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[スクレイピングしてみた]]></title>
       <url>http://devlog.site/python/scrapy/</url>
       <content type="html"><![CDATA[<h2 id="Pythonでスクレイピングしてみた"><a href="#Pythonでスクレイピングしてみた" class="headerlink" title="Pythonでスクレイピングしてみた"></a>Pythonでスクレイピングしてみた</h2><p>今後、機械学習で必要になると思うのでスクレイピングをしてみました。<br><a id="more"></a></p>
@@ -375,6 +365,41 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scrapy crawl gunosy</div></pre></td></tr></table></figure>
 <p>コンソールに取得したかったタイトル、URL、サブカテゴリーがずらずらっと出力されたかと思います。<br>スクレイピングが無事に出来ていますね。</p>
 <p>参考にさせていただいたサイトではこの後にScrapy Cloudを使用してデータを保存していますが、今回はここまでにします。<br>今後は機械学習で大量のデータが必要になると思うのでscrapyを使って色々なデータをスクレイピングしてみたいと思います。</p>
+<p>終わり。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[jpegtran使ってみた]]></title>
+      <url>http://devlog.site/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88/jpegtran/</url>
+      <content type="html"><![CDATA[<h2 id="画像最適化してみた"><a href="#画像最適化してみた" class="headerlink" title="画像最適化してみた"></a>画像最適化してみた</h2><p>今回も少し短いですが、jpgの画像最適化をやってみました。<br>最適化ツールとしてはjpegtranとjpegoptimがありますが、jpegtranを使用してみました。<br><a id="more"></a></p>
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>環境はmacでOSはEl Capitanです。<br>自分用のメモなので悪しからず。</p>
+<h2 id="jpegtranのインストール"><a href="#jpegtranのインストール" class="headerlink" title="jpegtranのインストール"></a>jpegtranのインストール</h2><p>まずはインストールしてみます。と思ったらデフォルトでインストールされていました。<br>ただHomebrewで一発なので簡単です。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install jpeg</div></pre></td></tr></table></figure>
+<p>インストールできたか確認してみましょう。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jpegtran -v</div></pre></td></tr></table></figure>
+<p>無事インストールできたみたいですね。</p>
+<h2 id="最適化"><a href="#最適化" class="headerlink" title="最適化"></a>最適化</h2><p>最適化してみましょう。以下のようなコマンドで行います。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jpegtran -copy none -optimize -outfile hoge.jpg base.jpg</div></pre></td></tr></table></figure>
+<p>オプションの意味はこんな感じです。</p>
+<ul>
+<li>-copy none<ul>
+<li>JPEG ファイルのメタデータをすべて削除する。</li>
+</ul>
+</li>
+<li>-optimize<ul>
+<li>ハフマンテーブルを最適化する。</li>
+</ul>
+</li>
+<li>-outfile<ul>
+<li>ファイルの出力先の指定</li>
+</ul>
+</li>
+</ul>
+<h2 id="まとめて最適化"><a href="#まとめて最適化" class="headerlink" title="まとめて最適化"></a>まとめて最適化</h2><p>1ファイルづつはめんどくさいのでディレクトリ内のjpgをまとめて最適化してみます。<br>以下のようなコマンドで一発で最適化できます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /path/to/image/ -name &quot;*.jpg&quot; -type f -exec jpegtran -copy none -optimize -outfile &#123;&#125; &#123;&#125; \;</div></pre></td></tr></table></figure>
+<p>楽チンですね。</p>
+<h2 id="PNGの場合"><a href="#PNGの場合" class="headerlink" title="PNGの場合"></a>PNGの場合</h2><p>pngの場合はOptiPNGやPNGOUTなどのツールがありますので、機会があれば試してみたいと思います。</p>
 <p>終わり。</p>
 ]]></content>
     </entry>
