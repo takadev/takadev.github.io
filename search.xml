@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title><![CDATA[機械学習用語5]]></title>
+      <title><![CDATA[機械学習用語4]]></title>
       <url>http://devlog.site/machine-learning/machine-learning5/</url>
       <content type="html"><![CDATA[<p>今回は「<a href="http://amzn.to/2jE6IKp" target="_blank" rel="external">イラストで学ぶ　人工知能概論</a>」と同時並行的に読んでいる「<a href="http://amzn.to/2k2pyiC" target="_blank" rel="external">初めてのディープラーニング</a>」で出てくる用語について調べてみました。<br>最近用語ばっかり調べてる気がします。<br><a id="more"></a></p>
 <h2 id="GPGPU-General-Purpose-Graphics-Processing-Unit"><a href="#GPGPU-General-Purpose-Graphics-Processing-Unit" class="headerlink" title="GPGPU(General Purpose Graphics Processing Unit)"></a>GPGPU(General Purpose Graphics Processing Unit)</h2><p>GPGPUはGPUを画像処理ではなく他の目的に応用する技術のこと。</p>
